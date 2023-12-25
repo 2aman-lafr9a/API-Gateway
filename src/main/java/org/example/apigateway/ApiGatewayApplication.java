@@ -11,7 +11,7 @@ public class ApiGatewayApplication {
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(ApiGatewayApplication.class, args);
         AuthService authServiceClient = applicationContext.getBean(AuthService.class);
-//        authServiceClient.signIn("user", "password");
+        authServiceClient.signIn("user", "password");
     }
 
 }
