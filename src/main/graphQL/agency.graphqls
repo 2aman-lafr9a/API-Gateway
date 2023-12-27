@@ -1,0 +1,29 @@
+type Query {
+    getAgency(id: ID!): Agency!
+    getAgencies: [Agency!]!
+    getOffer(id: ID!): Offer!
+    getOffers: [Offer!]!
+}
+
+type Mutation{
+    createAgency(name: String!): Agency!
+    updateAgency(id: ID!, name: String!): Agency!
+    deleteAgency(id: ID!): Agency!
+    createOffer(name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
+    updateOffer(id: ID!, name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
+    deleteOffer(id: ID!): Offer!
+}
+
+type Agency {
+    id: ID!
+    name: String!
+}
+
+type Offer {
+    id: ID!
+    name: String!
+    agency: Agency!
+    description: String!
+    price: Int!
+    date: String!
+}

@@ -107,6 +107,26 @@
             <version>${grpc.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>7.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>13.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>15.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.kobylynskyi</groupId>
+            <artifactId>graphql-java-codegen</artifactId>
+            <version>5.9.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
             <version>${grpc.version}</version>
@@ -127,19 +147,41 @@
 
         <plugins>
             <plugin>
-                <groupId>com.github.os72</groupId>
-                <artifactId>protoc-jar-maven-plugin</artifactId>
-                <version>3.11.4</version>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>${protobuf-plugin.version}</version>
+                <configuration>
+                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
+                    </protocArtifact>
+                    <pluginId>grpc</pluginId>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
+                    </pluginArtifact>
+                </configuration>
                 <executions>
                     <execution>
-                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.github.deweyjose</groupId>
+                <artifactId>graphqlcodegen-maven-plugin</artifactId>
+                <version>1.50</version>
+                <executions>
+                    <execution>
+                        <id>dgs-codegen</id>
+                        <goals>
+                            <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <optimizeCodegen>false</optimizeCodegen>
-                            <protocVersion>3.23.0</protocVersion>
-                            <includeStdTypes>true</includeStdTypes>
+                            <schemaPaths>
+                                <param>src/main/resources/graphql-client</param>
+                            </schemaPaths>
+                            <packageName>org.example.apigateway.codegen</packageName>
+                            <addGeneratedAnnotation>true</addGeneratedAnnotation>
                         </configuration>
                     </execution>
                 </executions>
@@ -175,8 +217,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
-
-
 </project>
