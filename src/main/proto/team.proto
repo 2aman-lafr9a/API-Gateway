@@ -1,6 +1,13 @@
 syntax = "proto3";
 
-package team;
+
+
+
+package org.example.apigateway.grpc;
+
+option java_outer_classname = "TeamOuterClass";
+option java_package = "org.example.apigateway.grpc";
+
 
 service Team {
     rpc CreateTeam(CreateTeamRequest) returns (CreateTeamResponse) {}

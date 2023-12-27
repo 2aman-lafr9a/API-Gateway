@@ -1,7 +1,10 @@
 syntax = "proto3";
 
-package player;
 
+package org.example.apigateway.grpc;
+
+option java_outer_classname = "PlayerOuterClass";
+option java_package = "org.example.apigateway.grpc";
 service Player{
     rpc GetPlayer(GetPlayerRequest) returns (GetPlayerResponse) {}
     rpc CreatePlayer(CreatePlayerRequest) returns (CreatePlayerResponse) {}

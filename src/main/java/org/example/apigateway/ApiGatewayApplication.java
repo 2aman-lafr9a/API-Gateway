@@ -2,10 +2,8 @@ package org.example.apigateway;
 
 import graphql.schema.idl.TypeRuntimeWiring;
 import org.example.apigateway.service.AgencyService;
-//import org.example.apigateway.service.AuthService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
@@ -15,10 +13,7 @@ import java.util.function.UnaryOperator;
 public class ApiGatewayApplication {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringApplication.run(ApiGatewayApplication.class, args);
-        AgencyService agencyServiceClient = applicationContext.getBean(AgencyService.class);
-        //AuthService authServiceClient = applicationContext.getBean(AuthService.class);
-        //authServiceClient.login("admin", "admin");
+        SpringApplication.run(ApiGatewayApplication.class, args);
     }
 
     @Bean
@@ -30,7 +25,7 @@ public class ApiGatewayApplication {
                         return builder
                                 .dataFetcher("agencyById", environment -> {
                                     String name = environment.getArgument("name");
-                                    return agencyService.getAgency(name);
+                                    return agencyService;
                                 })
                                 .dataFetcher("agencies", environment -> {
                                     return agencyService.getAgencies();
