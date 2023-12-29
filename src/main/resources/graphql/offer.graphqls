@@ -1,14 +1,11 @@
-type Query{
-    getOffer(id: ID!): Offer!
-    getOffers: [Offer!]!
-}
+#type Query{
+#    getOffer(id: ID!): Offer!
+#    getOffers: [Offer!]!
+#}
+# query should be added to the old one or merged with the new one
 
-type Mutation{
-    createOffer(name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
-    updateOffer(id: ID!, name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
-    deleteOffer(id: ID!): Offer!
-}
 
+#
 type Offer {
     id: ID!
     name: String!

@@ -1,22 +1,20 @@
 syntax = "proto3";
 option go_package = "./proto";
-
-
-
 package org.example.apigateway.grpc;
 
 option java_outer_classname = "AgencyOuterClass";
 option java_package = "org.example.apigateway.grpc";
 
+
 service Agency {
-    rpc GetAgencies(GetAgenciesRequest) returns (GetAgenciesResponse);
-    rpc GetAgency(GetAgencyRequest) returns (GetAgencyResponse);
-    rpc CreateAgency(CreateAgencyRequest) returns (CreateAgencyResponse);
-    rpc UpdateAgency(UpdateAgencyRequest) returns (UpdateAgencyResponse);
-    rpc DeleteAgency(DeleteAgencyRequest) returns (DeleteAgencyResponse);
+  rpc GetAgencies(GetAgenciesRequest) returns (GetAgenciesResponse);
+  rpc GetAgency(GetAgencyRequest) returns (GetAgencyResponse);
+  rpc CreateAgency(CreateAgencyRequest) returns (CreateAgencyResponse);
+  rpc UpdateAgency(UpdateAgencyRequest) returns (UpdateAgencyResponse);
+  rpc DeleteAgency(DeleteAgencyRequest) returns (DeleteAgencyResponse);
 }
 
-message AgencyMessage{
+message AgencyItem{
   string id = 1;
   string name = 2;
 }
@@ -25,7 +23,7 @@ message GetAgenciesRequest{
 }
 
 message GetAgenciesResponse{
-  repeated AgencyMessage agencies = 1;
+  repeated AgencyItem agencies = 1;
 }
 
 message GetAgencyRequest{

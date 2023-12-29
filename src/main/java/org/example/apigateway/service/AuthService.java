@@ -1,9 +1,9 @@
 package org.example.apigateway.service;
 
 
+
 import grpc.java.org.example.apigateway.grpc.AuthenticationGrpc;
 import lombok.AllArgsConstructor;
-import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.example.apigateway.grpc.AuthenticationOuterClass;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class AuthService {
-
-
 
 
     private AuthenticationGrpc.AuthenticationBlockingStub authenticationStub;

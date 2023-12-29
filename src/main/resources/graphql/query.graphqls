@@ -1,0 +1,4 @@
+type Query {
+    getAgency(name: String!): Agency!
+    getAgencies: [Agency!]!
+}
