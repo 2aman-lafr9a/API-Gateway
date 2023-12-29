@@ -1,0 +1,15 @@
+type Query {
+    getAgency(name: String!): Agency!
+    getAgencies: [Agency!]!
+}
+
+type Mutation{
+    createAgency(name: String!): Agency!
+    updateAgency(id: ID!, name: String!): Agency!
+    deleteAgency(id: ID!): Agency!
+}
+
+type Agency {
+    id: ID!
+    name: String!
+}

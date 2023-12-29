@@ -1,22 +1,12 @@
-type Query {
-    getAgency(name: String!): Agency!
-    getAgencies: [Agency!]!
+type Query{
     getOffer(id: ID!): Offer!
     getOffers: [Offer!]!
 }
 
 type Mutation{
-    createAgency(name: String!): Agency!
-    updateAgency(id: ID!, name: String!): Agency!
-    deleteAgency(id: ID!): Agency!
     createOffer(name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
     updateOffer(id: ID!, name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
     deleteOffer(id: ID!): Offer!
-}
-
-type Agency {
-    id: ID!
-    name: String!
 }
 
 type Offer {

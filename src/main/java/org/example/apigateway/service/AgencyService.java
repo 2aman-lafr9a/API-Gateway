@@ -3,6 +3,7 @@ package org.example.apigateway.service;
 import org.example.apigateway.codegen.types.Agency;
 import org.example.apigateway.grpc.AgencyOuterClass;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,23 @@ public class AgencyService {
             agencies.add(Agency.newBuilder().name(agency.getName()).build());
         }
         return agencies;
+    }
+
+    @MutationMapping
+    public Agency createAgency(@Argument String name) {
+        AgencyOuterClass.CreateAgencyResponse createAgencyResponse = AgencyOuterClass.CreateAgencyResponse.newBuilder().setName(name).build();
+        return Agency.newBuilder().name(createAgencyResponse.getName()).build();
+    }
+
+    @MutationMapping
+    public Agency updateAgency(@Argument String id, @Argument String name) {
+        AgencyOuterClass.UpdateAgencyResponse updateAgencyResponse = AgencyOuterClass.UpdateAgencyResponse.newBuilder().setId(id).setName(name).build();
+        return Agency.newBuilder().name(updateAgencyResponse.getName()).build();
+    }
+
+    @MutationMapping
+    public Agency deleteAgency(@Argument String id) {
+        AgencyOuterClass.DeleteAgencyResponse deleteAgencyResponse = AgencyOuterClass.DeleteAgencyResponse.newBuilder().setId(id).build();
+        return Agency.newBuilder().name(deleteAgencyResponse.getName()).build();
     }
 }
