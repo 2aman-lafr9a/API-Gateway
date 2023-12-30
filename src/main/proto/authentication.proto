@@ -3,12 +3,10 @@ syntax = "proto3";
 
 
 
+package authentication;
 
-
-package org.example.apigateway.grpc;
-
-option java_outer_classname = "AuthenticationOuterClass";
-option java_package = "org.example.apigateway.grpc";
+//option java_outer_classname = "AuthenticationOuterClass";
+option java_package = "org.example.apigateway.grpc.authentication";
 
 service Authentication {
   rpc SignUp(SignUpRequest) returns (SignUpResponse);

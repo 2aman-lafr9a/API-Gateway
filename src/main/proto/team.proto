@@ -3,10 +3,10 @@ syntax = "proto3";
 
 
 
-package org.example.apigateway.grpc;
+package team;
 
 option java_outer_classname = "TeamOuterClass";
-option java_package = "org.example.apigateway.grpc";
+option java_package = "org.example.apigateway.grpc.team";
 
 
 service Team {
