@@ -1,9 +1,9 @@
 package org.example.apigateway.service;
 
 import lombok.AllArgsConstructor;
-import org.example.apigateway.grpc.OfferGrpc;
+import org.example.apigateway.grpc.offer.OfferGrpc;
 import org.springframework.stereotype.Service;
-import org.example.apigateway.grpc.OfferOuterClass;
+import org.example.apigateway.grpc.offer.OfferOuterClass;
 
 
 @Service

@@ -1,6 +1,6 @@
 package org.example.apigateway.controllers;
 
-import org.example.apigateway.grpc.AuthenticationOuterClass;
+import org.example.apigateway.grpc.authentication.AuthenticationOuterClass;
 import org.example.apigateway.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

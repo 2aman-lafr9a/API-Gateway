@@ -19,23 +19,23 @@ message GetPlayerRequest {
 }
 
 message GetPlayerResponse {
-    PlayerMessage player = 1;
+    PlayerItem player = 1;
 }
 
 message CreatePlayerRequest {
-    PlayerMessage player = 1;
+    PlayerItem player = 1;
 }
 
 message CreatePlayerResponse {
-    PlayerMessage player = 1;
+    PlayerItem player = 1;
 }
 
 message UpdatePlayerRequest {
-    PlayerMessage player = 1;
+    PlayerItem player = 1;
 }
 
 message UpdatePlayerResponse {
-    PlayerMessage player = 1;
+    PlayerItem player = 1;
 }
 
 message DeletePlayerRequest {
@@ -51,10 +51,10 @@ message GetPlayersRequest {
 }
 
 message GetPlayersResponse {
-    repeated PlayerMessage players = 1;
+    repeated PlayerItem players = 1;
 }
 
-message PlayerMessage {
+message PlayerItem {
     string id = 1;
     string name = 2;
     string age = 3;

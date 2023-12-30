@@ -2,9 +2,9 @@ package org.example.apigateway.service;
 
 
 
-import org.example.apigateway.grpc.AuthenticationGrpc;
+import org.example.apigateway.grpc.authentication.AuthenticationGrpc;
 import lombok.AllArgsConstructor;
-import org.example.apigateway.grpc.AuthenticationOuterClass;
+import org.example.apigateway.grpc.authentication.AuthenticationOuterClass;
 import org.springframework.stereotype.Service;
 
 

@@ -2,7 +2,7 @@ package org.example.apigateway.controllers;
 
 
 import org.example.apigateway.codegen.types.Agency;
-import org.example.apigateway.grpc.AgencyOuterClass;
+import org.example.apigateway.grpc.agency.AgencyOuterClass;
 import org.example.apigateway.service.AgencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;

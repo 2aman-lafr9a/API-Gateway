@@ -64,10 +64,10 @@ message GetTeamsRequest {
 }
 
 message GetTeamsResponse {
-    repeated TeamMessage teams = 1;
+    repeated TeamItem teams = 1;
 }
 
-message TeamMessage {
+message TeamItem {
     string id = 1;
     string name = 2;
     string description = 3;

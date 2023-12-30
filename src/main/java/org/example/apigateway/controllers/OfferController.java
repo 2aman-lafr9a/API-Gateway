@@ -7,6 +7,7 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.example.apigateway.grpc.offer.OfferOuterClass;
 
 @Controller
 public class OfferController {
@@ -19,7 +20,7 @@ public class OfferController {
 
     @QueryMapping("getOffers")
     Iterable<Offer> getOffers() {
-        org.example.apigateway.grpc.OfferOuterClass.GetOffersResponse response = offerService.getOffers();
+        OfferOuterClass.GetOffersResponse response = offerService.getOffers();
         return response.getOffersList().stream().map(offer -> Offer.newBuilder()
                 .id(offer.getId())
                 .name(offer.getName())
@@ -30,7 +31,7 @@ public class OfferController {
 
     @QueryMapping("getOffer")
     Offer getOffer(@Argument String name) {
-        org.example.apigateway.grpc.OfferOuterClass.GetOfferResponse response = offerService.getOffer(name);
+        OfferOuterClass.GetOfferResponse response = offerService.getOffer(name);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
@@ -41,7 +42,7 @@ public class OfferController {
 
     @MutationMapping("createOffer")
     Offer createOffer(@Argument String name,@Argument String agency,@Argument String description,@Argument int price,@Argument String date) {
-        org.example.apigateway.grpc.OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agency, description, price, date);
+        OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agency, description, price, date);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
@@ -52,7 +53,7 @@ public class OfferController {
 
     @MutationMapping("updateOffer")
     Offer updateOffer(@Argument String id,@Argument String name,@Argument String agency,@Argument String description,@Argument int price,@Argument String date) {
-        org.example.apigateway.grpc.OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date);
+        OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
@@ -63,7 +64,7 @@ public class OfferController {
 
     @MutationMapping("deleteOffer")
     Offer deleteOffer(@Argument String id) {
-        org.example.apigateway.grpc.OfferOuterClass.DeleteOfferResponse response = offerService.deleteOffer(id);
+        OfferOuterClass.DeleteOfferResponse response = offerService.deleteOffer(id);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
