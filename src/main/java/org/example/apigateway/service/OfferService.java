@@ -28,7 +28,7 @@ public class OfferService {
                 .setName(name)
                 .setAgencyId(agency)
                 .setDescription(description)
-                .setPrice(String.valueOf(price))
+                .setPrice(price)
                 .setDate(date)
                 .build());
     }
@@ -39,7 +39,7 @@ public class OfferService {
                 .setName(name)
                 .setAgencyId(agency)
                 .setDescription(description)
-                .setPrice(String.valueOf(price))
+                .setPrice(price)
                 .setDate(date)
                 .build());
     }
