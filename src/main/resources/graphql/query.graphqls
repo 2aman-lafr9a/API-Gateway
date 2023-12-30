@@ -1,4 +1,6 @@
 type Query {
     getAgency(name: String!): Agency!
     getAgencies: [Agency!]!
+    getOffer(name: String!): Offer!
+    getOffers: [Offer!]!
 }

@@ -1,7 +1,7 @@
 package org.example.apigateway.config;
 
 
-import grpc.java.org.example.apigateway.grpc.AuthenticationGrpc;
+import org.example.apigateway.grpc.AuthenticationGrpc;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.client.inject.GrpcClientBean;
 import org.example.apigateway.service.AuthService;
