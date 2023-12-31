@@ -1,11 +1,3 @@
-#type Query{
-#    getOffer(id: ID!): Offer!
-#    getOffers: [Offer!]!
-#}
-# query should be added to the old one or merged with the new one
-
-
-#
 type Offer {
     id: ID!
     name: String!

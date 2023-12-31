@@ -22,18 +22,22 @@ public class TeamService {
                 .build());
     }
 
-    public TeamOuterClass.CreateTeamResponse createTeam(String name, String description, String date) {
+    public TeamOuterClass.CreateTeamResponse createTeam(String name, String description, String owner, String teamLogo, String players) {
         return team_blockingStub.createTeam(org.example.apigateway.grpc.team.TeamOuterClass.CreateTeamRequest.newBuilder()
                 .setName(name)
                 .setDescription(description)
+                .setOwner(owner)
+                .setTeamLogo(teamLogo)
+                .addPlayersId(players)
                 .build());
     }
 
-    public TeamOuterClass.UpdateTeamResponse updateTeam(String id, String name, String description, String date) {
+    public TeamOuterClass.UpdateTeamResponse updateTeam(String id, String name, String description, String owner) {
         return team_blockingStub.updateTeam(org.example.apigateway.grpc.team.TeamOuterClass.UpdateTeamRequest.newBuilder()
                 .setId(id)
                 .setName(name)
                 .setDescription(description)
+                .setOwner(owner)
                 .build());
     }
 
