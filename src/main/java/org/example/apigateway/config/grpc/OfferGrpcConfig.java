@@ -1,4 +1,4 @@
-package org.example.apigateway.config;
+package org.example.apigateway.config.grpc;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.client.inject.GrpcClientBean;
@@ -10,7 +10,7 @@ import org.example.apigateway.grpc.offer.OfferGrpc;
 
 @Configuration
 @GrpcClientBean(
-        clazz = org.example.apigateway.grpc.offer.OfferGrpc.OfferBlockingStub.class,
+        clazz = OfferGrpc.OfferBlockingStub.class,
         beanName = "offerBlockingStub",
         client = @GrpcClient("offer_service")
 )

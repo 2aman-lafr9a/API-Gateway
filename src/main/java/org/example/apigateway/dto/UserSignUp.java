@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 public class UserSignUp {
-    static String userName;
-    static String password;
-    static String role;
+    private  String userName;
+    private  String password;
+    private  String role;
 }

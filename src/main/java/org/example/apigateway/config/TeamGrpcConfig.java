@@ -9,7 +9,7 @@ import org.example.apigateway.grpc.team.TeamGrpc;
 
 @Configuration
 @GrpcClientBean(
-        clazz = org.example.apigateway.grpc.team.TeamGrpc.TeamBlockingStub.class,
+        clazz = TeamGrpc.TeamBlockingStub.class,
         beanName = "team_blockingStub",
         client = @GrpcClient("team_service")
 )

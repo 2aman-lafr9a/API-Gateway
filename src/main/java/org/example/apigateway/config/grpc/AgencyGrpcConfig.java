@@ -1,4 +1,4 @@
-package org.example.apigateway.config;
+package org.example.apigateway.config.grpc;
 
 
 import org.example.apigateway.grpc.agency.AgencyGrpc;

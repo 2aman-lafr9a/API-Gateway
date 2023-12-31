@@ -1,14 +1,14 @@
 package org.example.apigateway.controllers;
 
-import org.example.apigateway.grpc.authentication.AuthenticationOuterClass;
+import org.example.apigateway.dto.UserSignIn;
+import org.example.apigateway.dto.UserSignUp;
 import org.example.apigateway.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-@RestController("/api/v1/auth")
+@RestController
+@RequestMapping("/api/v1/auth")
 public class AuthController {
     AuthService authService;
 
@@ -20,12 +20,17 @@ public class AuthController {
 
 
     @PostMapping("/signIn")
-    public void signIn(@RequestBody AuthenticationOuterClass.SignInRequest signInRequest) {
-        authService.signIn(signInRequest.getUsername(), signInRequest.getPassword());
+    public void signIn(@RequestBody UserSignIn userSignIn) {
+        authService.signIn(userSignIn.getUserName(), userSignIn.getPassword());
+    }
+
+    @PostMapping("/signOut")
+    public void signOut() {
+        System.out.println("signOut");
     }
 
     @PostMapping("/signUp")
-    public void signIn(@RequestBody AuthenticationOuterClass.SignUpRequest signUpRequest) {
-        authService.signUp(signUpRequest.getUsername(), signUpRequest.getPassword(), signUpRequest.getRole());
+    public void signIn(@RequestBody UserSignUp userSignUp) {
+        authService.signUp(userSignUp.getUserName(), userSignUp.getPassword(), userSignUp.getRole());
     }
 }

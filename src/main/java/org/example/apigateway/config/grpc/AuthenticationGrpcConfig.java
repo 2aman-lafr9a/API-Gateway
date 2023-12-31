@@ -1,4 +1,4 @@
-package org.example.apigateway.config;
+package org.example.apigateway.config.grpc;
 
 
 import org.example.apigateway.grpc.authentication.AuthenticationGrpc;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @GrpcClientBean(
         clazz = AuthenticationGrpc.AuthenticationBlockingStub.class,
-        beanName = "tmp_blockingStub",
+        beanName = "AuthService",
         client = @GrpcClient("authentication_service")
 )
 public class AuthenticationGrpcConfig {

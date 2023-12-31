@@ -1,4 +1,4 @@
-package org.example.apigateway.config;
+package org.example.apigateway.config.grpc;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.client.inject.GrpcClientBean;
@@ -9,7 +9,7 @@ import org.example.apigateway.grpc.player.PlayerGrpc;
 
 @Configuration
 @GrpcClientBean(
-        clazz = org.example.apigateway.grpc.player.PlayerGrpc.PlayerBlockingStub.class,
+        clazz = PlayerGrpc.PlayerBlockingStub.class,
         beanName = "playerBlockingStub",
         client = @GrpcClient("player_service")
 )
