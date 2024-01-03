@@ -31,34 +31,46 @@ public class AuthController {
     }
 
 
-    @PostMapping("/signIn")
+    @PostMapping("/login")
     public ResponseEntity<Map<String, String>> signIn(@Valid @RequestBody UserSignIn userSignIn, HttpServletResponse response) {
-        AuthenticationOuterClass.SignInResponse signInResponse = authService.signIn(userSignIn.getUserName(), userSignIn.getPassword());
 
-
+        // response body
         Map<String, String> responseBody = new HashMap<>();
-        responseBody.put("message", signInResponse.getMessage());
-        responseBody.put("success", String.valueOf(signInResponse.getSuccess()));
 
-        if (!signInResponse.getSuccess()) {
-            return new ResponseEntity<>(responseBody, HttpStatus.UNAUTHORIZED);
+        try {
+            AuthenticationOuterClass.SignInResponse signInResponse = authService.signIn(userSignIn.getUserName(), userSignIn.getPassword());
+            responseBody.put("message", signInResponse.getMessage());
+            responseBody.put("success", String.valueOf(signInResponse.getSuccess()));
+            responseBody.put("jwt", signInResponse.getJwt());
+            Cookie cookie = new Cookie("jwt", signInResponse.getJwt());
+            cookie.setMaxAge(3600);
+            cookie.setSecure(false);
+            cookie.setHttpOnly(false);
+            response.addCookie(cookie);
+
+            return new ResponseEntity<>(responseBody, HttpStatus.OK);
+        } catch (Exception e) {
+            responseBody.put("message", e.getMessage());
+            responseBody.put("success", "false");
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
-        Cookie cookie = new Cookie("jwt", signInResponse.getJwt());
-        cookie.setMaxAge(3600);
-        cookie.setSecure(false);
-        cookie.setHttpOnly(false);
-        response.addCookie(cookie);
-        responseBody.put("jwt", signInResponse.getJwt());
-
-        return new ResponseEntity<>(responseBody, HttpStatus.OK);
     }
 
-    @PostMapping("/signUp")
-    public ResponseEntity<String> signUp(@Valid @RequestBody UserSignUp userSignUp) {
-        AuthenticationOuterClass.SignUpResponse signUpResponse = authService.signUp(userSignUp.getUserName(), userSignUp.getPassword(), userSignUp.getRole());
-        if (!signUpResponse.getSuccess()) {
-            return new ResponseEntity<>(signUpResponse.getMessage(), HttpStatus.BAD_REQUEST);
+    @PostMapping("/signup")
+    public ResponseEntity<Map<String, String>> signUp(@Valid @RequestBody UserSignUp userSignUp) {
+
+        // response body
+        Map<String, String> responseBody = new HashMap<>();
+        try {
+            AuthenticationOuterClass.SignUpResponse signUpResponse = authService.signUp(userSignUp.getUserName(), userSignUp.getPassword(), userSignUp.getRole());
+            responseBody.put("message", signUpResponse.getMessage());
+            responseBody.put("success", String.valueOf(signUpResponse.getSuccess()));
+            return new ResponseEntity<>(responseBody, HttpStatus.OK);
+        } catch (Exception e) {
+            responseBody.put("message", e.getMessage());
+            responseBody.put("success", "false");
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(signUpResponse.getMessage(), HttpStatus.OK);
+
     }
 }
