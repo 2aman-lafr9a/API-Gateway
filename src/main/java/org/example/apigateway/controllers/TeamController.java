@@ -20,7 +20,7 @@ public class TeamController {
     }
 
     @QueryMapping("getTeams")
-    Iterable<Team> getTeams() {
+    public Iterable<Team> getTeams() {
         TeamOuterClass.GetTeamsResponse response = teamService.getTeams();
         return response.getTeamsList().stream().map(team -> org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(team.getId())
@@ -31,7 +31,7 @@ public class TeamController {
     }
 
     @QueryMapping("getTeam")
-    Team getTeam(@Argument String name) {
+    public Team getTeam(@Argument String name) {
         TeamOuterClass.GetTeamResponse response = teamService.getTeam(name);
         return org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(response.getId())
@@ -42,7 +42,7 @@ public class TeamController {
     }
 
     @MutationMapping("createTeam")
-    Team createTeam(@Argument String name,@Argument String description,@Argument String owner, @Argument String teamLogo, @Argument String players) {
+    public Team createTeam(@Argument String name, @Argument String description, @Argument String owner, @Argument String teamLogo, @Argument String players) {
         TeamOuterClass.CreateTeamResponse response = teamService.createTeam(name, description, owner, teamLogo, players);
         return org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(response.getId())
@@ -50,7 +50,7 @@ public class TeamController {
     }
 
     @MutationMapping("updateTeam")
-    Team updateTeam(@Argument String id,@Argument String name,@Argument String description,@Argument String owner, @Argument String teamLogo, @Argument String players) {
+    public Team updateTeam(@Argument String id, @Argument String name, @Argument String description, @Argument String owner, @Argument String teamLogo, @Argument String players) {
         TeamOuterClass.UpdateTeamResponse response = teamService.updateTeam(id, name, description, owner);
         return org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(response.getId())
@@ -58,7 +58,7 @@ public class TeamController {
     }
 
     @MutationMapping("deleteTeam")
-    Team deleteTeam(@Argument String id) {
+    public Team deleteTeam(@Argument String id) {
         TeamOuterClass.DeleteTeamResponse response = teamService.deleteTeam(id);
         return org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(response.getId())
