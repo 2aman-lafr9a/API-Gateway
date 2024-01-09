@@ -19,7 +19,7 @@ public class OfferController {
     }
 
     @QueryMapping("getOffers")
-    Iterable<Offer> getOffers() {
+    public Iterable<Offer> getOffers() {
         OfferOuterClass.GetOffersResponse response = offerService.getOffers();
         return response.getOffersList().stream().map(offer -> Offer.newBuilder()
                 .id(offer.getId())
@@ -30,7 +30,7 @@ public class OfferController {
     }
 
     @QueryMapping("getOffer")
-    Offer getOffer(@Argument String name) {
+    public Offer getOffer(@Argument String name) {
         OfferOuterClass.GetOfferResponse response = offerService.getOffer(name);
         return Offer.newBuilder()
                 .id(response.getId())
@@ -41,7 +41,7 @@ public class OfferController {
     }
 
     @MutationMapping("createOffer")
-    Offer createOffer(@Argument String name,@Argument String agency,@Argument String description,@Argument int price,@Argument String date) {
+    public Offer createOffer(@Argument String name, @Argument String agency, @Argument String description, @Argument int price, @Argument String date) {
         OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agency, description, price, date);
         return Offer.newBuilder()
                 .id(response.getId())
@@ -52,7 +52,7 @@ public class OfferController {
     }
 
     @MutationMapping("updateOffer")
-    Offer updateOffer(@Argument String id,@Argument String name,@Argument String agency,@Argument String description,@Argument int price,@Argument String date) {
+    public Offer updateOffer(@Argument String id, @Argument String name, @Argument String agency, @Argument String description, @Argument int price, @Argument String date) {
         OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date);
         return Offer.newBuilder()
                 .id(response.getId())
@@ -63,7 +63,7 @@ public class OfferController {
     }
 
     @MutationMapping("deleteOffer")
-    Offer deleteOffer(@Argument String id) {
+    public Offer deleteOffer(@Argument String id) {
         OfferOuterClass.DeleteOfferResponse response = offerService.deleteOffer(id);
         return Offer.newBuilder()
                 .id(response.getId())
