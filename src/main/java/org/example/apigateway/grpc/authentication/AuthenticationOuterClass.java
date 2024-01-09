@@ -22,7 +22,7 @@ public final class AuthenticationOuterClass {
      * <code>string jwt = 1;</code>
      * @return The jwt.
      */
-    java.lang.String getJwt();
+    String getJwt();
     /**
      * <code>string jwt = 1;</code>
      * @return The bytes for jwt.
@@ -46,42 +46,42 @@ public final class AuthenticationOuterClass {
       jwt_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new TokenValidationRequest();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationRequest_descriptor;
+      return internal_static_authentication_TokenValidationRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationRequest_fieldAccessorTable
+      return internal_static_authentication_TokenValidationRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.Builder.class);
     }
 
     public static final int JWT_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object jwt_ = "";
+    private volatile Object jwt_ = "";
     /**
      * <code>string jwt = 1;</code>
      * @return The jwt.
      */
-    @java.lang.Override
-    public java.lang.String getJwt() {
-      java.lang.Object ref = jwt_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getJwt() {
+      Object ref = jwt_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         jwt_ = s;
         return s;
       }
@@ -90,14 +90,14 @@ public final class AuthenticationOuterClass {
      * <code>string jwt = 1;</code>
      * @return The bytes for jwt.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getJwtBytes() {
-      java.lang.Object ref = jwt_;
-      if (ref instanceof java.lang.String) {
+      Object ref = jwt_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         jwt_ = b;
         return b;
       } else {
@@ -106,7 +106,7 @@ public final class AuthenticationOuterClass {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -116,7 +116,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(jwt_)) {
@@ -125,7 +125,7 @@ public final class AuthenticationOuterClass {
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -139,8 +139,8 @@ public final class AuthenticationOuterClass {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -155,7 +155,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -241,7 +241,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -249,15 +249,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -270,13 +270,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationRequest_descriptor;
+        return internal_static_authentication_TokenValidationRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationRequest_fieldAccessorTable
+        return internal_static_authentication_TokenValidationRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.Builder.class);
       }
@@ -287,11 +287,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -299,18 +299,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationRequest_descriptor;
+        return internal_static_authentication_TokenValidationRequest_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -319,7 +319,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -334,39 +334,39 @@ public final class AuthenticationOuterClass {
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest)other);
@@ -377,7 +377,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (!other.getJwt().isEmpty()) {
           jwt_ = other.jwt_;
           bitField0_ |= 0x00000001;
@@ -388,18 +388,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -431,21 +431,21 @@ public final class AuthenticationOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object jwt_ = "";
+      private Object jwt_ = "";
       /**
        * <code>string jwt = 1;</code>
        * @return The jwt.
        */
-      public java.lang.String getJwt() {
-        java.lang.Object ref = jwt_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getJwt() {
+        Object ref = jwt_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           jwt_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -454,11 +454,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getJwtBytes() {
-        java.lang.Object ref = jwt_;
+        Object ref = jwt_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           jwt_ = b;
           return b;
         } else {
@@ -471,7 +471,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setJwt(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         jwt_ = value;
         bitField0_ |= 0x00000001;
@@ -502,13 +502,13 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -530,7 +530,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<TokenValidationRequest>
         PARSER = new com.google.protobuf.AbstractParser<TokenValidationRequest>() {
-      @java.lang.Override
+      @Override
       public TokenValidationRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -554,12 +554,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<TokenValidationRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -580,7 +580,7 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The message.
      */
-    java.lang.String getMessage();
+    String getMessage();
     /**
      * <code>string message = 2;</code>
      * @return The bytes for message.
@@ -592,7 +592,7 @@ public final class AuthenticationOuterClass {
      * <code>string username = 3;</code>
      * @return The username.
      */
-    java.lang.String getUsername();
+    String getUsername();
     /**
      * <code>string username = 3;</code>
      * @return The bytes for username.
@@ -604,13 +604,25 @@ public final class AuthenticationOuterClass {
      * <code>string role = 4;</code>
      * @return The role.
      */
-    java.lang.String getRole();
+    String getRole();
     /**
      * <code>string role = 4;</code>
      * @return The bytes for role.
      */
     com.google.protobuf.ByteString
         getRoleBytes();
+
+    /**
+     * <code>string expiration = 5;</code>
+     * @return The expiration.
+     */
+    String getExpiration();
+    /**
+     * <code>string expiration = 5;</code>
+     * @return The bytes for expiration.
+     */
+    com.google.protobuf.ByteString
+        getExpirationBytes();
   }
   /**
    * Protobuf type {@code authentication.TokenValidationResponse}
@@ -628,24 +640,25 @@ public final class AuthenticationOuterClass {
       message_ = "";
       username_ = "";
       role_ = "";
+      expiration_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new TokenValidationResponse();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationResponse_descriptor;
+      return internal_static_authentication_TokenValidationResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationResponse_fieldAccessorTable
+      return internal_static_authentication_TokenValidationResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.Builder.class);
     }
@@ -656,27 +669,27 @@ public final class AuthenticationOuterClass {
      * <code>bool success = 1;</code>
      * @return The success.
      */
-    @java.lang.Override
+    @Override
     public boolean getSuccess() {
       return success_;
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
+    private volatile Object message_ = "";
     /**
      * <code>string message = 2;</code>
      * @return The message.
      */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getMessage() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         message_ = s;
         return s;
       }
@@ -685,14 +698,14 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The bytes for message.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      Object ref = message_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         message_ = b;
         return b;
       } else {
@@ -702,20 +715,20 @@ public final class AuthenticationOuterClass {
 
     public static final int USERNAME_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object username_ = "";
+    private volatile Object username_ = "";
     /**
      * <code>string username = 3;</code>
      * @return The username.
      */
-    @java.lang.Override
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getUsername() {
+      Object ref = username_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -724,14 +737,14 @@ public final class AuthenticationOuterClass {
      * <code>string username = 3;</code>
      * @return The bytes for username.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
+      Object ref = username_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         username_ = b;
         return b;
       } else {
@@ -741,20 +754,20 @@ public final class AuthenticationOuterClass {
 
     public static final int ROLE_FIELD_NUMBER = 4;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object role_ = "";
+    private volatile Object role_ = "";
     /**
      * <code>string role = 4;</code>
      * @return The role.
      */
-    @java.lang.Override
-    public java.lang.String getRole() {
-      java.lang.Object ref = role_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getRole() {
+      Object ref = role_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         role_ = s;
         return s;
       }
@@ -763,14 +776,14 @@ public final class AuthenticationOuterClass {
      * <code>string role = 4;</code>
      * @return The bytes for role.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getRoleBytes() {
-      java.lang.Object ref = role_;
-      if (ref instanceof java.lang.String) {
+      Object ref = role_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         role_ = b;
         return b;
       } else {
@@ -778,8 +791,47 @@ public final class AuthenticationOuterClass {
       }
     }
 
+    public static final int EXPIRATION_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile Object expiration_ = "";
+    /**
+     * <code>string expiration = 5;</code>
+     * @return The expiration.
+     */
+    @Override
+    public String getExpiration() {
+      Object ref = expiration_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        expiration_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string expiration = 5;</code>
+     * @return The bytes for expiration.
+     */
+    @Override
+    public com.google.protobuf.ByteString
+        getExpirationBytes() {
+      Object ref = expiration_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        expiration_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -789,7 +841,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (success_ != false) {
@@ -804,10 +856,13 @@ public final class AuthenticationOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, role_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiration_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, expiration_);
+      }
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -826,13 +881,16 @@ public final class AuthenticationOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, role_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiration_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, expiration_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -849,11 +907,13 @@ public final class AuthenticationOuterClass {
           .equals(other.getUsername())) return false;
       if (!getRole()
           .equals(other.getRole())) return false;
+      if (!getExpiration()
+          .equals(other.getExpiration())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -869,6 +929,8 @@ public final class AuthenticationOuterClass {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + getRole().hashCode();
+      hash = (37 * hash) + EXPIRATION_FIELD_NUMBER;
+      hash = (53 * hash) + getExpiration().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -946,7 +1008,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -954,15 +1016,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -975,13 +1037,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationResponse_descriptor;
+        return internal_static_authentication_TokenValidationResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationResponse_fieldAccessorTable
+        return internal_static_authentication_TokenValidationResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.Builder.class);
       }
@@ -992,11 +1054,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -1004,21 +1066,22 @@ public final class AuthenticationOuterClass {
         message_ = "";
         username_ = "";
         role_ = "";
+        expiration_ = "";
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_TokenValidationResponse_descriptor;
+        return internal_static_authentication_TokenValidationResponse_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -1027,7 +1090,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -1049,41 +1112,44 @@ public final class AuthenticationOuterClass {
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.role_ = role_;
         }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.expiration_ = expiration_;
+        }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse)other);
@@ -1094,7 +1160,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -1113,23 +1179,28 @@ public final class AuthenticationOuterClass {
           bitField0_ |= 0x00000008;
           onChanged();
         }
+        if (!other.getExpiration().isEmpty()) {
+          expiration_ = other.expiration_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -1159,6 +1230,11 @@ public final class AuthenticationOuterClass {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 42: {
+                expiration_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1181,7 +1257,7 @@ public final class AuthenticationOuterClass {
        * <code>bool success = 1;</code>
        * @return The success.
        */
-      @java.lang.Override
+      @Override
       public boolean getSuccess() {
         return success_;
       }
@@ -1208,21 +1284,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object message_ = "";
+      private Object message_ = "";
       /**
        * <code>string message = 2;</code>
        * @return The message.
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getMessage() {
+        Object ref = message_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1231,11 +1307,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
-        java.lang.Object ref = message_;
+        Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           message_ = b;
           return b;
         } else {
@@ -1248,7 +1324,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setMessage(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         message_ = value;
         bitField0_ |= 0x00000002;
@@ -1280,21 +1356,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object username_ = "";
+      private Object username_ = "";
       /**
        * <code>string username = 3;</code>
        * @return The username.
        */
-      public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getUsername() {
+        Object ref = username_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1303,11 +1379,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        java.lang.Object ref = username_;
+        Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           username_ = b;
           return b;
         } else {
@@ -1320,7 +1396,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000004;
@@ -1352,21 +1428,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object role_ = "";
+      private Object role_ = "";
       /**
        * <code>string role = 4;</code>
        * @return The role.
        */
-      public java.lang.String getRole() {
-        java.lang.Object ref = role_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRole() {
+        Object ref = role_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           role_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1375,11 +1451,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getRoleBytes() {
-        java.lang.Object ref = role_;
+        Object ref = role_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           role_ = b;
           return b;
         } else {
@@ -1392,7 +1468,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setRole(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         role_ = value;
         bitField0_ |= 0x00000008;
@@ -1423,13 +1499,85 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+
+      private Object expiration_ = "";
+      /**
+       * <code>string expiration = 5;</code>
+       * @return The expiration.
+       */
+      public String getExpiration() {
+        Object ref = expiration_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          expiration_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>string expiration = 5;</code>
+       * @return The bytes for expiration.
+       */
+      public com.google.protobuf.ByteString
+          getExpirationBytes() {
+        Object ref = expiration_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          expiration_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string expiration = 5;</code>
+       * @param value The expiration to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpiration(
+          String value) {
+        if (value == null) { throw new NullPointerException(); }
+        expiration_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string expiration = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExpiration() {
+        expiration_ = getDefaultInstance().getExpiration();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string expiration = 5;</code>
+       * @param value The bytes for expiration to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpirationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        expiration_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1451,7 +1599,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<TokenValidationResponse>
         PARSER = new com.google.protobuf.AbstractParser<TokenValidationResponse>() {
-      @java.lang.Override
+      @Override
       public TokenValidationResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1475,12 +1623,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<TokenValidationResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1495,7 +1643,7 @@ public final class AuthenticationOuterClass {
      * <code>string username = 1;</code>
      * @return The username.
      */
-    java.lang.String getUsername();
+    String getUsername();
     /**
      * <code>string username = 1;</code>
      * @return The bytes for username.
@@ -1507,7 +1655,7 @@ public final class AuthenticationOuterClass {
      * <code>string password = 2;</code>
      * @return The password.
      */
-    java.lang.String getPassword();
+    String getPassword();
     /**
      * <code>string password = 2;</code>
      * @return The bytes for password.
@@ -1519,7 +1667,7 @@ public final class AuthenticationOuterClass {
      * <code>string role = 3;</code>
      * @return The role.
      */
-    java.lang.String getRole();
+    String getRole();
     /**
      * <code>string role = 3;</code>
      * @return The bytes for role.
@@ -1545,42 +1693,42 @@ public final class AuthenticationOuterClass {
       role_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new SignUpRequest();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpRequest_descriptor;
+      return internal_static_authentication_SignUpRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpRequest_fieldAccessorTable
+      return internal_static_authentication_SignUpRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object username_ = "";
+    private volatile Object username_ = "";
     /**
      * <code>string username = 1;</code>
      * @return The username.
      */
-    @java.lang.Override
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getUsername() {
+      Object ref = username_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -1589,14 +1737,14 @@ public final class AuthenticationOuterClass {
      * <code>string username = 1;</code>
      * @return The bytes for username.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
+      Object ref = username_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         username_ = b;
         return b;
       } else {
@@ -1606,20 +1754,20 @@ public final class AuthenticationOuterClass {
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object password_ = "";
+    private volatile Object password_ = "";
     /**
      * <code>string password = 2;</code>
      * @return The password.
      */
-    @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getPassword() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -1628,14 +1776,14 @@ public final class AuthenticationOuterClass {
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
+      Object ref = password_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         password_ = b;
         return b;
       } else {
@@ -1645,20 +1793,20 @@ public final class AuthenticationOuterClass {
 
     public static final int ROLE_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object role_ = "";
+    private volatile Object role_ = "";
     /**
      * <code>string role = 3;</code>
      * @return The role.
      */
-    @java.lang.Override
-    public java.lang.String getRole() {
-      java.lang.Object ref = role_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getRole() {
+      Object ref = role_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         role_ = s;
         return s;
       }
@@ -1667,14 +1815,14 @@ public final class AuthenticationOuterClass {
      * <code>string role = 3;</code>
      * @return The bytes for role.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getRoleBytes() {
-      java.lang.Object ref = role_;
-      if (ref instanceof java.lang.String) {
+      Object ref = role_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         role_ = b;
         return b;
       } else {
@@ -1683,7 +1831,7 @@ public final class AuthenticationOuterClass {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1693,7 +1841,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
@@ -1708,7 +1856,7 @@ public final class AuthenticationOuterClass {
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1728,8 +1876,8 @@ public final class AuthenticationOuterClass {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1748,7 +1896,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1838,7 +1986,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1846,15 +1994,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1867,13 +2015,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpRequest_descriptor;
+        return internal_static_authentication_SignUpRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpRequest_fieldAccessorTable
+        return internal_static_authentication_SignUpRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.Builder.class);
       }
@@ -1884,11 +2032,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -1898,18 +2046,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpRequest_descriptor;
+        return internal_static_authentication_SignUpRequest_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -1918,7 +2066,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -1939,39 +2087,39 @@ public final class AuthenticationOuterClass {
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest)other);
@@ -1982,7 +2130,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           bitField0_ |= 0x00000001;
@@ -2003,18 +2151,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -2056,21 +2204,21 @@ public final class AuthenticationOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object username_ = "";
+      private Object username_ = "";
       /**
        * <code>string username = 1;</code>
        * @return The username.
        */
-      public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getUsername() {
+        Object ref = username_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -2079,11 +2227,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        java.lang.Object ref = username_;
+        Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           username_ = b;
           return b;
         } else {
@@ -2096,7 +2244,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000001;
@@ -2128,21 +2276,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private Object password_ = "";
       /**
        * <code>string password = 2;</code>
        * @return The password.
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPassword() {
+        Object ref = password_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -2151,11 +2299,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        java.lang.Object ref = password_;
+        Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           password_ = b;
           return b;
         } else {
@@ -2168,7 +2316,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setPassword(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         password_ = value;
         bitField0_ |= 0x00000002;
@@ -2200,21 +2348,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object role_ = "";
+      private Object role_ = "";
       /**
        * <code>string role = 3;</code>
        * @return The role.
        */
-      public java.lang.String getRole() {
-        java.lang.Object ref = role_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRole() {
+        Object ref = role_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           role_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -2223,11 +2371,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getRoleBytes() {
-        java.lang.Object ref = role_;
+        Object ref = role_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           role_ = b;
           return b;
         } else {
@@ -2240,7 +2388,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setRole(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         role_ = value;
         bitField0_ |= 0x00000004;
@@ -2271,13 +2419,13 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2299,7 +2447,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<SignUpRequest>
         PARSER = new com.google.protobuf.AbstractParser<SignUpRequest>() {
-      @java.lang.Override
+      @Override
       public SignUpRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2323,12 +2471,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SignUpRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2349,7 +2497,7 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The message.
      */
-    java.lang.String getMessage();
+    String getMessage();
     /**
      * <code>string message = 2;</code>
      * @return The bytes for message.
@@ -2373,22 +2521,22 @@ public final class AuthenticationOuterClass {
       message_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new SignUpResponse();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpResponse_descriptor;
+      return internal_static_authentication_SignUpResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpResponse_fieldAccessorTable
+      return internal_static_authentication_SignUpResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.Builder.class);
     }
@@ -2399,27 +2547,27 @@ public final class AuthenticationOuterClass {
      * <code>bool success = 1;</code>
      * @return The success.
      */
-    @java.lang.Override
+    @Override
     public boolean getSuccess() {
       return success_;
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
+    private volatile Object message_ = "";
     /**
      * <code>string message = 2;</code>
      * @return The message.
      */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getMessage() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         message_ = s;
         return s;
       }
@@ -2428,14 +2576,14 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The bytes for message.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      Object ref = message_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         message_ = b;
         return b;
       } else {
@@ -2444,7 +2592,7 @@ public final class AuthenticationOuterClass {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2454,7 +2602,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (success_ != false) {
@@ -2466,7 +2614,7 @@ public final class AuthenticationOuterClass {
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2484,8 +2632,8 @@ public final class AuthenticationOuterClass {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -2502,7 +2650,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2591,7 +2739,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2599,15 +2747,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2620,13 +2768,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpResponse_descriptor;
+        return internal_static_authentication_SignUpResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpResponse_fieldAccessorTable
+        return internal_static_authentication_SignUpResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.Builder.class);
       }
@@ -2637,11 +2785,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -2650,18 +2798,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignUpResponse_descriptor;
+        return internal_static_authentication_SignUpResponse_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -2670,7 +2818,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -2688,39 +2836,39 @@ public final class AuthenticationOuterClass {
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse)other);
@@ -2731,7 +2879,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -2745,18 +2893,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -2798,7 +2946,7 @@ public final class AuthenticationOuterClass {
        * <code>bool success = 1;</code>
        * @return The success.
        */
-      @java.lang.Override
+      @Override
       public boolean getSuccess() {
         return success_;
       }
@@ -2825,21 +2973,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object message_ = "";
+      private Object message_ = "";
       /**
        * <code>string message = 2;</code>
        * @return The message.
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getMessage() {
+        Object ref = message_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -2848,11 +2996,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
-        java.lang.Object ref = message_;
+        Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           message_ = b;
           return b;
         } else {
@@ -2865,7 +3013,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setMessage(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         message_ = value;
         bitField0_ |= 0x00000002;
@@ -2896,13 +3044,13 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2924,7 +3072,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<SignUpResponse>
         PARSER = new com.google.protobuf.AbstractParser<SignUpResponse>() {
-      @java.lang.Override
+      @Override
       public SignUpResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2948,12 +3096,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SignUpResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2968,7 +3116,7 @@ public final class AuthenticationOuterClass {
      * <code>string username = 1;</code>
      * @return The username.
      */
-    java.lang.String getUsername();
+    String getUsername();
     /**
      * <code>string username = 1;</code>
      * @return The bytes for username.
@@ -2980,7 +3128,7 @@ public final class AuthenticationOuterClass {
      * <code>string password = 2;</code>
      * @return The password.
      */
-    java.lang.String getPassword();
+    String getPassword();
     /**
      * <code>string password = 2;</code>
      * @return The bytes for password.
@@ -3005,42 +3153,42 @@ public final class AuthenticationOuterClass {
       password_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new SignInRequest();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInRequest_descriptor;
+      return internal_static_authentication_SignInRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInRequest_fieldAccessorTable
+      return internal_static_authentication_SignInRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object username_ = "";
+    private volatile Object username_ = "";
     /**
      * <code>string username = 1;</code>
      * @return The username.
      */
-    @java.lang.Override
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getUsername() {
+      Object ref = username_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -3049,14 +3197,14 @@ public final class AuthenticationOuterClass {
      * <code>string username = 1;</code>
      * @return The bytes for username.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
+      Object ref = username_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         username_ = b;
         return b;
       } else {
@@ -3066,20 +3214,20 @@ public final class AuthenticationOuterClass {
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object password_ = "";
+    private volatile Object password_ = "";
     /**
      * <code>string password = 2;</code>
      * @return The password.
      */
-    @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getPassword() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -3088,14 +3236,14 @@ public final class AuthenticationOuterClass {
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
+      Object ref = password_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         password_ = b;
         return b;
       } else {
@@ -3104,7 +3252,7 @@ public final class AuthenticationOuterClass {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3114,7 +3262,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
@@ -3126,7 +3274,7 @@ public final class AuthenticationOuterClass {
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3143,8 +3291,8 @@ public final class AuthenticationOuterClass {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -3161,7 +3309,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3249,7 +3397,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3257,15 +3405,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3278,13 +3426,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInRequest_descriptor;
+        return internal_static_authentication_SignInRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInRequest_fieldAccessorTable
+        return internal_static_authentication_SignInRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.Builder.class);
       }
@@ -3295,11 +3443,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -3308,18 +3456,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInRequest_descriptor;
+        return internal_static_authentication_SignInRequest_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -3328,7 +3476,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -3346,39 +3494,39 @@ public final class AuthenticationOuterClass {
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest)other);
@@ -3389,7 +3537,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           bitField0_ |= 0x00000001;
@@ -3405,18 +3553,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -3453,21 +3601,21 @@ public final class AuthenticationOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object username_ = "";
+      private Object username_ = "";
       /**
        * <code>string username = 1;</code>
        * @return The username.
        */
-      public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getUsername() {
+        Object ref = username_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -3476,11 +3624,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        java.lang.Object ref = username_;
+        Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           username_ = b;
           return b;
         } else {
@@ -3493,7 +3641,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000001;
@@ -3525,21 +3673,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private Object password_ = "";
       /**
        * <code>string password = 2;</code>
        * @return The password.
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPassword() {
+        Object ref = password_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -3548,11 +3696,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        java.lang.Object ref = password_;
+        Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           password_ = b;
           return b;
         } else {
@@ -3565,7 +3713,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setPassword(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         password_ = value;
         bitField0_ |= 0x00000002;
@@ -3596,13 +3744,13 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3624,7 +3772,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<SignInRequest>
         PARSER = new com.google.protobuf.AbstractParser<SignInRequest>() {
-      @java.lang.Override
+      @Override
       public SignInRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3648,12 +3796,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SignInRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3674,7 +3822,7 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The message.
      */
-    java.lang.String getMessage();
+    String getMessage();
     /**
      * <code>string message = 2;</code>
      * @return The bytes for message.
@@ -3686,7 +3834,7 @@ public final class AuthenticationOuterClass {
      * <code>string jwt = 3;</code>
      * @return The jwt.
      */
-    java.lang.String getJwt();
+    String getJwt();
     /**
      * <code>string jwt = 3;</code>
      * @return The bytes for jwt.
@@ -3711,22 +3859,22 @@ public final class AuthenticationOuterClass {
       jwt_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new SignInResponse();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInResponse_descriptor;
+      return internal_static_authentication_SignInResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInResponse_fieldAccessorTable
+      return internal_static_authentication_SignInResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.Builder.class);
     }
@@ -3737,27 +3885,27 @@ public final class AuthenticationOuterClass {
      * <code>bool success = 1;</code>
      * @return The success.
      */
-    @java.lang.Override
+    @Override
     public boolean getSuccess() {
       return success_;
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
+    private volatile Object message_ = "";
     /**
      * <code>string message = 2;</code>
      * @return The message.
      */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getMessage() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         message_ = s;
         return s;
       }
@@ -3766,14 +3914,14 @@ public final class AuthenticationOuterClass {
      * <code>string message = 2;</code>
      * @return The bytes for message.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      Object ref = message_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         message_ = b;
         return b;
       } else {
@@ -3783,20 +3931,20 @@ public final class AuthenticationOuterClass {
 
     public static final int JWT_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object jwt_ = "";
+    private volatile Object jwt_ = "";
     /**
      * <code>string jwt = 3;</code>
      * @return The jwt.
      */
-    @java.lang.Override
-    public java.lang.String getJwt() {
-      java.lang.Object ref = jwt_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getJwt() {
+      Object ref = jwt_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         jwt_ = s;
         return s;
       }
@@ -3805,14 +3953,14 @@ public final class AuthenticationOuterClass {
      * <code>string jwt = 3;</code>
      * @return The bytes for jwt.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getJwtBytes() {
-      java.lang.Object ref = jwt_;
-      if (ref instanceof java.lang.String) {
+      Object ref = jwt_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         jwt_ = b;
         return b;
       } else {
@@ -3821,7 +3969,7 @@ public final class AuthenticationOuterClass {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3831,7 +3979,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (success_ != false) {
@@ -3846,7 +3994,7 @@ public final class AuthenticationOuterClass {
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3867,8 +4015,8 @@ public final class AuthenticationOuterClass {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
@@ -3887,7 +4035,7 @@ public final class AuthenticationOuterClass {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3978,7 +4126,7 @@ public final class AuthenticationOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3986,15 +4134,15 @@ public final class AuthenticationOuterClass {
     public static Builder newBuilder(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4007,13 +4155,13 @@ public final class AuthenticationOuterClass {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInResponse_descriptor;
+        return internal_static_authentication_SignInResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInResponse_fieldAccessorTable
+        return internal_static_authentication_SignInResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.class, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.Builder.class);
       }
@@ -4024,11 +4172,11 @@ public final class AuthenticationOuterClass {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -4038,18 +4186,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.internal_static_authentication_SignInResponse_descriptor;
+        return internal_static_authentication_SignInResponse_descriptor;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse getDefaultInstanceForType() {
-        return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.getDefaultInstance();
+        return getDefaultInstance();
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse build() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -4058,7 +4206,7 @@ public final class AuthenticationOuterClass {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse buildPartial() {
         org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse result = new org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse(this);
         if (bitField0_ != 0) { buildPartial0(result); }
@@ -4079,39 +4227,39 @@ public final class AuthenticationOuterClass {
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse) {
           return mergeFrom((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse)other);
@@ -4122,7 +4270,7 @@ public final class AuthenticationOuterClass {
       }
 
       public Builder mergeFrom(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse other) {
-        if (other == org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.getDefaultInstance()) return this;
+        if (other == getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -4141,18 +4289,18 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -4199,7 +4347,7 @@ public final class AuthenticationOuterClass {
        * <code>bool success = 1;</code>
        * @return The success.
        */
-      @java.lang.Override
+      @Override
       public boolean getSuccess() {
         return success_;
       }
@@ -4226,21 +4374,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object message_ = "";
+      private Object message_ = "";
       /**
        * <code>string message = 2;</code>
        * @return The message.
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getMessage() {
+        Object ref = message_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -4249,11 +4397,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
-        java.lang.Object ref = message_;
+        Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           message_ = b;
           return b;
         } else {
@@ -4266,7 +4414,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setMessage(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         message_ = value;
         bitField0_ |= 0x00000002;
@@ -4298,21 +4446,21 @@ public final class AuthenticationOuterClass {
         return this;
       }
 
-      private java.lang.Object jwt_ = "";
+      private Object jwt_ = "";
       /**
        * <code>string jwt = 3;</code>
        * @return The jwt.
        */
-      public java.lang.String getJwt() {
-        java.lang.Object ref = jwt_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getJwt() {
+        Object ref = jwt_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           jwt_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -4321,11 +4469,11 @@ public final class AuthenticationOuterClass {
        */
       public com.google.protobuf.ByteString
           getJwtBytes() {
-        java.lang.Object ref = jwt_;
+        Object ref = jwt_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           jwt_ = b;
           return b;
         } else {
@@ -4338,7 +4486,7 @@ public final class AuthenticationOuterClass {
        * @return This builder for chaining.
        */
       public Builder setJwt(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         jwt_ = value;
         bitField0_ |= 0x00000004;
@@ -4369,13 +4517,13 @@ public final class AuthenticationOuterClass {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4397,7 +4545,7 @@ public final class AuthenticationOuterClass {
 
     private static final com.google.protobuf.Parser<SignInResponse>
         PARSER = new com.google.protobuf.AbstractParser<SignInResponse>() {
-      @java.lang.Override
+      @Override
       public SignInResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4421,12 +4569,12 @@ public final class AuthenticationOuterClass {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SignInResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4471,26 +4619,26 @@ public final class AuthenticationOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\024authentication.proto\022\016authentication\"%" +
-      "\n\026TokenValidationRequest\022\013\n\003jwt\030\001 \001(\t\"[\n" +
+      "\n\026TokenValidationRequest\022\013\n\003jwt\030\001 \001(\t\"o\n" +
       "\027TokenValidationResponse\022\017\n\007success\030\001 \001(" +
       "\010\022\017\n\007message\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\022\014\n\004" +
-      "role\030\004 \001(\t\"A\n\rSignUpRequest\022\020\n\010username\030" +
-      "\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\014\n\004role\030\003 \001(\t\"2\n" +
-      "\016SignUpResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007mess" +
-      "age\030\002 \001(\t\"3\n\rSignInRequest\022\020\n\010username\030\001" +
-      " \001(\t\022\020\n\010password\030\002 \001(\t\"?\n\016SignInResponse" +
-      "\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\013\n\003jw" +
-      "t\030\003 \001(\t2\204\002\n\016Authentication\022G\n\006SignUp\022\035.a" +
-      "uthentication.SignUpRequest\032\036.authentica" +
-      "tion.SignUpResponse\022G\n\006SignIn\022\035.authenti" +
-      "cation.SignInRequest\032\036.authentication.Si" +
-      "gnInResponse\022`\n\rvalidateToken\022&.authenti" +
-      "cation.TokenValidationRequest\032\'.authenti" +
-      "cation.TokenValidationResponseB,\n*org.ex" +
-      "ample.apigateway.grpc.authenticationb\006pr" +
-      "oto3"
+      "role\030\004 \001(\t\022\022\n\nexpiration\030\005 \001(\t\"A\n\rSignUp" +
+      "Request\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 " +
+      "\001(\t\022\014\n\004role\030\003 \001(\t\"2\n\016SignUpResponse\022\017\n\007s" +
+      "uccess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"3\n\rSignInR" +
+      "equest\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001" +
+      "(\t\"?\n\016SignInResponse\022\017\n\007success\030\001 \001(\010\022\017\n" +
+      "\007message\030\002 \001(\t\022\013\n\003jwt\030\003 \001(\t2\204\002\n\016Authenti" +
+      "cation\022G\n\006SignUp\022\035.authentication.SignUp" +
+      "Request\032\036.authentication.SignUpResponse\022" +
+      "G\n\006SignIn\022\035.authentication.SignInRequest" +
+      "\032\036.authentication.SignInResponse\022`\n\rvali" +
+      "dateToken\022&.authentication.TokenValidati" +
+      "onRequest\032\'.authentication.TokenValidati" +
+      "onResponseB,\n*org.example.apigateway.grp" +
+      "c.authenticationb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4501,37 +4649,37 @@ public final class AuthenticationOuterClass {
     internal_static_authentication_TokenValidationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_TokenValidationRequest_descriptor,
-        new java.lang.String[] { "Jwt", });
+        new String[] { "Jwt", });
     internal_static_authentication_TokenValidationResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_authentication_TokenValidationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_TokenValidationResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", "Username", "Role", });
+        new String[] { "Success", "Message", "Username", "Role", "Expiration", });
     internal_static_authentication_SignUpRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_authentication_SignUpRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_SignUpRequest_descriptor,
-        new java.lang.String[] { "Username", "Password", "Role", });
+        new String[] { "Username", "Password", "Role", });
     internal_static_authentication_SignUpResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_authentication_SignUpResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_SignUpResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", });
+        new String[] { "Success", "Message", });
     internal_static_authentication_SignInRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_authentication_SignInRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_SignInRequest_descriptor,
-        new java.lang.String[] { "Username", "Password", });
+        new String[] { "Username", "Password", });
     internal_static_authentication_SignInResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_authentication_SignInResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_authentication_SignInResponse_descriptor,
-        new java.lang.String[] { "Success", "Message", "Jwt", });
+        new String[] { "Success", "Message", "Jwt", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

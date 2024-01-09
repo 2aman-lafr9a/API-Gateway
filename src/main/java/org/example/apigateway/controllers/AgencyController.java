@@ -22,8 +22,8 @@ public class AgencyController {
 
     @MutationMapping("createAgency")
     Agency createAgency(@Argument String name) {
-        AgencyOuterClass.CreateAgencyResponse response = agencyService.createAgency(name);
-        return Agency.newBuilder().name(response.getName()).build();
+//        AgencyOuterClass.CreateAgencyResponse response = agencyService.createAgency(name);
+        return Agency.newBuilder().name(name).build();
     }
 
     @QueryMapping("getAgency")

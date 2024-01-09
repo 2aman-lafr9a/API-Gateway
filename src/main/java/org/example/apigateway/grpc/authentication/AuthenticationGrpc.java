@@ -12,32 +12,32 @@ public final class AuthenticationGrpc {
 
   private AuthenticationGrpc() {}
 
-  public static final java.lang.String SERVICE_NAME = "authentication.Authentication";
+  public static final String SERVICE_NAME = "authentication.Authentication";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> getSignUpMethod;
+  private static volatile io.grpc.MethodDescriptor<AuthenticationOuterClass.SignUpRequest,
+      AuthenticationOuterClass.SignUpResponse> getSignUpMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SignUp",
-      requestType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.class,
-      responseType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.class,
+      requestType = AuthenticationOuterClass.SignUpRequest.class,
+      responseType = AuthenticationOuterClass.SignUpResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> getSignUpMethod() {
-    io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> getSignUpMethod;
+  public static io.grpc.MethodDescriptor<AuthenticationOuterClass.SignUpRequest,
+      AuthenticationOuterClass.SignUpResponse> getSignUpMethod() {
+    io.grpc.MethodDescriptor<AuthenticationOuterClass.SignUpRequest, AuthenticationOuterClass.SignUpResponse> getSignUpMethod;
     if ((getSignUpMethod = AuthenticationGrpc.getSignUpMethod) == null) {
       synchronized (AuthenticationGrpc.class) {
         if ((getSignUpMethod = AuthenticationGrpc.getSignUpMethod) == null) {
           AuthenticationGrpc.getSignUpMethod = getSignUpMethod =
-              io.grpc.MethodDescriptor.<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse>newBuilder()
+              io.grpc.MethodDescriptor.<AuthenticationOuterClass.SignUpRequest, AuthenticationOuterClass.SignUpResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SignUp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest.getDefaultInstance()))
+                  AuthenticationOuterClass.SignUpRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse.getDefaultInstance()))
+                  AuthenticationOuterClass.SignUpResponse.getDefaultInstance()))
               .setSchemaDescriptor(new AuthenticationMethodDescriptorSupplier("SignUp"))
               .build();
         }
@@ -46,29 +46,29 @@ public final class AuthenticationGrpc {
     return getSignUpMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> getSignInMethod;
+  private static volatile io.grpc.MethodDescriptor<AuthenticationOuterClass.SignInRequest,
+      AuthenticationOuterClass.SignInResponse> getSignInMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SignIn",
-      requestType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.class,
-      responseType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.class,
+      requestType = AuthenticationOuterClass.SignInRequest.class,
+      responseType = AuthenticationOuterClass.SignInResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> getSignInMethod() {
-    io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> getSignInMethod;
+  public static io.grpc.MethodDescriptor<AuthenticationOuterClass.SignInRequest,
+      AuthenticationOuterClass.SignInResponse> getSignInMethod() {
+    io.grpc.MethodDescriptor<AuthenticationOuterClass.SignInRequest, AuthenticationOuterClass.SignInResponse> getSignInMethod;
     if ((getSignInMethod = AuthenticationGrpc.getSignInMethod) == null) {
       synchronized (AuthenticationGrpc.class) {
         if ((getSignInMethod = AuthenticationGrpc.getSignInMethod) == null) {
           AuthenticationGrpc.getSignInMethod = getSignInMethod =
-              io.grpc.MethodDescriptor.<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse>newBuilder()
+              io.grpc.MethodDescriptor.<AuthenticationOuterClass.SignInRequest, AuthenticationOuterClass.SignInResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SignIn"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest.getDefaultInstance()))
+                  AuthenticationOuterClass.SignInRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse.getDefaultInstance()))
+                  AuthenticationOuterClass.SignInResponse.getDefaultInstance()))
               .setSchemaDescriptor(new AuthenticationMethodDescriptorSupplier("SignIn"))
               .build();
         }
@@ -77,29 +77,29 @@ public final class AuthenticationGrpc {
     return getSignInMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<AuthenticationOuterClass.TokenValidationRequest,
+      AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "validateToken",
-      requestType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.class,
-      responseType = org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.class,
+      requestType = AuthenticationOuterClass.TokenValidationRequest.class,
+      responseType = AuthenticationOuterClass.TokenValidationResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest,
-      org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod() {
-    io.grpc.MethodDescriptor<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod;
+  public static io.grpc.MethodDescriptor<AuthenticationOuterClass.TokenValidationRequest,
+      AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod() {
+    io.grpc.MethodDescriptor<AuthenticationOuterClass.TokenValidationRequest, AuthenticationOuterClass.TokenValidationResponse> getValidateTokenMethod;
     if ((getValidateTokenMethod = AuthenticationGrpc.getValidateTokenMethod) == null) {
       synchronized (AuthenticationGrpc.class) {
         if ((getValidateTokenMethod = AuthenticationGrpc.getValidateTokenMethod) == null) {
           AuthenticationGrpc.getValidateTokenMethod = getValidateTokenMethod =
-              io.grpc.MethodDescriptor.<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest, org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse>newBuilder()
+              io.grpc.MethodDescriptor.<AuthenticationOuterClass.TokenValidationRequest, AuthenticationOuterClass.TokenValidationResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "validateToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest.getDefaultInstance()))
+                  AuthenticationOuterClass.TokenValidationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse.getDefaultInstance()))
+                  AuthenticationOuterClass.TokenValidationResponse.getDefaultInstance()))
               .setSchemaDescriptor(new AuthenticationMethodDescriptorSupplier("validateToken"))
               .build();
         }
@@ -114,7 +114,7 @@ public final class AuthenticationGrpc {
   public static AuthenticationStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<AuthenticationStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<AuthenticationStub>() {
-        @java.lang.Override
+        @Override
         public AuthenticationStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new AuthenticationStub(channel, callOptions);
         }
@@ -129,7 +129,7 @@ public final class AuthenticationGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<AuthenticationBlockingStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<AuthenticationBlockingStub>() {
-        @java.lang.Override
+        @Override
         public AuthenticationBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new AuthenticationBlockingStub(channel, callOptions);
         }
@@ -144,7 +144,7 @@ public final class AuthenticationGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<AuthenticationFutureStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<AuthenticationFutureStub>() {
-        @java.lang.Override
+        @Override
         public AuthenticationFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new AuthenticationFutureStub(channel, callOptions);
         }
@@ -158,22 +158,22 @@ public final class AuthenticationGrpc {
 
     /**
      */
-    default void signUp(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> responseObserver) {
+    default void signUp(AuthenticationOuterClass.SignUpRequest request,
+                        io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignUpResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignUpMethod(), responseObserver);
     }
 
     /**
      */
-    default void signIn(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> responseObserver) {
+    default void signIn(AuthenticationOuterClass.SignInRequest request,
+                        io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignInResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignInMethod(), responseObserver);
     }
 
     /**
      */
-    default void validateToken(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> responseObserver) {
+    default void validateToken(AuthenticationOuterClass.TokenValidationRequest request,
+                               io.grpc.stub.StreamObserver<AuthenticationOuterClass.TokenValidationResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateTokenMethod(), responseObserver);
     }
   }
@@ -184,7 +184,7 @@ public final class AuthenticationGrpc {
   public static abstract class AuthenticationImplBase
       implements io.grpc.BindableService, AsyncService {
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return AuthenticationGrpc.bindService(this);
     }
   }
@@ -199,7 +199,7 @@ public final class AuthenticationGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected AuthenticationStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new AuthenticationStub(channel, callOptions);
@@ -207,24 +207,24 @@ public final class AuthenticationGrpc {
 
     /**
      */
-    public void signUp(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> responseObserver) {
+    public void signUp(AuthenticationOuterClass.SignUpRequest request,
+                       io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignUpResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void signIn(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> responseObserver) {
+    public void signIn(AuthenticationOuterClass.SignInRequest request,
+                       io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignInResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSignInMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void validateToken(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest request,
-        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> responseObserver) {
+    public void validateToken(AuthenticationOuterClass.TokenValidationRequest request,
+                              io.grpc.stub.StreamObserver<AuthenticationOuterClass.TokenValidationResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request, responseObserver);
     }
@@ -240,7 +240,7 @@ public final class AuthenticationGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected AuthenticationBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new AuthenticationBlockingStub(channel, callOptions);
@@ -248,21 +248,21 @@ public final class AuthenticationGrpc {
 
     /**
      */
-    public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse signUp(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest request) {
+    public AuthenticationOuterClass.SignUpResponse signUp(AuthenticationOuterClass.SignUpRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSignUpMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse signIn(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest request) {
+    public AuthenticationOuterClass.SignInResponse signIn(AuthenticationOuterClass.SignInRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSignInMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse validateToken(org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest request) {
+    public AuthenticationOuterClass.TokenValidationResponse validateToken(AuthenticationOuterClass.TokenValidationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getValidateTokenMethod(), getCallOptions(), request);
     }
@@ -278,7 +278,7 @@ public final class AuthenticationGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected AuthenticationFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new AuthenticationFutureStub(channel, callOptions);
@@ -286,24 +286,24 @@ public final class AuthenticationGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse> signUp(
-        org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<AuthenticationOuterClass.SignUpResponse> signUp(
+        AuthenticationOuterClass.SignUpRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse> signIn(
-        org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<AuthenticationOuterClass.SignInResponse> signIn(
+        AuthenticationOuterClass.SignInRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSignInMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse> validateToken(
-        org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<AuthenticationOuterClass.TokenValidationResponse> validateToken(
+        AuthenticationOuterClass.TokenValidationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request);
     }
@@ -326,29 +326,29 @@ public final class AuthenticationGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SIGN_UP:
-          serviceImpl.signUp((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest) request,
-              (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse>) responseObserver);
+          serviceImpl.signUp((AuthenticationOuterClass.SignUpRequest) request,
+              (io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignUpResponse>) responseObserver);
           break;
         case METHODID_SIGN_IN:
-          serviceImpl.signIn((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest) request,
-              (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse>) responseObserver);
+          serviceImpl.signIn((AuthenticationOuterClass.SignInRequest) request,
+              (io.grpc.stub.StreamObserver<AuthenticationOuterClass.SignInResponse>) responseObserver);
           break;
         case METHODID_VALIDATE_TOKEN:
-          serviceImpl.validateToken((org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest) request,
-              (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse>) responseObserver);
+          serviceImpl.validateToken((AuthenticationOuterClass.TokenValidationRequest) request,
+              (io.grpc.stub.StreamObserver<AuthenticationOuterClass.TokenValidationResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -364,22 +364,22 @@ public final class AuthenticationGrpc {
           getSignUpMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpRequest,
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignUpResponse>(
+              AuthenticationOuterClass.SignUpRequest,
+              AuthenticationOuterClass.SignUpResponse>(
                 service, METHODID_SIGN_UP)))
         .addMethod(
           getSignInMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInRequest,
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.SignInResponse>(
+              AuthenticationOuterClass.SignInRequest,
+              AuthenticationOuterClass.SignInResponse>(
                 service, METHODID_SIGN_IN)))
         .addMethod(
           getValidateTokenMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationRequest,
-              org.example.apigateway.grpc.authentication.AuthenticationOuterClass.TokenValidationResponse>(
+              AuthenticationOuterClass.TokenValidationRequest,
+              AuthenticationOuterClass.TokenValidationResponse>(
                 service, METHODID_VALIDATE_TOKEN)))
         .build();
   }
@@ -388,12 +388,12 @@ public final class AuthenticationGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     AuthenticationBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.example.apigateway.grpc.authentication.AuthenticationOuterClass.getDescriptor();
+      return AuthenticationOuterClass.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Authentication");
     }
@@ -407,13 +407,13 @@ public final class AuthenticationGrpc {
   private static final class AuthenticationMethodDescriptorSupplier
       extends AuthenticationBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
-    private final java.lang.String methodName;
+    private final String methodName;
 
-    AuthenticationMethodDescriptorSupplier(java.lang.String methodName) {
+    AuthenticationMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }
