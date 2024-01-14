@@ -20,7 +20,7 @@ public class PlayerController {
     }
 
     @QueryMapping("getPlayers")
-    Iterable<org.example.apigateway.codegen.types.Player> getPlayers() {
+    public Iterable<org.example.apigateway.codegen.types.Player> getPlayers() {
         org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers();
         return response.getPlayersList().stream().map(player -> org.example.apigateway.codegen.types.Player.newBuilder()
                 .name(player.getName())
@@ -45,7 +45,7 @@ public class PlayerController {
     }
 
     @QueryMapping("getPlayer")
-    Player getPlayer(@Argument String name){
+    public Player getPlayer(@Argument String name){
         org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayerResponse response = playerService.getPlayer(name);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .nationality(response.getPlayer().getNationality())
@@ -62,7 +62,7 @@ public class PlayerController {
     }
 
     @MutationMapping("createPlayer")
-    Player createPlayer(@Argument PlayerInput player) {
+    public Player createPlayer(@Argument PlayerInput player) {
         org.example.apigateway.grpc.player.PlayerOuterClass.CreatePlayerResponse response = playerService.createPlayer(player);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .id(response.getPlayer().getId())
@@ -70,7 +70,7 @@ public class PlayerController {
     }
 
     @MutationMapping("updatePlayer")
-    Player updatePlayer(@Argument PlayerInput player) {
+    public Player updatePlayer(@Argument PlayerInput player) {
         org.example.apigateway.grpc.player.PlayerOuterClass.UpdatePlayerResponse response = playerService.updatePlayer(player);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .id(response.getPlayer().getId())
@@ -78,7 +78,7 @@ public class PlayerController {
     }
 
     @MutationMapping("deletePlayer")
-    Player deletePlayer(@Argument String id) {
+    public Player deletePlayer(@Argument String id) {
         org.example.apigateway.grpc.player.PlayerOuterClass.DeletePlayerResponse response = playerService.deletePlayer(id);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .id(response.getId())

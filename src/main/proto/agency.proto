@@ -1,8 +1,6 @@
 syntax = "proto3";
 option go_package = "./proto";
-//package org.example.apigateway.grpc;
 
-//option java_outer_classname = "AgencyOuterClass";
 option java_package = "org.example.apigateway.grpc.agency";
 
 package agency;
