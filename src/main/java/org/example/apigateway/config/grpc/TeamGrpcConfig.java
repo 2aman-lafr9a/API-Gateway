@@ -1,7 +1,8 @@
-package org.example.apigateway.config;
+package org.example.apigateway.config.grpc;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.client.inject.GrpcClientBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.example.apigateway.service.TeamService;
@@ -15,7 +16,7 @@ import org.example.apigateway.grpc.team.TeamGrpc;
 )
 public class TeamGrpcConfig {
     @Bean
-        TeamService teamService(@GrpcClient("team_service") TeamGrpc.TeamBlockingStub blockingStub) {
+        TeamService teamService(@Autowired TeamGrpc.TeamBlockingStub blockingStub) {
         return new TeamService(blockingStub);
     }
 }
