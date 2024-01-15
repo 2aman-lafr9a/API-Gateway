@@ -6,4 +6,4 @@ COPY . .
 
 RUN ./mvnw clean install -DskipTests
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","./target/ApiGateway-0.0.1-SNAPSHOT.jar"]
