@@ -18,7 +18,7 @@ public class ApiGatewayApplication {
         //?authentication_service is the name of the service in the docker-compose.yml file
         properties.setProperty("grpc.client.authentication_service.address", "static://" + ResolveHostnameToIP.resolve("authentication_service") + ":50000");
         //! hard coded ip address
-        properties.setProperty("grpc.client.authentication_service.address", "static//172.21.0.3:50000");
+        properties.setProperty("grpc.client.authentication_service.address", "static://172.21.0.3:50000");
 
         properties.setProperty("grpc.client.authentication_service.negotiation-type", "plaintext");
 
