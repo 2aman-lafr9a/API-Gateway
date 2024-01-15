@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +51,7 @@ public class AuthController {
 
             return new ResponseEntity<>(responseBody, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
             responseBody.put("message", e.getMessage());
             responseBody.put("success", "false");
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
