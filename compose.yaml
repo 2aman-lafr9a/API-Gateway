@@ -3,9 +3,11 @@ services:
     build: .
     ports:
       - "8080:8080"
+    networks:
+      - aman_network
+
+
 networks:
-  default:
+  aman_network:
+    driver: bridge
     external: true
-    name: 2aman_network
-
-
