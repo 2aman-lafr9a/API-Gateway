@@ -1,6 +1,9 @@
 package org.example.apigateway.controllers;
 
+import org.example.apigateway.codegen.types.Agency;
+import org.example.apigateway.codegen.types.AgencyInput;
 import org.example.apigateway.codegen.types.Offer;
+import org.example.apigateway.codegen.types.OfferType;
 import org.example.apigateway.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -26,6 +29,14 @@ public class OfferController {
                 .name(offer.getName())
                 .description(offer.getDescription())
                 .date(offer.getDate())
+                .rating(offer.getRating())
+                .price(offer.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(offer.getAgency().getName())
+                        .description(offer.getAgency().getDescription())
+                        .plan(offer.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(offer.getType().name()))
                 .build()).toList();
     }
 
@@ -37,28 +48,52 @@ public class OfferController {
                 .name(response.getName())
                 .description(response.getDescription())
                 .date(response.getDate())
+                .rating(response.getRating())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
                 .build();
     }
 
     @MutationMapping("createOffer")
-    public Offer createOffer(@Argument String name, @Argument String agency, @Argument String description, @Argument int price, @Argument String date) {
-        OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agency, description, price, date);
+    public Offer createOffer(@Argument String name, @Argument String agencyId, @Argument String description, @Argument int price, @Argument String date, @Argument OfferType type) {
+        OfferOuterClass.OfferType offerType = OfferOuterClass.OfferType.valueOf(type.name());
+        OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agencyId, description, price, date, offerType);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
                 .description(response.getDescription())
                 .date(response.getDate())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
                 .build();
     }
 
     @MutationMapping("updateOffer")
-    public Offer updateOffer(@Argument String id, @Argument String name, @Argument String agency, @Argument String description, @Argument int price, @Argument String date) {
-        OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date);
+    public Offer updateOffer(@Argument String id, @Argument String name, @Argument AgencyInput agency, @Argument String description, @Argument int price, @Argument String date, @Argument int rating, @Argument OfferType type) {
+        OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date, rating, type);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
                 .description(response.getDescription())
                 .date(response.getDate())
+                .rating(response.getRating())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
                 .build();
     }
 
@@ -70,6 +105,14 @@ public class OfferController {
                 .name(response.getName())
                 .description(response.getDescription())
                 .date(response.getDate())
+                .rating(response.getRating())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
                 .build();
     }
 }

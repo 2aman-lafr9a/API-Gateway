@@ -1,6 +1,8 @@
 package org.example.apigateway.service;
 
 import lombok.AllArgsConstructor;
+import org.example.apigateway.codegen.types.AgencyInput;
+import org.example.apigateway.codegen.types.OfferType;
 import org.example.apigateway.grpc.offer.OfferGrpc;
 import org.springframework.stereotype.Service;
 import org.example.apigateway.grpc.offer.OfferOuterClass;
@@ -23,24 +25,31 @@ public class OfferService {
                 .build());
     }
 
-    public OfferOuterClass.CreateOfferResponse createOffer(String name, String agency, String description, int price, String date) {
+    public OfferOuterClass.CreateOfferResponse createOffer(String name, String agencyId, String description, int price, String date, OfferOuterClass.OfferType type) {
         return offerStub.createOffer(OfferOuterClass.CreateOfferRequest.newBuilder()
                 .setName(name)
-                .setAgencyId(agency)
+                .setAgencyId(agencyId)
                 .setDescription(description)
                 .setPrice(price)
                 .setDate(date)
+                .setType(type)
                 .build());
     }
 
-    public OfferOuterClass.UpdateOfferResponse updateOffer(String id, String name, String agency, String description, int price, String date) {
+    public OfferOuterClass.UpdateOfferResponse updateOffer(String id, String name, AgencyInput agency, String description, int price, String date, int rating, OfferType type) {
         return offerStub.updateOffer(OfferOuterClass.UpdateOfferRequest.newBuilder()
                 .setId(id)
                 .setName(name)
-                .setAgencyId(agency)
+                .setAgency(OfferOuterClass.AgencyItem.newBuilder()
+                        .setName(agency.getName())
+                        .setDescription(agency.getDescription())
+                        .setPlan(agency.getPlan())
+                        .build())
                 .setDescription(description)
                 .setPrice(price)
                 .setDate(date)
+                .setRating(rating)
+                .setType(OfferOuterClass.OfferType.valueOf(type.name()))
                 .build());
     }
 

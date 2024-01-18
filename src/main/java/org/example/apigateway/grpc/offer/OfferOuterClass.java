@@ -14,6 +14,132 @@ public final class OfferOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code offer.OfferType}
+   */
+  public enum OfferType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>Normal = 0;</code>
+     */
+    Normal(0),
+    /**
+     * <code>Special = 1;</code>
+     */
+    Special(1),
+    /**
+     * <code>Important = 2;</code>
+     */
+    Important(2),
+    /**
+     * <code>Ultimate = 3;</code>
+     */
+    Ultimate(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>Normal = 0;</code>
+     */
+    public static final int Normal_VALUE = 0;
+    /**
+     * <code>Special = 1;</code>
+     */
+    public static final int Special_VALUE = 1;
+    /**
+     * <code>Important = 2;</code>
+     */
+    public static final int Important_VALUE = 2;
+    /**
+     * <code>Ultimate = 3;</code>
+     */
+    public static final int Ultimate_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static OfferType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static OfferType forNumber(int value) {
+      switch (value) {
+        case 0: return Normal;
+        case 1: return Special;
+        case 2: return Important;
+        case 3: return Ultimate;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<OfferType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        OfferType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OfferType>() {
+            public OfferType findValueByNumber(int number) {
+              return OfferType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.example.apigateway.grpc.offer.OfferOuterClass.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final OfferType[] VALUES = values();
+
+    public static OfferType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private OfferType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:offer.OfferType)
+  }
+
   public interface OfferItemOrBuilder extends
       // @@protoc_insertion_point(interface_extends:offer.OfferItem)
       com.google.protobuf.MessageOrBuilder {
@@ -43,16 +169,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -83,6 +212,23 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    int getRating();
+
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.OfferItem}
@@ -99,9 +245,9 @@ public final class OfferOuterClass {
     private OfferItem() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -202,43 +348,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -330,6 +463,35 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 7;
+    private int rating_ = 0;
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    @java.lang.Override
+    public int getRating() {
+      return rating_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 8;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -350,8 +512,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -361,6 +523,12 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(8, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -377,8 +545,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -389,6 +558,14 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -409,14 +586,20 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (getRating()
+          != other.getRating()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -432,14 +615,20 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -573,10 +762,16 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        rating_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -617,7 +812,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -627,6 +824,12 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rating_ = rating_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -684,10 +887,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -701,6 +902,12 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -739,7 +946,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -758,6 +967,16 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                rating_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -919,76 +1138,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -1163,6 +1429,91 @@ public final class OfferOuterClass {
         checkByteStringIsUtf8(value);
         date_ = value;
         bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return The rating.
+       */
+      @java.lang.Override
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @param value The rating to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRating(int value) {
+
+        rating_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRating() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -2990,16 +3341,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -3030,6 +3384,23 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    int getRating();
+
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.GetOfferResponse}
@@ -3046,9 +3417,9 @@ public final class OfferOuterClass {
     private GetOfferResponse() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -3149,43 +3520,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -3277,6 +3635,35 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 7;
+    private int rating_ = 0;
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    @java.lang.Override
+    public int getRating() {
+      return rating_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 8;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3297,8 +3684,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -3308,6 +3695,12 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(8, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3324,8 +3717,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -3336,6 +3730,14 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -3356,14 +3758,20 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (getRating()
+          != other.getRating()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3379,14 +3787,20 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3520,10 +3934,16 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        rating_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -3564,7 +3984,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -3574,6 +3996,12 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rating_ = rating_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -3631,10 +4059,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -3648,6 +4074,12 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -3686,7 +4118,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -3705,6 +4139,16 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                rating_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3866,76 +4310,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -4113,6 +4604,91 @@ public final class OfferOuterClass {
         onChanged();
         return this;
       }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return The rating.
+       */
+      @java.lang.Override
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @param value The rating to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRating(int value) {
+
+        rating_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRating() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4194,12 +4770,12 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 2;</code>
+     * <code>string agencyId = 2;</code>
      * @return The agencyId.
      */
     java.lang.String getAgencyId();
     /**
-     * <code>string agency_id = 2;</code>
+     * <code>string agencyId = 2;</code>
      * @return The bytes for agencyId.
      */
     com.google.protobuf.ByteString
@@ -4234,6 +4810,17 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>.offer.OfferType type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 6;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.CreateOfferRequest}
@@ -4252,6 +4839,7 @@ public final class OfferOuterClass {
       agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -4313,11 +4901,11 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 2;
+    public static final int AGENCYID_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object agencyId_ = "";
     /**
-     * <code>string agency_id = 2;</code>
+     * <code>string agencyId = 2;</code>
      * @return The agencyId.
      */
     @java.lang.Override
@@ -4334,7 +4922,7 @@ public final class OfferOuterClass {
       }
     }
     /**
-     * <code>string agency_id = 2;</code>
+     * <code>string agencyId = 2;</code>
      * @return The bytes for agencyId.
      */
     @java.lang.Override
@@ -4441,6 +5029,24 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int TYPE_FIELD_NUMBER = 6;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 6;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4470,6 +5076,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, date_);
       }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(6, type_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4494,6 +5103,10 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, date_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4520,6 +5133,7 @@ public final class OfferOuterClass {
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4533,7 +5147,7 @@ public final class OfferOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
+      hash = (37 * hash) + AGENCYID_FIELD_NUMBER;
       hash = (53 * hash) + getAgencyId().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
@@ -4541,6 +5155,8 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4677,6 +5293,7 @@ public final class OfferOuterClass {
         description_ = "";
         price_ = 0;
         date_ = "";
+        type_ = 0;
         return this;
       }
 
@@ -4724,6 +5341,9 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -4794,6 +5414,9 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000010;
           onChanged();
         }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -4845,6 +5468,11 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 48: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4936,7 +5564,7 @@ public final class OfferOuterClass {
 
       private java.lang.Object agencyId_ = "";
       /**
-       * <code>string agency_id = 2;</code>
+       * <code>string agencyId = 2;</code>
        * @return The agencyId.
        */
       public java.lang.String getAgencyId() {
@@ -4952,7 +5580,7 @@ public final class OfferOuterClass {
         }
       }
       /**
-       * <code>string agency_id = 2;</code>
+       * <code>string agencyId = 2;</code>
        * @return The bytes for agencyId.
        */
       public com.google.protobuf.ByteString
@@ -4969,7 +5597,7 @@ public final class OfferOuterClass {
         }
       }
       /**
-       * <code>string agency_id = 2;</code>
+       * <code>string agencyId = 2;</code>
        * @param value The agencyId to set.
        * @return This builder for chaining.
        */
@@ -4982,7 +5610,7 @@ public final class OfferOuterClass {
         return this;
       }
       /**
-       * <code>string agency_id = 2;</code>
+       * <code>string agencyId = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearAgencyId() {
@@ -4992,7 +5620,7 @@ public final class OfferOuterClass {
         return this;
       }
       /**
-       * <code>string agency_id = 2;</code>
+       * <code>string agencyId = 2;</code>
        * @param value The bytes for agencyId to set.
        * @return This builder for chaining.
        */
@@ -5181,6 +5809,59 @@ public final class OfferOuterClass {
         onChanged();
         return this;
       }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 6;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 6;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 6;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 6;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5274,16 +5955,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -5314,6 +5998,17 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>.offer.OfferType type = 7;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 7;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.CreateOfferResponse}
@@ -5330,9 +6025,9 @@ public final class OfferOuterClass {
     private CreateOfferResponse() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -5433,43 +6128,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -5561,6 +6243,24 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int TYPE_FIELD_NUMBER = 7;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 7;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 7;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5581,8 +6281,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -5592,6 +6292,9 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(7, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5608,8 +6311,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -5620,6 +6324,10 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -5640,14 +6348,18 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5663,14 +6375,18 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5804,10 +6520,15 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        type_ = 0;
         return this;
       }
 
@@ -5848,7 +6569,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -5858,6 +6581,9 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -5915,10 +6641,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -5932,6 +6656,9 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -5970,7 +6697,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -5989,6 +6718,11 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6150,76 +6884,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -6397,6 +7178,59 @@ public final class OfferOuterClass {
         onChanged();
         return this;
       }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 7;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 7;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 7;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 7;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6490,16 +7324,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -6530,6 +7367,23 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    int getRating();
+
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.UpdateOfferRequest}
@@ -6546,9 +7400,9 @@ public final class OfferOuterClass {
     private UpdateOfferRequest() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -6649,43 +7503,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -6777,6 +7618,35 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 7;
+    private int rating_ = 0;
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    @java.lang.Override
+    public int getRating() {
+      return rating_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 8;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6797,8 +7667,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -6808,6 +7678,12 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(8, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6824,8 +7700,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -6836,6 +7713,14 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6856,14 +7741,20 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (getRating()
+          != other.getRating()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -6879,14 +7770,20 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7020,10 +7917,16 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        rating_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -7064,7 +7967,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -7074,6 +7979,12 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rating_ = rating_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -7131,10 +8042,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -7148,6 +8057,12 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -7186,7 +8101,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -7205,6 +8122,16 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                rating_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -7366,76 +8293,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -7613,6 +8587,91 @@ public final class OfferOuterClass {
         onChanged();
         return this;
       }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return The rating.
+       */
+      @java.lang.Override
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @param value The rating to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRating(int value) {
+
+        rating_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRating() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7706,16 +8765,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -7746,6 +8808,23 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    int getRating();
+
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.UpdateOfferResponse}
@@ -7762,9 +8841,9 @@ public final class OfferOuterClass {
     private UpdateOfferResponse() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -7865,43 +8944,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -7993,6 +9059,35 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 7;
+    private int rating_ = 0;
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    @java.lang.Override
+    public int getRating() {
+      return rating_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 8;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8013,8 +9108,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -8024,6 +9119,12 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(8, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8040,8 +9141,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -8052,6 +9154,14 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -8072,14 +9182,20 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (getRating()
+          != other.getRating()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -8095,14 +9211,20 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8236,10 +9358,16 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        rating_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -8280,7 +9408,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -8290,6 +9420,12 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rating_ = rating_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -8347,10 +9483,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -8364,6 +9498,12 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -8402,7 +9542,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -8421,6 +9563,16 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                rating_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -8582,76 +9734,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -8826,6 +10025,91 @@ public final class OfferOuterClass {
         checkByteStringIsUtf8(value);
         date_ = value;
         bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return The rating.
+       */
+      @java.lang.Override
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @param value The rating to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRating(int value) {
+
+        rating_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRating() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -9474,16 +10758,19 @@ public final class OfferOuterClass {
         getNameBytes();
 
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
-    java.lang.String getAgencyId();
+    boolean hasAgency();
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
-    com.google.protobuf.ByteString
-        getAgencyIdBytes();
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency();
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder();
 
     /**
      * <code>string description = 4;</code>
@@ -9514,6 +10801,23 @@ public final class OfferOuterClass {
      */
     com.google.protobuf.ByteString
         getDateBytes();
+
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    int getRating();
+
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType();
   }
   /**
    * Protobuf type {@code offer.DeleteOfferResponse}
@@ -9530,9 +10834,9 @@ public final class OfferOuterClass {
     private DeleteOfferResponse() {
       id_ = "";
       name_ = "";
-      agencyId_ = "";
       description_ = "";
       date_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -9633,43 +10937,30 @@ public final class OfferOuterClass {
       }
     }
 
-    public static final int AGENCY_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object agencyId_ = "";
+    public static final int AGENCY_FIELD_NUMBER = 3;
+    private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return Whether the agency field is set.
      */
     @java.lang.Override
-    public java.lang.String getAgencyId() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        agencyId_ = s;
-        return s;
-      }
+    public boolean hasAgency() {
+      return agency_ != null;
     }
     /**
-     * <code>string agency_id = 3;</code>
-     * @return The bytes for agencyId.
+     * <code>.offer.AgencyItem agency = 3;</code>
+     * @return The agency.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAgencyIdBytes() {
-      java.lang.Object ref = agencyId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        agencyId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+    }
+    /**
+     * <code>.offer.AgencyItem agency = 3;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+      return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -9761,6 +11052,35 @@ public final class OfferOuterClass {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 7;
+    private int rating_ = 0;
+    /**
+     * <code>int32 rating = 7;</code>
+     * @return The rating.
+     */
+    @java.lang.Override
+    public int getRating() {
+      return rating_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 8;
+    private int type_ = 0;
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.offer.OfferType type = 8;</code>
+     * @return The type.
+     */
+    @java.lang.Override public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+      org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+      return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9781,8 +11101,8 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, agencyId_);
+      if (agency_ != null) {
+        output.writeMessage(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -9792,6 +11112,12 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
+      }
+      if (rating_ != 0) {
+        output.writeInt32(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        output.writeEnum(8, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9808,8 +11134,9 @@ public final class OfferOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agencyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, agencyId_);
+      if (agency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAgency());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -9820,6 +11147,14 @@ public final class OfferOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(date_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, rating_);
+      }
+      if (type_ != org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -9840,14 +11175,20 @@ public final class OfferOuterClass {
           .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getAgencyId()
-          .equals(other.getAgencyId())) return false;
+      if (hasAgency() != other.hasAgency()) return false;
+      if (hasAgency()) {
+        if (!getAgency()
+            .equals(other.getAgency())) return false;
+      }
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getPrice()
           != other.getPrice()) return false;
       if (!getDate()
           .equals(other.getDate())) return false;
+      if (getRating()
+          != other.getRating()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -9863,14 +11204,20 @@ public final class OfferOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + AGENCY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAgencyId().hashCode();
+      if (hasAgency()) {
+        hash = (37 * hash) + AGENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getAgency().hashCode();
+      }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PRICE_FIELD_NUMBER;
       hash = (53 * hash) + getPrice();
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10004,10 +11351,16 @@ public final class OfferOuterClass {
         bitField0_ = 0;
         id_ = "";
         name_ = "";
-        agencyId_ = "";
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         description_ = "";
         price_ = 0;
         date_ = "";
+        rating_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -10048,7 +11401,9 @@ public final class OfferOuterClass {
           result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.agencyId_ = agencyId_;
+          result.agency_ = agencyBuilder_ == null
+              ? agency_
+              : agencyBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.description_ = description_;
@@ -10058,6 +11413,12 @@ public final class OfferOuterClass {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.date_ = date_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rating_ = rating_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -10115,10 +11476,8 @@ public final class OfferOuterClass {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getAgencyId().isEmpty()) {
-          agencyId_ = other.agencyId_;
-          bitField0_ |= 0x00000004;
-          onChanged();
+        if (other.hasAgency()) {
+          mergeAgency(other.getAgency());
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
@@ -10132,6 +11491,12 @@ public final class OfferOuterClass {
           date_ = other.date_;
           bitField0_ |= 0x00000020;
           onChanged();
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -10170,7 +11535,9 @@ public final class OfferOuterClass {
                 break;
               } // case 18
               case 26: {
-                agencyId_ = input.readStringRequireUtf8();
+                input.readMessage(
+                    getAgencyFieldBuilder().getBuilder(),
+                    extensionRegistry);
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -10189,6 +11556,16 @@ public final class OfferOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 56: {
+                rating_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -10350,76 +11727,123 @@ public final class OfferOuterClass {
         return this;
       }
 
-      private java.lang.Object agencyId_ = "";
+      private org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem agency_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> agencyBuilder_;
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return Whether the agency field is set.
        */
-      public java.lang.String getAgencyId() {
-        java.lang.Object ref = agencyId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          agencyId_ = s;
-          return s;
+      public boolean hasAgency() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       * @return The agency.
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getAgency() {
+        if (agencyBuilder_ == null) {
+          return agency_ == null ? org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
         } else {
-          return (java.lang.String) ref;
+          return agencyBuilder_.getMessage();
         }
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return The bytes for agencyId.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getAgencyIdBytes() {
-        java.lang.Object ref = agencyId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          agencyId_ = b;
-          return b;
+      public Builder setAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          agency_ = value;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          agencyBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string agency_id = 3;</code>
-       * @param value The agencyId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAgencyId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        agencyId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder clearAgencyId() {
-        agencyId_ = getDefaultInstance().getAgencyId();
+      public Builder setAgency(
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder builderForValue) {
+        if (agencyBuilder_ == null) {
+          agency_ = builderForValue.build();
+        } else {
+          agencyBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder mergeAgency(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem value) {
+        if (agencyBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            agency_ != null &&
+            agency_ != org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) {
+            getAgencyBuilder().mergeFrom(value);
+          } else {
+            agency_ = value;
+          }
+        } else {
+          agencyBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public Builder clearAgency() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        agency_ = null;
+        if (agencyBuilder_ != null) {
+          agencyBuilder_.dispose();
+          agencyBuilder_ = null;
+        }
         onChanged();
         return this;
       }
       /**
-       * <code>string agency_id = 3;</code>
-       * @param value The bytes for agencyId to set.
-       * @return This builder for chaining.
+       * <code>.offer.AgencyItem agency = 3;</code>
        */
-      public Builder setAgencyIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        agencyId_ = value;
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder getAgencyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return this;
+        return getAgencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder getAgencyOrBuilder() {
+        if (agencyBuilder_ != null) {
+          return agencyBuilder_.getMessageOrBuilder();
+        } else {
+          return agency_ == null ?
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance() : agency_;
+        }
+      }
+      /**
+       * <code>.offer.AgencyItem agency = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder> 
+          getAgencyFieldBuilder() {
+        if (agencyBuilder_ == null) {
+          agencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder>(
+                  getAgency(),
+                  getParentForChildren(),
+                  isClean());
+          agency_ = null;
+        }
+        return agencyBuilder_;
       }
 
       private java.lang.Object description_ = "";
@@ -10597,6 +12021,91 @@ public final class OfferOuterClass {
         onChanged();
         return this;
       }
+
+      private int rating_ ;
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return The rating.
+       */
+      @java.lang.Override
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @param value The rating to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRating(int value) {
+
+        rating_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rating = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRating() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferType getType() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.OfferType result = org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.forNumber(type_);
+        return result == null ? org.example.apigateway.grpc.offer.OfferOuterClass.OfferType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.example.apigateway.grpc.offer.OfferOuterClass.OfferType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.offer.OfferType type = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10661,6 +12170,1380 @@ public final class OfferOuterClass {
 
   }
 
+  public interface AgencyItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:offer.AgencyItem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string plan = 3;</code>
+     * @return The plan.
+     */
+    java.lang.String getPlan();
+    /**
+     * <code>string plan = 3;</code>
+     * @return The bytes for plan.
+     */
+    com.google.protobuf.ByteString
+        getPlanBytes();
+
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> 
+        getOffersList();
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem getOffers(int index);
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    int getOffersCount();
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    java.util.List<? extends org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder> 
+        getOffersOrBuilderList();
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder getOffersOrBuilder(
+        int index);
+
+    /**
+     * <code>string description = 5;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 5;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * Protobuf type {@code offer.AgencyItem}
+   */
+  public static final class AgencyItem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:offer.AgencyItem)
+      AgencyItemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AgencyItem.newBuilder() to construct.
+    private AgencyItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AgencyItem() {
+      id_ = "";
+      name_ = "";
+      plan_ = "";
+      offers_ = java.util.Collections.emptyList();
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AgencyItem();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.example.apigateway.grpc.offer.OfferOuterClass.internal_static_offer_AgencyItem_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.example.apigateway.grpc.offer.OfferOuterClass.internal_static_offer_AgencyItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.class, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PLAN_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object plan_ = "";
+    /**
+     * <code>string plan = 3;</code>
+     * @return The plan.
+     */
+    @java.lang.Override
+    public java.lang.String getPlan() {
+      java.lang.Object ref = plan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        plan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string plan = 3;</code>
+     * @return The bytes for plan.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPlanBytes() {
+      java.lang.Object ref = plan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        plan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OFFERS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> offers_;
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> getOffersList() {
+      return offers_;
+    }
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder> 
+        getOffersOrBuilderList() {
+      return offers_;
+    }
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    @java.lang.Override
+    public int getOffersCount() {
+      return offers_.size();
+    }
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem getOffers(int index) {
+      return offers_.get(index);
+    }
+    /**
+     * <code>repeated .offer.OfferItem offers = 4;</code>
+     */
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder getOffersOrBuilder(
+        int index) {
+      return offers_.get(index);
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
+    /**
+     * <code>string description = 5;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 5;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(plan_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, plan_);
+      }
+      for (int i = 0; i < offers_.size(); i++) {
+        output.writeMessage(4, offers_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(plan_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, plan_);
+      }
+      for (int i = 0; i < offers_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, offers_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem)) {
+        return super.equals(obj);
+      }
+      org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem other = (org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getPlan()
+          .equals(other.getPlan())) return false;
+      if (!getOffersList()
+          .equals(other.getOffersList())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + PLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getPlan().hashCode();
+      if (getOffersCount() > 0) {
+        hash = (37 * hash) + OFFERS_FIELD_NUMBER;
+        hash = (53 * hash) + getOffersList().hashCode();
+      }
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code offer.AgencyItem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:offer.AgencyItem)
+        org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.example.apigateway.grpc.offer.OfferOuterClass.internal_static_offer_AgencyItem_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.example.apigateway.grpc.offer.OfferOuterClass.internal_static_offer_AgencyItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.class, org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.Builder.class);
+      }
+
+      // Construct using org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        name_ = "";
+        plan_ = "";
+        if (offersBuilder_ == null) {
+          offers_ = java.util.Collections.emptyList();
+        } else {
+          offers_ = null;
+          offersBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        description_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.example.apigateway.grpc.offer.OfferOuterClass.internal_static_offer_AgencyItem_descriptor;
+      }
+
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getDefaultInstanceForType() {
+        return org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem build() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem buildPartial() {
+        org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem result = new org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem result) {
+        if (offersBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            offers_ = java.util.Collections.unmodifiableList(offers_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.offers_ = offers_;
+        } else {
+          result.offers_ = offersBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.plan_ = plan_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.description_ = description_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem) {
+          return mergeFrom((org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem other) {
+        if (other == org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getPlan().isEmpty()) {
+          plan_ = other.plan_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (offersBuilder_ == null) {
+          if (!other.offers_.isEmpty()) {
+            if (offers_.isEmpty()) {
+              offers_ = other.offers_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureOffersIsMutable();
+              offers_.addAll(other.offers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.offers_.isEmpty()) {
+            if (offersBuilder_.isEmpty()) {
+              offersBuilder_.dispose();
+              offersBuilder_ = null;
+              offers_ = other.offers_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              offersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOffersFieldBuilder() : null;
+            } else {
+              offersBuilder_.addAllMessages(other.offers_);
+            }
+          }
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                plan_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem m =
+                    input.readMessage(
+                        org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.parser(),
+                        extensionRegistry);
+                if (offersBuilder_ == null) {
+                  ensureOffersIsMutable();
+                  offers_.add(m);
+                } else {
+                  offersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        name_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        name_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object plan_ = "";
+      /**
+       * <code>string plan = 3;</code>
+       * @return The plan.
+       */
+      public java.lang.String getPlan() {
+        java.lang.Object ref = plan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          plan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string plan = 3;</code>
+       * @return The bytes for plan.
+       */
+      public com.google.protobuf.ByteString
+          getPlanBytes() {
+        java.lang.Object ref = plan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          plan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string plan = 3;</code>
+       * @param value The plan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlan(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        plan_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string plan = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlan() {
+        plan_ = getDefaultInstance().getPlan();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string plan = 3;</code>
+       * @param value The bytes for plan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        plan_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> offers_ =
+        java.util.Collections.emptyList();
+      private void ensureOffersIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          offers_ = new java.util.ArrayList<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem>(offers_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder> offersBuilder_;
+
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> getOffersList() {
+        if (offersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(offers_);
+        } else {
+          return offersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public int getOffersCount() {
+        if (offersBuilder_ == null) {
+          return offers_.size();
+        } else {
+          return offersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem getOffers(int index) {
+        if (offersBuilder_ == null) {
+          return offers_.get(index);
+        } else {
+          return offersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder setOffers(
+          int index, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem value) {
+        if (offersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOffersIsMutable();
+          offers_.set(index, value);
+          onChanged();
+        } else {
+          offersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder setOffers(
+          int index, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder builderForValue) {
+        if (offersBuilder_ == null) {
+          ensureOffersIsMutable();
+          offers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          offersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder addOffers(org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem value) {
+        if (offersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOffersIsMutable();
+          offers_.add(value);
+          onChanged();
+        } else {
+          offersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder addOffers(
+          int index, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem value) {
+        if (offersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOffersIsMutable();
+          offers_.add(index, value);
+          onChanged();
+        } else {
+          offersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder addOffers(
+          org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder builderForValue) {
+        if (offersBuilder_ == null) {
+          ensureOffersIsMutable();
+          offers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          offersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder addOffers(
+          int index, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder builderForValue) {
+        if (offersBuilder_ == null) {
+          ensureOffersIsMutable();
+          offers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          offersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder addAllOffers(
+          java.lang.Iterable<? extends org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem> values) {
+        if (offersBuilder_ == null) {
+          ensureOffersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, offers_);
+          onChanged();
+        } else {
+          offersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder clearOffers() {
+        if (offersBuilder_ == null) {
+          offers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          offersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public Builder removeOffers(int index) {
+        if (offersBuilder_ == null) {
+          ensureOffersIsMutable();
+          offers_.remove(index);
+          onChanged();
+        } else {
+          offersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder getOffersBuilder(
+          int index) {
+        return getOffersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder getOffersOrBuilder(
+          int index) {
+        if (offersBuilder_ == null) {
+          return offers_.get(index);  } else {
+          return offersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public java.util.List<? extends org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder> 
+           getOffersOrBuilderList() {
+        if (offersBuilder_ != null) {
+          return offersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(offers_);
+        }
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder addOffersBuilder() {
+        return getOffersFieldBuilder().addBuilder(
+            org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder addOffersBuilder(
+          int index) {
+        return getOffersFieldBuilder().addBuilder(
+            index, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .offer.OfferItem offers = 4;</code>
+       */
+      public java.util.List<org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder> 
+           getOffersBuilderList() {
+        return getOffersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder> 
+          getOffersFieldBuilder() {
+        if (offersBuilder_ == null) {
+          offersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItem.Builder, org.example.apigateway.grpc.offer.OfferOuterClass.OfferItemOrBuilder>(
+                  offers_,
+                  ((bitField0_ & 0x00000008) != 0),
+                  getParentForChildren(),
+                  isClean());
+          offers_ = null;
+        }
+        return offersBuilder_;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 5;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        description_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        description_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:offer.AgencyItem)
+    }
+
+    // @@protoc_insertion_point(class_scope:offer.AgencyItem)
+    private static final org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem();
+    }
+
+    public static org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AgencyItem>
+        PARSER = new com.google.protobuf.AbstractParser<AgencyItem>() {
+      @java.lang.Override
+      public AgencyItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<AgencyItem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AgencyItem> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.example.apigateway.grpc.offer.OfferOuterClass.AgencyItem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_offer_OfferItem_descriptor;
   private static final 
@@ -10716,6 +13599,11 @@ public final class OfferOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_offer_DeleteOfferResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_offer_AgencyItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_offer_AgencyItem_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10725,41 +13613,55 @@ public final class OfferOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013offer.proto\022\005offer\"j\n\tOfferItem\022\n\n\002id\030" +
-      "\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\tagency_id\030\003 \001(\t\022\023" +
-      "\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004da" +
-      "te\030\006 \001(\t\"\022\n\020GetOffersRequest\"5\n\021GetOffer" +
-      "sResponse\022 \n\006offers\030\001 \003(\0132\020.offer.OfferI" +
-      "tem\"\037\n\017GetOfferRequest\022\014\n\004name\030\001 \001(\t\"q\n\020" +
-      "GetOfferResponse\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001" +
-      "(\t\022\021\n\tagency_id\030\003 \001(\t\022\023\n\013description\030\004 \001" +
-      "(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\"g\n\022Creat" +
-      "eOfferRequest\022\014\n\004name\030\001 \001(\t\022\021\n\tagency_id" +
-      "\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005price\030\004 \001" +
-      "(\005\022\014\n\004date\030\005 \001(\t\"t\n\023CreateOfferResponse\022" +
-      "\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\tagency_id\030\003" +
-      " \001(\t\022\023\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001(\005" +
-      "\022\014\n\004date\030\006 \001(\t\"s\n\022UpdateOfferRequest\022\n\n\002" +
-      "id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\tagency_id\030\003 \001(" +
-      "\t\022\023\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n" +
-      "\004date\030\006 \001(\t\"t\n\023UpdateOfferResponse\022\n\n\002id" +
-      "\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\tagency_id\030\003 \001(\t\022" +
-      "\023\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004d" +
-      "ate\030\006 \001(\t\" \n\022DeleteOfferRequest\022\n\n\002id\030\001 " +
-      "\001(\t\"t\n\023DeleteOfferResponse\022\n\n\002id\030\001 \001(\t\022\014" +
-      "\n\004name\030\002 \001(\t\022\021\n\tagency_id\030\003 \001(\t\022\023\n\013descr" +
-      "iption\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(" +
-      "\t2\326\002\n\005Offer\022>\n\tGetOffers\022\027.offer.GetOffe" +
-      "rsRequest\032\030.offer.GetOffersResponse\022;\n\010G" +
-      "etOffer\022\026.offer.GetOfferRequest\032\027.offer." +
-      "GetOfferResponse\022D\n\013CreateOffer\022\031.offer." +
-      "CreateOfferRequest\032\032.offer.CreateOfferRe" +
-      "sponse\022D\n\013UpdateOffer\022\031.offer.UpdateOffe" +
-      "rRequest\032\032.offer.UpdateOfferResponse\022D\n\013" +
-      "DeleteOffer\022\031.offer.DeleteOfferRequest\032\032" +
-      ".offer.DeleteOfferResponseB=\n!org.exampl" +
-      "e.apigateway.grpc.offerB\017OfferOuterClass" +
-      "Z\007./protob\006proto3"
+      "\n\013offer.proto\022\005offer\"\252\001\n\tOfferItem\022\n\n\002id" +
+      "\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006agency\030\003 \001(\0132\021.o" +
+      "ffer.AgencyItem\022\023\n\013description\030\004 \001(\t\022\r\n\005" +
+      "price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\016\n\006rating\030\007 \001(" +
+      "\005\022\036\n\004type\030\010 \001(\0162\020.offer.OfferType\"\022\n\020Get" +
+      "OffersRequest\"5\n\021GetOffersResponse\022 \n\006of" +
+      "fers\030\001 \003(\0132\020.offer.OfferItem\"\037\n\017GetOffer" +
+      "Request\022\014\n\004name\030\001 \001(\t\"\261\001\n\020GetOfferRespon" +
+      "se\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006agency\030\003" +
+      " \001(\0132\021.offer.AgencyItem\022\023\n\013description\030\004" +
+      " \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\016\n\006rat" +
+      "ing\030\007 \001(\005\022\036\n\004type\030\010 \001(\0162\020.offer.OfferTyp" +
+      "e\"\206\001\n\022CreateOfferRequest\022\014\n\004name\030\001 \001(\t\022\020" +
+      "\n\010agencyId\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n" +
+      "\005price\030\004 \001(\005\022\014\n\004date\030\005 \001(\t\022\036\n\004type\030\006 \001(\016" +
+      "2\020.offer.OfferType\"\244\001\n\023CreateOfferRespon" +
+      "se\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006agency\030\003" +
+      " \001(\0132\021.offer.AgencyItem\022\023\n\013description\030\004" +
+      " \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\036\n\004typ" +
+      "e\030\007 \001(\0162\020.offer.OfferType\"\263\001\n\022UpdateOffe" +
+      "rRequest\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006ag" +
+      "ency\030\003 \001(\0132\021.offer.AgencyItem\022\023\n\013descrip" +
+      "tion\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022" +
+      "\016\n\006rating\030\007 \001(\005\022\036\n\004type\030\010 \001(\0162\020.offer.Of" +
+      "ferType\"\264\001\n\023UpdateOfferResponse\022\n\n\002id\030\001 " +
+      "\001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006agency\030\003 \001(\0132\021.offe" +
+      "r.AgencyItem\022\023\n\013description\030\004 \001(\t\022\r\n\005pri" +
+      "ce\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\016\n\006rating\030\007 \001(\005\022\036" +
+      "\n\004type\030\010 \001(\0162\020.offer.OfferType\" \n\022Delete" +
+      "OfferRequest\022\n\n\002id\030\001 \001(\t\"\264\001\n\023DeleteOffer" +
+      "Response\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022!\n\006ag" +
+      "ency\030\003 \001(\0132\021.offer.AgencyItem\022\023\n\013descrip" +
+      "tion\030\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022" +
+      "\016\n\006rating\030\007 \001(\005\022\036\n\004type\030\010 \001(\0162\020.offer.Of" +
+      "ferType\"k\n\nAgencyItem\022\n\n\002id\030\001 \001(\t\022\014\n\004nam" +
+      "e\030\002 \001(\t\022\014\n\004plan\030\003 \001(\t\022 \n\006offers\030\004 \003(\0132\020." +
+      "offer.OfferItem\022\023\n\013description\030\005 \001(\t*A\n\t" +
+      "OfferType\022\n\n\006Normal\020\000\022\013\n\007Special\020\001\022\r\n\tIm" +
+      "portant\020\002\022\014\n\010Ultimate\020\0032\326\002\n\005Offer\022>\n\tGet" +
+      "Offers\022\027.offer.GetOffersRequest\032\030.offer." +
+      "GetOffersResponse\022;\n\010GetOffer\022\026.offer.Ge" +
+      "tOfferRequest\032\027.offer.GetOfferResponse\022D" +
+      "\n\013CreateOffer\022\031.offer.CreateOfferRequest" +
+      "\032\032.offer.CreateOfferResponse\022D\n\013UpdateOf" +
+      "fer\022\031.offer.UpdateOfferRequest\032\032.offer.U" +
+      "pdateOfferResponse\022D\n\013DeleteOffer\022\031.offe" +
+      "r.DeleteOfferRequest\032\032.offer.DeleteOffer" +
+      "ResponseB=\n!org.example.apigateway.grpc." +
+      "offerB\017OfferOuterClassZ\007./protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10770,7 +13672,7 @@ public final class OfferOuterClass {
     internal_static_offer_OfferItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_OfferItem_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Rating", "Type", });
     internal_static_offer_GetOffersRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_offer_GetOffersRequest_fieldAccessorTable = new
@@ -10794,31 +13696,31 @@ public final class OfferOuterClass {
     internal_static_offer_GetOfferResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_GetOfferResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Rating", "Type", });
     internal_static_offer_CreateOfferRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_offer_CreateOfferRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_CreateOfferRequest_descriptor,
-        new java.lang.String[] { "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Name", "AgencyId", "Description", "Price", "Date", "Type", });
     internal_static_offer_CreateOfferResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_offer_CreateOfferResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_CreateOfferResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Type", });
     internal_static_offer_UpdateOfferRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_offer_UpdateOfferRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_UpdateOfferRequest_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Rating", "Type", });
     internal_static_offer_UpdateOfferResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_offer_UpdateOfferResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_UpdateOfferResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Rating", "Type", });
     internal_static_offer_DeleteOfferRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_offer_DeleteOfferRequest_fieldAccessorTable = new
@@ -10830,7 +13732,13 @@ public final class OfferOuterClass {
     internal_static_offer_DeleteOfferResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_offer_DeleteOfferResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "AgencyId", "Description", "Price", "Date", });
+        new java.lang.String[] { "Id", "Name", "Agency", "Description", "Price", "Date", "Rating", "Type", });
+    internal_static_offer_AgencyItem_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_offer_AgencyItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_offer_AgencyItem_descriptor,
+        new java.lang.String[] { "Id", "Name", "Plan", "Offers", "Description", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

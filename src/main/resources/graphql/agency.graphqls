@@ -5,3 +5,9 @@ type Agency {
     plan: String!
     Offers: [Offer]
 }
+
+input AgencyInput {
+    name: String!
+    description: String!
+    plan: String!
+}
