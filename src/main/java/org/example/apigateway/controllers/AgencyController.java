@@ -21,32 +21,34 @@ public class AgencyController {
     }
 
     @MutationMapping("createAgency")
-    public Agency createAgency(@Argument String name) {
-        AgencyOuterClass.CreateAgencyResponse response = agencyService.createAgency(name);
-        return Agency.newBuilder().name(response.getName()).build();
+    public Agency createAgency(@Argument String name, @Argument String description, @Argument String plan) {
+        AgencyOuterClass.CreateAgencyResponse response = agencyService.createAgency(name, description, plan);
+        return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).build();
     }
 
     @QueryMapping("getAgency")
     public Agency getAgency(@Argument String name) {
         AgencyOuterClass.GetAgencyResponse response = agencyService.getAgency(name);
-        return Agency.newBuilder().name(response.getName()).build();
+        return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).Offers(response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder().id(offer.getId()).name(offer.getName()).description(offer.getDescription()).build()).toList()).build();
     }
 
     @QueryMapping("getAgencies")
     public Iterable<Agency> getAgencies() {
         AgencyOuterClass.GetAgenciesResponse response = agencyService.getAgencies();
-        return response.getAgenciesList().stream().map(agency -> Agency.newBuilder().name(agency.getName()).build()).toList();
+        return response.getAgenciesList().stream().map(agency -> Agency.newBuilder().name(agency.getName()).description(agency.getDescription()).plan(agency.getPlan()).Offers(agency.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder().id(offer.getId()).name(offer.getName()).description(offer.getDescription()).build()).toList()).build()).toList();
     }
 
     @MutationMapping("updateAgency")
-    public Agency updateAgency(@Argument String id, @Argument String name) {
-        AgencyOuterClass.UpdateAgencyResponse response = agencyService.updateAgency(id, name);
-        return Agency.newBuilder().name(response.getName()).build();
+    public Agency updateAgency(@Argument String id, @Argument String name, @Argument String description, @Argument String plan) {
+        AgencyOuterClass.UpdateAgencyResponse response = agencyService.updateAgency(id, name, description, plan);
+        return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).Offers(response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder().id(offer.getId()).name(offer.getName()).description(offer.getDescription()).build()).toList()).build();
     }
 
     @MutationMapping("deleteAgency")
     public Agency deleteAgency(@Argument String id) {
         AgencyOuterClass.DeleteAgencyResponse response = agencyService.deleteAgency(id);
-        return Agency.newBuilder().name(response.getName()).build();
+        return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).Offers(response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder().id(offer.getId()).name(offer.getName()).description(offer.getDescription()).build()).toList()).build();
     }
+
+
 }

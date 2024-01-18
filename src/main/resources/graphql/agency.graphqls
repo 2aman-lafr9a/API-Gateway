@@ -1,4 +1,7 @@
 type Agency {
-    id: ID!
+    id: ID
     name: String!
+    description: String!
+    plan: String!
+    Offers: [Offer]
 }

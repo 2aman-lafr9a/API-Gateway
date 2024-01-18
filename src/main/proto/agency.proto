@@ -1,5 +1,6 @@
 syntax = "proto3";
 option go_package = "./proto";
+import "offer.proto";
 //package org.example.apigateway.grpc;
 
 //option java_outer_classname = "AgencyOuterClass";
@@ -18,6 +19,9 @@ service Agency {
 message AgencyItem{
   string id = 1;
   string name = 2;
+  string plan = 3;
+  repeated offer.OfferItem offers = 4;
+  string description = 5;
 }
 
 message GetAgenciesRequest{
@@ -34,24 +38,36 @@ message GetAgencyRequest{
 message GetAgencyResponse{
   string id = 1;
   string name = 2;
+  string plan = 3;
+  repeated offer.OfferItem offers = 4;
+  string description = 5;
 }
 
 message CreateAgencyRequest{
   string name = 1;
+  string plan = 2;
+  string description = 3;
 }
 
 message CreateAgencyResponse{
   string name = 1;
+  string plan = 2;
+  string description = 3;
 }
 
 message UpdateAgencyRequest{
   string id = 1;
   string name = 2;
+  string plan = 3;
+  string description = 5;
 }
 
 message UpdateAgencyResponse{
   string id = 1;
   string name = 2;
+  string plan = 3;
+  repeated offer.OfferItem offers = 4;
+  string description = 5;
 }
 
 message DeleteAgencyRequest{
@@ -61,4 +77,7 @@ message DeleteAgencyRequest{
 message DeleteAgencyResponse{
   string id = 1;
   string name = 2;
+  string plan = 3;
+  repeated offer.OfferItem offers = 4;
+  string description = 5;
 }

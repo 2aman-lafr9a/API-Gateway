@@ -13,16 +13,18 @@ import org.springframework.stereotype.Service;
 public class AgencyService {
     private AgencyGrpc.AgencyBlockingStub agencyStub;
 
-    public AgencyOuterClass.CreateAgencyResponse createAgency(String name) {
+    public AgencyOuterClass.CreateAgencyResponse createAgency(String name, String description, String plan) {
         return agencyStub.createAgency(AgencyOuterClass.CreateAgencyRequest.newBuilder()
-                .setName(name)
-                .build());
+                        .setName(name)
+                        .setDescription(description)
+                        .setPlan(plan)
+                        .build());
     }
 
     public AgencyOuterClass.GetAgencyResponse getAgency(String name) {
         return agencyStub.getAgency(AgencyOuterClass.GetAgencyRequest.newBuilder()
-                .setName(name)
-                .build());
+                        .setName(name)
+                        .build());
     }
 
     public AgencyOuterClass.GetAgenciesResponse getAgencies() {
@@ -30,11 +32,13 @@ public class AgencyService {
                 .build());
     }
 
-    public AgencyOuterClass.UpdateAgencyResponse updateAgency(String id, String name) {
+    public AgencyOuterClass.UpdateAgencyResponse updateAgency(String id, String name, String description, String plan) {
         return agencyStub.updateAgency(AgencyOuterClass.UpdateAgencyRequest.newBuilder()
-                .setId(id)
-                .setName(name)
-                .build());
+                        .setId(id)
+                        .setName(name)
+                        .setDescription(description)
+                        .setPlan(plan)
+                        .build());
     }
 
     public AgencyOuterClass.DeleteAgencyResponse deleteAgency(String id) {

@@ -1,7 +1,7 @@
 type Mutation{
     #    agencies
-    createAgency(name: String!): Agency!
-    updateAgency(id: ID!, name: String!): Agency!
+    createAgency(name: String!, description: String!, plan: String!): Agency!
+    updateAgency(id: ID!, name: String!, plan: String, description: String): Agency!
     deleteAgency(id: ID!): Agency!
     #    offers
     createOffer(name: String!, agency: ID!, description: String!, price: Int!, date: String!): Offer!
