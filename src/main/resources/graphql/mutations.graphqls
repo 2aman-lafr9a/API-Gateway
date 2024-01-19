@@ -15,5 +15,7 @@ type Mutation{
     createPlayer(PlayerInput: PlayerInput!): Player!
     updatePlayer(id: ID!, PlayerInput: PlayerInput): Player!
     deletePlayer(id: ID!): Player!
+    #    ratings
+    updateRating(playerId: ID!, offerId: ID!, rating: Int!): Rating!
 }
 

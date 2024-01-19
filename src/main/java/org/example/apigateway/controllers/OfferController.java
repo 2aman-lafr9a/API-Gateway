@@ -60,9 +60,9 @@ public class OfferController {
     }
 
     @MutationMapping("createOffer")
-    public Offer createOffer(@Argument String name, @Argument String agencyId, @Argument String description, @Argument int price, @Argument String date, @Argument OfferType type) {
-        OfferOuterClass.OfferType offerType = OfferOuterClass.OfferType.valueOf(type.name());
-        OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agencyId, description, price, date, offerType);
+    public Offer createOffer(@Argument String name, @Argument String agencyId, @Argument String description, @Argument int price, @Argument String date, @Argument OfferType offerType) {
+        OfferOuterClass.OfferType Type = OfferOuterClass.OfferType.valueOf(offerType.name());
+        OfferOuterClass.CreateOfferResponse response = offerService.createOffer(name, agencyId, description, price, date, Type);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
@@ -79,8 +79,8 @@ public class OfferController {
     }
 
     @MutationMapping("updateOffer")
-    public Offer updateOffer(@Argument String id, @Argument String name, @Argument AgencyInput agency, @Argument String description, @Argument int price, @Argument String date, @Argument int rating, @Argument OfferType type) {
-        OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date, rating, type);
+    public Offer updateOffer(@Argument String id, @Argument String name, @Argument AgencyInput agency, @Argument String description, @Argument int price, @Argument String date, @Argument int rating, @Argument OfferType offerType) {
+        OfferOuterClass.UpdateOfferResponse response = offerService.updateOffer(id, name, agency, description, price, date, rating, offerType);
         return Offer.newBuilder()
                 .id(response.getId())
                 .name(response.getName())
