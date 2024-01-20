@@ -17,5 +17,9 @@ type Mutation{
     deletePlayer(id: ID!): Player!
     #    ratings
     updateRating(playerId: ID!, offerId: ID!, rating: Int!): Rating!
+    #    team Managers
+    createTeamManager(name: String!, surname: String!, age: Int!, team: ID): TeamManager!
+    updateTeamManager(id: ID!, name: String, surname: String, age: Int, team: ID): TeamManager!
+    deleteTeamManager(id: ID!): TeamManager!
 }
 

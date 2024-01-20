@@ -14,4 +14,7 @@ type Query {
     #   Rating
     getRating(offerId: ID!, playerId: ID!): Rating!
     getRatings: [Rating!]!
+    #   Team Manager
+    getTeamManager(id: ID!): TeamManager!
+    getTeamManagers: [TeamManager!]!
 }
