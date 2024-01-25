@@ -4685,6 +4685,18 @@ public final class PlayerOuterClass {
      */
     com.google.protobuf.ByteString
         getTeamIdBytes();
+
+    /**
+     * <code>int32 page = 2;</code>
+     * @return The page.
+     */
+    int getPage();
+
+    /**
+     * <code>int32 limit = 3;</code>
+     * @return The limit.
+     */
+    int getLimit();
   }
   /**
    * Protobuf type {@code player.GetPlayersRequest}
@@ -4761,6 +4773,28 @@ public final class PlayerOuterClass {
       }
     }
 
+    public static final int PAGE_FIELD_NUMBER = 2;
+    private int page_ = 0;
+    /**
+     * <code>int32 page = 2;</code>
+     * @return The page.
+     */
+    @java.lang.Override
+    public int getPage() {
+      return page_;
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 3;
+    private int limit_ = 0;
+    /**
+     * <code>int32 limit = 3;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public int getLimit() {
+      return limit_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4778,6 +4812,12 @@ public final class PlayerOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, teamId_);
       }
+      if (page_ != 0) {
+        output.writeInt32(2, page_);
+      }
+      if (limit_ != 0) {
+        output.writeInt32(3, limit_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4789,6 +4829,14 @@ public final class PlayerOuterClass {
       size = 0;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, teamId_);
+      }
+      if (page_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, page_);
+      }
+      if (limit_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, limit_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4807,6 +4855,10 @@ public final class PlayerOuterClass {
 
       if (!getTeamId()
           .equals(other.getTeamId())) return false;
+      if (getPage()
+          != other.getPage()) return false;
+      if (getLimit()
+          != other.getLimit()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4820,6 +4872,10 @@ public final class PlayerOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TEAM_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTeamId().hashCode();
+      hash = (37 * hash) + PAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getPage();
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getLimit();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4952,6 +5008,8 @@ public final class PlayerOuterClass {
         super.clear();
         bitField0_ = 0;
         teamId_ = "";
+        page_ = 0;
+        limit_ = 0;
         return this;
       }
 
@@ -4987,6 +5045,12 @@ public final class PlayerOuterClass {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.teamId_ = teamId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.page_ = page_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.limit_ = limit_;
         }
       }
 
@@ -5039,6 +5103,12 @@ public final class PlayerOuterClass {
           bitField0_ |= 0x00000001;
           onChanged();
         }
+        if (other.getPage() != 0) {
+          setPage(other.getPage());
+        }
+        if (other.getLimit() != 0) {
+          setLimit(other.getLimit());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -5070,6 +5140,16 @@ public final class PlayerOuterClass {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
+              case 16: {
+                page_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                limit_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5155,6 +5235,70 @@ public final class PlayerOuterClass {
         checkByteStringIsUtf8(value);
         teamId_ = value;
         bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private int page_ ;
+      /**
+       * <code>int32 page = 2;</code>
+       * @return The page.
+       */
+      @java.lang.Override
+      public int getPage() {
+        return page_;
+      }
+      /**
+       * <code>int32 page = 2;</code>
+       * @param value The page to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPage(int value) {
+
+        page_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 page = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        page_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int limit_ ;
+      /**
+       * <code>int32 limit = 3;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public int getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int32 limit = 3;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(int value) {
+
+        limit_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 limit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        limit_ = 0;
         onChanged();
         return this;
       }
@@ -8838,29 +8982,30 @@ public final class PlayerOuterClass {
       "layerItem\":\n\024UpdatePlayerResponse\022\"\n\006pla" +
       "yer\030\001 \001(\0132\022.player.PlayerItem\"!\n\023DeleteP" +
       "layerRequest\022\n\n\002id\030\001 \001(\t\"\"\n\024DeletePlayer" +
-      "Response\022\n\n\002id\030\001 \001(\t\"$\n\021GetPlayersReques" +
-      "t\022\017\n\007team_id\030\001 \001(\t\"9\n\022GetPlayersResponse" +
-      "\022#\n\007players\030\001 \003(\0132\022.player.PlayerItem\"\340\002" +
-      "\n\nPlayerItem\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013" +
-      "\n\003age\030\003 \001(\t\022\r\n\005photo\030\004 \001(\t\022\023\n\013nationalit" +
-      "y\030\005 \001(\t\022\014\n\004flag\030\006 \001(\t\022\017\n\007overall\030\007 \001(\005\022\021" +
-      "\n\tpotential\030\010 \001(\005\022\020\n\010position\030\t \001(\t\022\r\n\005v" +
-      "alue\030\n \001(\005\022\014\n\004wage\030\013 \001(\005\022\026\n\016preferred_fo" +
-      "ot\030\014 \001(\t\022\021\n\twork_rate\030\r \001(\t\022\021\n\tbody_type" +
-      "\030\016 \001(\t\022 \n\030international_reputation\030\017 \001(\t" +
-      "\022\023\n\013skill_moves\030\020 \001(\t\022\021\n\tweak_foot\030\021 \001(\t" +
-      "\022\016\n\006height\030\022 \001(\005\022\016\n\006weight\030\023 \001(\0052\372\002\n\006Pla" +
-      "yer\022B\n\tGetPlayer\022\030.player.GetPlayerReque" +
-      "st\032\031.player.GetPlayerResponse\"\000\022K\n\014Creat" +
-      "ePlayer\022\033.player.CreatePlayerRequest\032\034.p" +
-      "layer.CreatePlayerResponse\"\000\022K\n\014UpdatePl" +
-      "ayer\022\033.player.UpdatePlayerRequest\032\034.play" +
-      "er.UpdatePlayerResponse\"\000\022K\n\014DeletePlaye" +
-      "r\022\033.player.DeletePlayerRequest\032\034.player." +
-      "DeletePlayerResponse\"\000\022E\n\nGetPlayers\022\031.p" +
-      "layer.GetPlayersRequest\032\032.player.GetPlay" +
-      "ersResponse\"\000B$\n\"org.example.apigateway." +
-      "grpc.playerb\006proto3"
+      "Response\022\n\n\002id\030\001 \001(\t\"A\n\021GetPlayersReques" +
+      "t\022\017\n\007team_id\030\001 \001(\t\022\014\n\004page\030\002 \001(\005\022\r\n\005limi" +
+      "t\030\003 \001(\005\"9\n\022GetPlayersResponse\022#\n\007players" +
+      "\030\001 \003(\0132\022.player.PlayerItem\"\340\002\n\nPlayerIte" +
+      "m\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n\003age\030\003 \001(\t" +
+      "\022\r\n\005photo\030\004 \001(\t\022\023\n\013nationality\030\005 \001(\t\022\014\n\004" +
+      "flag\030\006 \001(\t\022\017\n\007overall\030\007 \001(\005\022\021\n\tpotential" +
+      "\030\010 \001(\005\022\020\n\010position\030\t \001(\t\022\r\n\005value\030\n \001(\005\022" +
+      "\014\n\004wage\030\013 \001(\005\022\026\n\016preferred_foot\030\014 \001(\t\022\021\n" +
+      "\twork_rate\030\r \001(\t\022\021\n\tbody_type\030\016 \001(\t\022 \n\030i" +
+      "nternational_reputation\030\017 \001(\t\022\023\n\013skill_m" +
+      "oves\030\020 \001(\t\022\021\n\tweak_foot\030\021 \001(\t\022\016\n\006height\030" +
+      "\022 \001(\005\022\016\n\006weight\030\023 \001(\0052\372\002\n\006Player\022B\n\tGetP" +
+      "layer\022\030.player.GetPlayerRequest\032\031.player" +
+      ".GetPlayerResponse\"\000\022K\n\014CreatePlayer\022\033.p" +
+      "layer.CreatePlayerRequest\032\034.player.Creat" +
+      "ePlayerResponse\"\000\022K\n\014UpdatePlayer\022\033.play" +
+      "er.UpdatePlayerRequest\032\034.player.UpdatePl" +
+      "ayerResponse\"\000\022K\n\014DeletePlayer\022\033.player." +
+      "DeletePlayerRequest\032\034.player.DeletePlaye" +
+      "rResponse\"\000\022E\n\nGetPlayers\022\031.player.GetPl" +
+      "ayersRequest\032\032.player.GetPlayersResponse" +
+      "\"\000B$\n\"org.example.apigateway.grpc.player" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8919,7 +9064,7 @@ public final class PlayerOuterClass {
     internal_static_player_GetPlayersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_player_GetPlayersRequest_descriptor,
-        new java.lang.String[] { "TeamId", });
+        new java.lang.String[] { "TeamId", "Page", "Limit", });
     internal_static_player_GetPlayersResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_player_GetPlayersResponse_fieldAccessorTable = new

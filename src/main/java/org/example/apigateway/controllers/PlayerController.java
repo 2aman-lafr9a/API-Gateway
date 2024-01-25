@@ -20,8 +20,8 @@ public class PlayerController {
     }
 
     @QueryMapping("getPlayers")
-    Iterable<org.example.apigateway.codegen.types.Player> getPlayers() {
-        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers();
+    Iterable<Player> getPlayers(@Argument int page, @Argument int limit) {
+        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers(page, limit);
         return response.getPlayersList().stream().map(player -> org.example.apigateway.codegen.types.Player.newBuilder()
                 .name(player.getName())
                 .age(player.getAge())
@@ -45,7 +45,7 @@ public class PlayerController {
     }
 
     @QueryMapping("getPlayer")
-    Player getPlayer(@Argument String name){
+    Player getPlayer(@Argument String name) {
         org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayerResponse response = playerService.getPlayer(name);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .nationality(response.getPlayer().getNationality())
@@ -62,16 +62,16 @@ public class PlayerController {
     }
 
     @MutationMapping("createPlayer")
-    Player createPlayer(@Argument PlayerInput player) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.CreatePlayerResponse response = playerService.createPlayer(player);
+    Player createPlayer(@Argument PlayerInput playerInput) {
+        org.example.apigateway.grpc.player.PlayerOuterClass.CreatePlayerResponse response = playerService.createPlayer(playerInput);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .id(response.getPlayer().getId())
                 .build();
     }
 
     @MutationMapping("updatePlayer")
-    Player updatePlayer(@Argument PlayerInput player) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.UpdatePlayerResponse response = playerService.updatePlayer(player);
+    Player updatePlayer(@Argument PlayerInput playerInput) {
+        org.example.apigateway.grpc.player.PlayerOuterClass.UpdatePlayerResponse response = playerService.updatePlayer(playerInput);
         return org.example.apigateway.codegen.types.Player.newBuilder()
                 .id(response.getPlayer().getId())
                 .build();
