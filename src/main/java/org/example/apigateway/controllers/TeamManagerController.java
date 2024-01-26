@@ -21,7 +21,7 @@ public class TeamManagerController {
     public TeamManager createTeamManager(@Argument String name, @Argument String surname, @Argument String age, @Argument String team) {
         TeamManagerOuterClass.CreateTeamManagerResponse response = teamManagerService.createTeamManager(name, surname, age, team);
         return TeamManager.newBuilder()
-                .id(response.getTeamManager().getId())
+                .id(String.valueOf(response.getTeamManager().getId()))
                 .build();
     }
 
@@ -29,7 +29,7 @@ public class TeamManagerController {
     public TeamManager updateTeamManager(@Argument String id, @Argument String name, @Argument String surname, @Argument String age, @Argument String team) {
         TeamManagerOuterClass.UpdateTeamManagerResponse response = teamManagerService.updateTeamManager(id, name, surname, age, team);
         return TeamManager.newBuilder()
-                .id(response.getTeamManager().getId())
+                .id(String.valueOf(response.getTeamManager().getId()))
                 .build();
     }
 
@@ -37,7 +37,7 @@ public class TeamManagerController {
     public TeamManager deleteTeamManager(@Argument String id) {
         TeamManagerOuterClass.DeleteTeamManagerResponse response = teamManagerService.deleteTeamManager(id);
         return TeamManager.newBuilder()
-                .id(response.getId())
+                .id(String.valueOf(response.getSuccess()))
                 .build();
     }
 
@@ -45,7 +45,7 @@ public class TeamManagerController {
     public Iterable<TeamManager> getTeamManagers() {
         TeamManagerOuterClass.GetTeamManagersResponse response = teamManagerService.getTeamManagers();
         return response.getTeamManagersList().stream().map(teamManager -> TeamManager.newBuilder()
-                .id(teamManager.getId())
+                .id(String.valueOf(teamManager.getId()))
                 .name(teamManager.getName())
                 .surname(teamManager.getSurname())
                 .age(teamManager.getAge())
@@ -57,7 +57,7 @@ public class TeamManagerController {
     public TeamManager getTeamManager(@Argument String id) {
         TeamManagerOuterClass.GetTeamManagerResponse response = teamManagerService.getTeamManager(id);
         return TeamManager.newBuilder()
-                .id(response.getTeamManager().getId())
+                .id(String.valueOf(response.getTeamManager().getId()))
                 .name(response.getTeamManager().getName())
                 .surname(response.getTeamManager().getSurname())
                 .age(response.getTeamManager().getAge())

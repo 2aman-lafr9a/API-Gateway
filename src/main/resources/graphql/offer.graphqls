@@ -4,9 +4,9 @@ type Offer {
     agency: Agency!
     description: String!
     price: Int!
-    date: String!
+    date: String
     rating: Int
-    offerType: OfferType!
+    offerType: OfferType
 }
 
 enum OfferType {
