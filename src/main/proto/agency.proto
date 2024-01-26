@@ -1,6 +1,5 @@
 syntax = "proto3";
 option go_package = "./proto";
-import "offer.proto";
 //package org.example.apigateway.grpc;
 
 //option java_outer_classname = "AgencyOuterClass";
@@ -14,14 +13,16 @@ service Agency {
   rpc CreateAgency(CreateAgencyRequest) returns (CreateAgencyResponse);
   rpc UpdateAgency(UpdateAgencyRequest) returns (UpdateAgencyResponse);
   rpc DeleteAgency(DeleteAgencyRequest) returns (DeleteAgencyResponse);
+  rpc GetAgencyByWallet(GetAgencyByWalletRequest) returns (GetAgencyByWalletResponse);
 }
 
 message AgencyItem{
   string id = 1;
   string name = 2;
   string plan = 3;
-  repeated offer.OfferItem offers = 4;
+  repeated OfferItem offers = 4;
   string description = 5;
+  string wallet = 6;
 }
 
 message GetAgenciesRequest{
@@ -39,35 +40,40 @@ message GetAgencyResponse{
   string id = 1;
   string name = 2;
   string plan = 3;
-  repeated offer.OfferItem offers = 4;
+  repeated OfferItem offers = 4;
   string description = 5;
+  string wallet = 6;
 }
 
 message CreateAgencyRequest{
   string name = 1;
   string plan = 2;
   string description = 3;
+  string wallet = 4;
 }
 
 message CreateAgencyResponse{
   string name = 1;
   string plan = 2;
   string description = 3;
+  string wallet = 4;
 }
 
 message UpdateAgencyRequest{
   string id = 1;
   string name = 2;
   string plan = 3;
-  string description = 5;
+  string description = 4;
+  string wallet = 5;
 }
 
 message UpdateAgencyResponse{
   string id = 1;
   string name = 2;
   string plan = 3;
-  repeated offer.OfferItem offers = 4;
+  repeated OfferItem offers = 4;
   string description = 5;
+  string wallet = 6;
 }
 
 message DeleteAgencyRequest{
@@ -78,6 +84,38 @@ message DeleteAgencyResponse{
   string id = 1;
   string name = 2;
   string plan = 3;
-  repeated offer.OfferItem offers = 4;
+  repeated OfferItem offers = 4;
+  string description = 5;
+  string wallet = 6;
+}
+
+
+message OfferItem{
+  string id = 1;
+  string name = 2;
+  AgencyItem agency_id = 3;
+  string description = 4;
+  int32 price = 5;
+  string date = 6;
+  int32 rating = 7;
+  OfferType type = 8;
+}
+
+enum  OfferType {
+  Normal = 0;
+  Special = 1;
+  Important = 2;
+  Ultimate = 3;
+}
+
+message GetAgencyByWalletRequest{
+  string wallet = 1;
+}
+
+message GetAgencyByWalletResponse{
+  string id = 1;
+  string name = 2;
+  string plan = 3;
+  repeated OfferItem offers = 4;
   string description = 5;
 }

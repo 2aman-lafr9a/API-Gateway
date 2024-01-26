@@ -28,7 +28,7 @@ public class OfferService {
     public OfferOuterClass.CreateOfferResponse createOffer(String name, String agencyId, String description, int price, String date, OfferOuterClass.OfferType type) {
         return offerStub.createOffer(OfferOuterClass.CreateOfferRequest.newBuilder()
                 .setName(name)
-                .setAgencyId(agencyId)
+                .setAgencyID(agencyId)
                 .setDescription(description)
                 .setPrice(price)
                 .setDate(date)
@@ -55,6 +55,12 @@ public class OfferService {
 
     public OfferOuterClass.DeleteOfferResponse deleteOffer(String id) {
         return offerStub.deleteOffer(OfferOuterClass.DeleteOfferRequest.newBuilder()
+                .setId(id)
+                .build());
+    }
+
+    public OfferOuterClass.GetOfferIdResponse getOfferById(String id) {
+        return offerStub.getOfferById(OfferOuterClass.GetOfferIdRequest.newBuilder()
                 .setId(id)
                 .build());
     }

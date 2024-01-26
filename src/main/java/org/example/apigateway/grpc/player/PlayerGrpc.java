@@ -170,6 +170,37 @@ public final class PlayerGrpc {
     return getGetPlayersMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest,
+      org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> getGetOffersByPlayerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetOffersByPlayer",
+      requestType = org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest.class,
+      responseType = org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest,
+      org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> getGetOffersByPlayerMethod() {
+    io.grpc.MethodDescriptor<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest, org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> getGetOffersByPlayerMethod;
+    if ((getGetOffersByPlayerMethod = PlayerGrpc.getGetOffersByPlayerMethod) == null) {
+      synchronized (PlayerGrpc.class) {
+        if ((getGetOffersByPlayerMethod = PlayerGrpc.getGetOffersByPlayerMethod) == null) {
+          PlayerGrpc.getGetOffersByPlayerMethod = getGetOffersByPlayerMethod =
+              io.grpc.MethodDescriptor.<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest, org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetOffersByPlayer"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new PlayerMethodDescriptorSupplier("GetOffersByPlayer"))
+              .build();
+        }
+      }
+    }
+    return getGetOffersByPlayerMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class PlayerGrpc {
         io.grpc.stub.StreamObserver<org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPlayersMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void getOffersByPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest request,
+        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetOffersByPlayerMethod(), responseObserver);
+    }
   }
 
   /**
@@ -320,6 +358,14 @@ public final class PlayerGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetPlayersMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getOffersByPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest request,
+        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetOffersByPlayerMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -371,6 +417,13 @@ public final class PlayerGrpc {
     public org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse getPlayers(org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetPlayersMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse getOffersByPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetOffersByPlayerMethod(), getCallOptions(), request);
     }
   }
 
@@ -429,6 +482,14 @@ public final class PlayerGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetPlayersMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse> getOffersByPlayer(
+        org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetOffersByPlayerMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_PLAYER = 0;
@@ -436,6 +497,7 @@ public final class PlayerGrpc {
   private static final int METHODID_UPDATE_PLAYER = 2;
   private static final int METHODID_DELETE_PLAYER = 3;
   private static final int METHODID_GET_PLAYERS = 4;
+  private static final int METHODID_GET_OFFERS_BY_PLAYER = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -473,6 +535,10 @@ public final class PlayerGrpc {
         case METHODID_GET_PLAYERS:
           serviceImpl.getPlayers((org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersRequest) request,
               (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse>) responseObserver);
+          break;
+        case METHODID_GET_OFFERS_BY_PLAYER:
+          serviceImpl.getOffersByPlayer((org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest) request,
+              (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -527,6 +593,13 @@ public final class PlayerGrpc {
               org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersRequest,
               org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse>(
                 service, METHODID_GET_PLAYERS)))
+        .addMethod(
+          getGetOffersByPlayerMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest,
+              org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse>(
+                service, METHODID_GET_OFFERS_BY_PLAYER)))
         .build();
   }
 
@@ -580,6 +653,7 @@ public final class PlayerGrpc {
               .addMethod(getUpdatePlayerMethod())
               .addMethod(getDeletePlayerMethod())
               .addMethod(getGetPlayersMethod())
+              .addMethod(getGetOffersByPlayerMethod())
               .build();
         }
       }

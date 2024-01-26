@@ -19,16 +19,10 @@ public final class TeamManagerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    int getId();
   }
   /**
    * Protobuf type {@code teamManager.GetTeamManagerRequest}
@@ -43,7 +37,6 @@ public final class TeamManagerOuterClass {
       super(builder);
     }
     private GetTeamManagerRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -67,42 +60,14 @@ public final class TeamManagerOuterClass {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    private int id_ = 0;
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -119,8 +84,8 @@ public final class TeamManagerOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -131,8 +96,9 @@ public final class TeamManagerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -149,8 +115,8 @@ public final class TeamManagerOuterClass {
       }
       org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.GetTeamManagerRequest other = (org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.GetTeamManagerRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -163,7 +129,7 @@ public final class TeamManagerOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + getId();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -295,7 +261,7 @@ public final class TeamManagerOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        id_ = 0;
         return this;
       }
 
@@ -378,10 +344,8 @@ public final class TeamManagerOuterClass {
 
       public Builder mergeFrom(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.GetTeamManagerRequest other) {
         if (other == org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.GetTeamManagerRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.getId() != 0) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -409,11 +373,11 @@ public final class TeamManagerOuterClass {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                id_ = input.readStringRequireUtf8();
+              case 8: {
+                id_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -431,74 +395,34 @@ public final class TeamManagerOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private int id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setId(int value) {
+
         id_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        id_ = getDefaultInstance().getId();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
-        bitField0_ |= 0x00000001;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -2619,6 +2543,18 @@ public final class TeamManagerOuterClass {
      */
     com.google.protobuf.ByteString
         getTeamIdBytes();
+
+    /**
+     * <code>string wallet = 5;</code>
+     * @return The wallet.
+     */
+    java.lang.String getWallet();
+    /**
+     * <code>string wallet = 5;</code>
+     * @return The bytes for wallet.
+     */
+    com.google.protobuf.ByteString
+        getWalletBytes();
   }
   /**
    * Protobuf type {@code teamManager.CreateTeamManagerRequest}
@@ -2637,6 +2573,7 @@ public final class TeamManagerOuterClass {
       surname_ = "";
       age_ = "";
       teamId_ = "";
+      wallet_ = "";
     }
 
     @java.lang.Override
@@ -2815,6 +2752,45 @@ public final class TeamManagerOuterClass {
       }
     }
 
+    public static final int WALLET_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object wallet_ = "";
+    /**
+     * <code>string wallet = 5;</code>
+     * @return The wallet.
+     */
+    @java.lang.Override
+    public java.lang.String getWallet() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        wallet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet = 5;</code>
+     * @return The bytes for wallet.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletBytes() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        wallet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2841,6 +2817,9 @@ public final class TeamManagerOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, teamId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, wallet_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2861,6 +2840,9 @@ public final class TeamManagerOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, teamId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, wallet_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -2885,6 +2867,8 @@ public final class TeamManagerOuterClass {
           .equals(other.getAge())) return false;
       if (!getTeamId()
           .equals(other.getTeamId())) return false;
+      if (!getWallet()
+          .equals(other.getWallet())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2904,6 +2888,8 @@ public final class TeamManagerOuterClass {
       hash = (53 * hash) + getAge().hashCode();
       hash = (37 * hash) + TEAMID_FIELD_NUMBER;
       hash = (53 * hash) + getTeamId().hashCode();
+      hash = (37 * hash) + WALLET_FIELD_NUMBER;
+      hash = (53 * hash) + getWallet().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3039,6 +3025,7 @@ public final class TeamManagerOuterClass {
         surname_ = "";
         age_ = "";
         teamId_ = "";
+        wallet_ = "";
         return this;
       }
 
@@ -3083,6 +3070,9 @@ public final class TeamManagerOuterClass {
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.teamId_ = teamId_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.wallet_ = wallet_;
         }
       }
 
@@ -3150,6 +3140,11 @@ public final class TeamManagerOuterClass {
           bitField0_ |= 0x00000008;
           onChanged();
         }
+        if (!other.getWallet().isEmpty()) {
+          wallet_ = other.wallet_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -3196,6 +3191,11 @@ public final class TeamManagerOuterClass {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 42: {
+                wallet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3497,6 +3497,78 @@ public final class TeamManagerOuterClass {
         checkByteStringIsUtf8(value);
         teamId_ = value;
         bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object wallet_ = "";
+      /**
+       * <code>string wallet = 5;</code>
+       * @return The wallet.
+       */
+      public java.lang.String getWallet() {
+        java.lang.Object ref = wallet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          wallet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 5;</code>
+       * @return The bytes for wallet.
+       */
+      public com.google.protobuf.ByteString
+          getWalletBytes() {
+        java.lang.Object ref = wallet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          wallet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 5;</code>
+       * @param value The wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWallet(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        wallet_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWallet() {
+        wallet_ = getDefaultInstance().getWallet();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 5;</code>
+       * @param value The bytes for wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        wallet_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -4169,16 +4241,10 @@ public final class TeamManagerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    int getId();
 
     /**
      * <code>string name = 2;</code>
@@ -4227,6 +4293,18 @@ public final class TeamManagerOuterClass {
      */
     com.google.protobuf.ByteString
         getTeamIdBytes();
+
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    java.lang.String getWallet();
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    com.google.protobuf.ByteString
+        getWalletBytes();
   }
   /**
    * Protobuf type {@code teamManager.UpdateTeamManagerRequest}
@@ -4241,11 +4319,11 @@ public final class TeamManagerOuterClass {
       super(builder);
     }
     private UpdateTeamManagerRequest() {
-      id_ = "";
       name_ = "";
       surname_ = "";
       age_ = "";
       teamId_ = "";
+      wallet_ = "";
     }
 
     @java.lang.Override
@@ -4269,42 +4347,14 @@ public final class TeamManagerOuterClass {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    private int id_ = 0;
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getId() {
+      return id_;
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
@@ -4463,6 +4513,45 @@ public final class TeamManagerOuterClass {
       }
     }
 
+    public static final int WALLET_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object wallet_ = "";
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    @java.lang.Override
+    public java.lang.String getWallet() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        wallet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletBytes() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        wallet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4477,8 +4566,8 @@ public final class TeamManagerOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
@@ -4492,6 +4581,9 @@ public final class TeamManagerOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, teamId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, wallet_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4501,8 +4593,9 @@ public final class TeamManagerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -4515,6 +4608,9 @@ public final class TeamManagerOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, teamId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, wallet_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4531,8 +4627,8 @@ public final class TeamManagerOuterClass {
       }
       org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.UpdateTeamManagerRequest other = (org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.UpdateTeamManagerRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
       if (!getSurname()
@@ -4541,6 +4637,8 @@ public final class TeamManagerOuterClass {
           .equals(other.getAge())) return false;
       if (!getTeamId()
           .equals(other.getTeamId())) return false;
+      if (!getWallet()
+          .equals(other.getWallet())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4553,7 +4651,7 @@ public final class TeamManagerOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + getId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + SURNAME_FIELD_NUMBER;
@@ -4562,6 +4660,8 @@ public final class TeamManagerOuterClass {
       hash = (53 * hash) + getAge().hashCode();
       hash = (37 * hash) + TEAMID_FIELD_NUMBER;
       hash = (53 * hash) + getTeamId().hashCode();
+      hash = (37 * hash) + WALLET_FIELD_NUMBER;
+      hash = (53 * hash) + getWallet().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4693,11 +4793,12 @@ public final class TeamManagerOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        id_ = 0;
         name_ = "";
         surname_ = "";
         age_ = "";
         teamId_ = "";
+        wallet_ = "";
         return this;
       }
 
@@ -4746,6 +4847,9 @@ public final class TeamManagerOuterClass {
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.teamId_ = teamId_;
         }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.wallet_ = wallet_;
+        }
       }
 
       @java.lang.Override
@@ -4792,10 +4896,8 @@ public final class TeamManagerOuterClass {
 
       public Builder mergeFrom(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.UpdateTeamManagerRequest other) {
         if (other == org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.UpdateTeamManagerRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.getId() != 0) {
+          setId(other.getId());
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
@@ -4815,6 +4917,11 @@ public final class TeamManagerOuterClass {
         if (!other.getTeamId().isEmpty()) {
           teamId_ = other.teamId_;
           bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        if (!other.getWallet().isEmpty()) {
+          wallet_ = other.wallet_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -4843,11 +4950,11 @@ public final class TeamManagerOuterClass {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                id_ = input.readStringRequireUtf8();
+              case 8: {
+                id_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               case 18: {
                 name_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
@@ -4868,6 +4975,11 @@ public final class TeamManagerOuterClass {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 50: {
+                wallet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4885,74 +4997,34 @@ public final class TeamManagerOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private int id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setId(int value) {
+
         id_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        id_ = getDefaultInstance().getId();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
-        bitField0_ |= 0x00000001;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -5241,6 +5313,78 @@ public final class TeamManagerOuterClass {
         checkByteStringIsUtf8(value);
         teamId_ = value;
         bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object wallet_ = "";
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The wallet.
+       */
+      public java.lang.String getWallet() {
+        java.lang.Object ref = wallet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          wallet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The bytes for wallet.
+       */
+      public com.google.protobuf.ByteString
+          getWalletBytes() {
+        java.lang.Object ref = wallet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          wallet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWallet(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWallet() {
+        wallet_ = getDefaultInstance().getWallet();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The bytes for wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -5913,16 +6057,10 @@ public final class TeamManagerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    int getId();
   }
   /**
    * Protobuf type {@code teamManager.DeleteTeamManagerRequest}
@@ -5937,7 +6075,6 @@ public final class TeamManagerOuterClass {
       super(builder);
     }
     private DeleteTeamManagerRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -5961,42 +6098,14 @@ public final class TeamManagerOuterClass {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    private int id_ = 0;
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6013,8 +6122,8 @@ public final class TeamManagerOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6025,8 +6134,9 @@ public final class TeamManagerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6043,8 +6153,8 @@ public final class TeamManagerOuterClass {
       }
       org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerRequest other = (org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -6057,7 +6167,7 @@ public final class TeamManagerOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + getId();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6189,7 +6299,7 @@ public final class TeamManagerOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        id_ = 0;
         return this;
       }
 
@@ -6272,10 +6382,8 @@ public final class TeamManagerOuterClass {
 
       public Builder mergeFrom(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerRequest other) {
         if (other == org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.getId() != 0) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -6303,11 +6411,11 @@ public final class TeamManagerOuterClass {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                id_ = input.readStringRequireUtf8();
+              case 8: {
+                id_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6325,74 +6433,34 @@ public final class TeamManagerOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private int id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setId(int value) {
+
         id_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        id_ = getDefaultInstance().getId();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
-        bitField0_ |= 0x00000001;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -6465,16 +6533,10 @@ public final class TeamManagerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>bool success = 1;</code>
+     * @return The success.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    boolean getSuccess();
   }
   /**
    * Protobuf type {@code teamManager.DeleteTeamManagerResponse}
@@ -6489,7 +6551,6 @@ public final class TeamManagerOuterClass {
       super(builder);
     }
     private DeleteTeamManagerResponse() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -6512,43 +6573,15 @@ public final class TeamManagerOuterClass {
               org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse.class, org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_ = false;
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>bool success = 1;</code>
+     * @return The success.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public boolean getSuccess() {
+      return success_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6565,8 +6598,8 @@ public final class TeamManagerOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (success_ != false) {
+        output.writeBool(1, success_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6577,8 +6610,9 @@ public final class TeamManagerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6595,8 +6629,8 @@ public final class TeamManagerOuterClass {
       }
       org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse other = (org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -6608,8 +6642,9 @@ public final class TeamManagerOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6741,7 +6776,7 @@ public final class TeamManagerOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        success_ = false;
         return this;
       }
 
@@ -6776,7 +6811,7 @@ public final class TeamManagerOuterClass {
       private void buildPartial0(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.id_ = id_;
+          result.success_ = success_;
         }
       }
 
@@ -6824,10 +6859,8 @@ public final class TeamManagerOuterClass {
 
       public Builder mergeFrom(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse other) {
         if (other == org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.DeleteTeamManagerResponse.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -6855,11 +6888,11 @@ public final class TeamManagerOuterClass {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                id_ = input.readStringRequireUtf8();
+              case 8: {
+                success_ = input.readBool();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6877,74 +6910,34 @@ public final class TeamManagerOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private boolean success_ ;
       /**
-       * <code>string id = 1;</code>
-       * @return The id.
+       * <code>bool success = 1;</code>
+       * @return The success.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The id to set.
+       * <code>bool success = 1;</code>
+       * @param value The success to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        id_ = value;
+      public Builder setSuccess(boolean value) {
+
+        success_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>bool success = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearId() {
-        id_ = getDefaultInstance().getId();
+      public Builder clearSuccess() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
-        bitField0_ |= 0x00000001;
+        success_ = false;
         onChanged();
         return this;
       }
@@ -7017,16 +7010,10 @@ public final class TeamManagerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    int getId();
 
     /**
      * <code>string name = 2;</code>
@@ -7069,6 +7056,18 @@ public final class TeamManagerOuterClass {
      */
     com.google.protobuf.ByteString
         getTeamIdBytes();
+
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    java.lang.String getWallet();
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    com.google.protobuf.ByteString
+        getWalletBytes();
   }
   /**
    * Protobuf type {@code teamManager.TeamManagerItem}
@@ -7083,10 +7082,10 @@ public final class TeamManagerOuterClass {
       super(builder);
     }
     private TeamManagerItem() {
-      id_ = "";
       name_ = "";
       surname_ = "";
       teamId_ = "";
+      wallet_ = "";
     }
 
     @java.lang.Override
@@ -7110,42 +7109,14 @@ public final class TeamManagerOuterClass {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object id_ = "";
+    private int id_ = 0;
     /**
-     * <code>string id = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getId() {
+      return id_;
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
@@ -7276,6 +7247,45 @@ public final class TeamManagerOuterClass {
       }
     }
 
+    public static final int WALLET_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object wallet_ = "";
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    @java.lang.Override
+    public java.lang.String getWallet() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        wallet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletBytes() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        wallet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7290,8 +7300,8 @@ public final class TeamManagerOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
@@ -7305,6 +7315,9 @@ public final class TeamManagerOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, teamId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, wallet_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -7314,8 +7327,9 @@ public final class TeamManagerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -7329,6 +7343,9 @@ public final class TeamManagerOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, teamId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, wallet_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7345,8 +7362,8 @@ public final class TeamManagerOuterClass {
       }
       org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.TeamManagerItem other = (org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.TeamManagerItem) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
       if (!getSurname()
@@ -7355,6 +7372,8 @@ public final class TeamManagerOuterClass {
           != other.getAge()) return false;
       if (!getTeamId()
           .equals(other.getTeamId())) return false;
+      if (!getWallet()
+          .equals(other.getWallet())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7367,7 +7386,7 @@ public final class TeamManagerOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + getId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + SURNAME_FIELD_NUMBER;
@@ -7376,6 +7395,8 @@ public final class TeamManagerOuterClass {
       hash = (53 * hash) + getAge();
       hash = (37 * hash) + TEAMID_FIELD_NUMBER;
       hash = (53 * hash) + getTeamId().hashCode();
+      hash = (37 * hash) + WALLET_FIELD_NUMBER;
+      hash = (53 * hash) + getWallet().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7507,11 +7528,12 @@ public final class TeamManagerOuterClass {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = "";
+        id_ = 0;
         name_ = "";
         surname_ = "";
         age_ = 0;
         teamId_ = "";
+        wallet_ = "";
         return this;
       }
 
@@ -7560,6 +7582,9 @@ public final class TeamManagerOuterClass {
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.teamId_ = teamId_;
         }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.wallet_ = wallet_;
+        }
       }
 
       @java.lang.Override
@@ -7606,10 +7631,8 @@ public final class TeamManagerOuterClass {
 
       public Builder mergeFrom(org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.TeamManagerItem other) {
         if (other == org.example.apigateway.grpc.teamManager.TeamManagerOuterClass.TeamManagerItem.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.getId() != 0) {
+          setId(other.getId());
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
@@ -7627,6 +7650,11 @@ public final class TeamManagerOuterClass {
         if (!other.getTeamId().isEmpty()) {
           teamId_ = other.teamId_;
           bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        if (!other.getWallet().isEmpty()) {
+          wallet_ = other.wallet_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -7655,11 +7683,11 @@ public final class TeamManagerOuterClass {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                id_ = input.readStringRequireUtf8();
+              case 8: {
+                id_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               case 18: {
                 name_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
@@ -7680,6 +7708,11 @@ public final class TeamManagerOuterClass {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 50: {
+                wallet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -7697,74 +7730,34 @@ public final class TeamManagerOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private int id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setId(int value) {
+
         id_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        id_ = getDefaultInstance().getId();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        id_ = value;
-        bitField0_ |= 0x00000001;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -8016,6 +8009,78 @@ public final class TeamManagerOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object wallet_ = "";
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The wallet.
+       */
+      public java.lang.String getWallet() {
+        java.lang.Object ref = wallet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          wallet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The bytes for wallet.
+       */
+      public com.google.protobuf.ByteString
+          getWalletBytes() {
+        java.lang.Object ref = wallet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          wallet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWallet(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWallet() {
+        wallet_ = getDefaultInstance().getWallet();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The bytes for wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8145,40 +8210,41 @@ public final class TeamManagerOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\021teamManager.proto\022\013teamManager\"#\n\025GetT" +
-      "eamManagerRequest\022\n\n\002id\030\001 \001(\t\"K\n\026GetTeam" +
+      "eamManagerRequest\022\n\n\002id\030\001 \001(\005\"K\n\026GetTeam" +
       "ManagerResponse\0221\n\013teamManager\030\001 \001(\0132\034.t" +
       "eamManager.TeamManagerItem\"4\n\026GetTeamMan" +
       "agersRequest\022\014\n\004page\030\001 \001(\005\022\014\n\004size\030\002 \001(\005" +
       "\"\\\n\027GetTeamManagersResponse\0222\n\014teamManag" +
       "ers\030\001 \003(\0132\034.teamManager.TeamManagerItem\022" +
-      "\r\n\005total\030\002 \001(\005\"V\n\030CreateTeamManagerReque" +
+      "\r\n\005total\030\002 \001(\005\"f\n\030CreateTeamManagerReque" +
       "st\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\013\n\003age" +
-      "\030\003 \001(\t\022\016\n\006teamId\030\004 \001(\t\"N\n\031CreateTeamMana" +
-      "gerResponse\0221\n\013teamManager\030\001 \001(\0132\034.teamM" +
-      "anager.TeamManagerItem\"b\n\030UpdateTeamMana" +
-      "gerRequest\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007" +
-      "surname\030\003 \001(\t\022\013\n\003age\030\004 \001(\t\022\016\n\006teamId\030\005 \001" +
-      "(\t\"N\n\031UpdateTeamManagerResponse\0221\n\013teamM" +
-      "anager\030\001 \001(\0132\034.teamManager.TeamManagerIt" +
-      "em\"&\n\030DeleteTeamManagerRequest\022\n\n\002id\030\001 \001" +
-      "(\t\"\'\n\031DeleteTeamManagerResponse\022\n\n\002id\030\001 " +
-      "\001(\t\"Y\n\017TeamManagerItem\022\n\n\002id\030\001 \001(\t\022\014\n\004na" +
-      "me\030\002 \001(\t\022\017\n\007surname\030\003 \001(\t\022\013\n\003age\030\004 \001(\005\022\016" +
-      "\n\006teamId\030\005 \001(\t2\374\003\n\013TeamManager\022[\n\016GetTea" +
-      "mManager\022\".teamManager.GetTeamManagerReq" +
-      "uest\032#.teamManager.GetTeamManagerRespons" +
-      "e\"\000\022^\n\017GetTeamManagers\022#.teamManager.Get" +
-      "TeamManagersRequest\032$.teamManager.GetTea" +
-      "mManagersResponse\"\000\022d\n\021CreateTeamManager" +
-      "\022%.teamManager.CreateTeamManagerRequest\032" +
-      "&.teamManager.CreateTeamManagerResponse\"" +
-      "\000\022d\n\021UpdateTeamManager\022%.teamManager.Upd" +
-      "ateTeamManagerRequest\032&.teamManager.Upda" +
-      "teTeamManagerResponse\"\000\022d\n\021DeleteTeamMan" +
-      "ager\022%.teamManager.DeleteTeamManagerRequ" +
-      "est\032&.teamManager.DeleteTeamManagerRespo" +
-      "nse\"\000B)\n\'org.example.apigateway.grpc.tea" +
-      "mManagerb\006proto3"
+      "\030\003 \001(\t\022\016\n\006teamId\030\004 \001(\t\022\016\n\006wallet\030\005 \001(\t\"N" +
+      "\n\031CreateTeamManagerResponse\0221\n\013teamManag" +
+      "er\030\001 \001(\0132\034.teamManager.TeamManagerItem\"r" +
+      "\n\030UpdateTeamManagerRequest\022\n\n\002id\030\001 \001(\005\022\014" +
+      "\n\004name\030\002 \001(\t\022\017\n\007surname\030\003 \001(\t\022\013\n\003age\030\004 \001" +
+      "(\t\022\016\n\006teamId\030\005 \001(\t\022\016\n\006wallet\030\006 \001(\t\"N\n\031Up" +
+      "dateTeamManagerResponse\0221\n\013teamManager\030\001" +
+      " \001(\0132\034.teamManager.TeamManagerItem\"&\n\030De" +
+      "leteTeamManagerRequest\022\n\n\002id\030\001 \001(\005\",\n\031De" +
+      "leteTeamManagerResponse\022\017\n\007success\030\001 \001(\010" +
+      "\"i\n\017TeamManagerItem\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030" +
+      "\002 \001(\t\022\017\n\007surname\030\003 \001(\t\022\013\n\003age\030\004 \001(\005\022\016\n\006t" +
+      "eamId\030\005 \001(\t\022\016\n\006wallet\030\006 \001(\t2\374\003\n\013TeamMana" +
+      "ger\022[\n\016GetTeamManager\022\".teamManager.GetT" +
+      "eamManagerRequest\032#.teamManager.GetTeamM" +
+      "anagerResponse\"\000\022^\n\017GetTeamManagers\022#.te" +
+      "amManager.GetTeamManagersRequest\032$.teamM" +
+      "anager.GetTeamManagersResponse\"\000\022d\n\021Crea" +
+      "teTeamManager\022%.teamManager.CreateTeamMa" +
+      "nagerRequest\032&.teamManager.CreateTeamMan" +
+      "agerResponse\"\000\022d\n\021UpdateTeamManager\022%.te" +
+      "amManager.UpdateTeamManagerRequest\032&.tea" +
+      "mManager.UpdateTeamManagerResponse\"\000\022d\n\021" +
+      "DeleteTeamManager\022%.teamManager.DeleteTe" +
+      "amManagerRequest\032&.teamManager.DeleteTea" +
+      "mManagerResponse\"\000B)\n\'org.example.apigat" +
+      "eway.grpc.teamManagerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8213,7 +8279,7 @@ public final class TeamManagerOuterClass {
     internal_static_teamManager_CreateTeamManagerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_teamManager_CreateTeamManagerRequest_descriptor,
-        new java.lang.String[] { "Name", "Surname", "Age", "TeamId", });
+        new java.lang.String[] { "Name", "Surname", "Age", "TeamId", "Wallet", });
     internal_static_teamManager_CreateTeamManagerResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_teamManager_CreateTeamManagerResponse_fieldAccessorTable = new
@@ -8225,7 +8291,7 @@ public final class TeamManagerOuterClass {
     internal_static_teamManager_UpdateTeamManagerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_teamManager_UpdateTeamManagerRequest_descriptor,
-        new java.lang.String[] { "Id", "Name", "Surname", "Age", "TeamId", });
+        new java.lang.String[] { "Id", "Name", "Surname", "Age", "TeamId", "Wallet", });
     internal_static_teamManager_UpdateTeamManagerResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_teamManager_UpdateTeamManagerResponse_fieldAccessorTable = new
@@ -8243,13 +8309,13 @@ public final class TeamManagerOuterClass {
     internal_static_teamManager_DeleteTeamManagerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_teamManager_DeleteTeamManagerResponse_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "Success", });
     internal_static_teamManager_TeamManagerItem_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_teamManager_TeamManagerItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_teamManager_TeamManagerItem_descriptor,
-        new java.lang.String[] { "Id", "Name", "Surname", "Age", "TeamId", });
+        new java.lang.String[] { "Id", "Name", "Surname", "Age", "TeamId", "Wallet", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

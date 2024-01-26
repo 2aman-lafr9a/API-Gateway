@@ -21,6 +21,12 @@ public class AgencyService {
                         .build());
     }
 
+    public AgencyOuterClass.GetAgencyByWalletResponse getAgencyByWallet(String wallet) {
+        return agencyStub.getAgencyByWallet(AgencyOuterClass.GetAgencyByWalletRequest.newBuilder()
+                        .setWallet(wallet)
+                        .build());
+    }
+
     public AgencyOuterClass.GetAgencyResponse getAgency(String name) {
         return agencyStub.getAgency(AgencyOuterClass.GetAgencyRequest.newBuilder()
                         .setName(name)

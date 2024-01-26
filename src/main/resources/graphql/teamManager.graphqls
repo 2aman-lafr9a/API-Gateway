@@ -4,4 +4,5 @@ type TeamManager{
     surname: String!
     age: Int!
     team: ID!
+    wallet: String!
 }

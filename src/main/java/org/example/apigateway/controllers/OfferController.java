@@ -59,6 +59,25 @@ public class OfferController {
                 .build();
     }
 
+    @QueryMapping("getOfferById")
+    public Offer getOfferById(@Argument String id) {
+        OfferOuterClass.GetOfferIdResponse response = offerService.getOfferById(id);
+        return Offer.newBuilder()
+                .id(response.getId())
+                .name(response.getName())
+                .description(response.getDescription())
+                .date(response.getDate())
+                .rating(response.getRating())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
+                .build();
+    }
+
     @MutationMapping("createOffer")
     public Offer createOffer(@Argument String name, @Argument String agencyId, @Argument String description, @Argument int price, @Argument String date, @Argument OfferType offerType) {
         OfferOuterClass.OfferType Type = OfferOuterClass.OfferType.valueOf(offerType.name());

@@ -26,6 +26,12 @@ public class AgencyController {
         return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).build();
     }
 
+    @QueryMapping("getAgencyByWallet")
+    public Agency getAgencyByWallet(@Argument String wallet) {
+        AgencyOuterClass.GetAgencyByWalletResponse response = agencyService.getAgencyByWallet(wallet);
+        return Agency.newBuilder().name(response.getName()).description(response.getDescription()).plan(response.getPlan()).Offers(response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder().id(offer.getId()).name(offer.getName()).description(offer.getDescription()).build()).toList()).build();
+    }
+
     @QueryMapping("getAgency")
     public Agency getAgency(@Argument String name) {
         AgencyOuterClass.GetAgencyResponse response = agencyService.getAgency(name);

@@ -1,7 +1,6 @@
 package org.example.apigateway.controllers;
 
-import org.example.apigateway.codegen.types.Player;
-import org.example.apigateway.codegen.types.PlayerInput;
+import org.example.apigateway.codegen.types.*;
 import org.example.apigateway.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -59,6 +58,25 @@ public class PlayerController {
                 .skill_moves(response.getPlayer().getSkillMoves())
                 .position(response.getPlayer().getPosition())
                 .build();
+    }
+
+    @QueryMapping("getOffersByPlayer")
+    Iterable<Offer> getOffersByPlayer(@Argument String playerId) {
+        org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse response = playerService.getOffersByPlayer(playerId);
+        return response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder()
+                .id(offer.getId())
+                .name(offer.getName())
+                .description(offer.getDescription())
+                .date(offer.getDate())
+                .rating(offer.getRating())
+                .price(offer.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(offer.getAgency().getName())
+                        .description(offer.getAgency().getDescription())
+                        .plan(offer.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(offer.getType().name()))
+                .build()).toList();
     }
 
     @MutationMapping("createPlayer")

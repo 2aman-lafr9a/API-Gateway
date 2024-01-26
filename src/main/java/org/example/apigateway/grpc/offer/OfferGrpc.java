@@ -170,6 +170,37 @@ public final class OfferGrpc {
     return getDeleteOfferMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest,
+      org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> getGetOfferByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetOfferById",
+      requestType = org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest.class,
+      responseType = org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest,
+      org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> getGetOfferByIdMethod() {
+    io.grpc.MethodDescriptor<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest, org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> getGetOfferByIdMethod;
+    if ((getGetOfferByIdMethod = OfferGrpc.getGetOfferByIdMethod) == null) {
+      synchronized (OfferGrpc.class) {
+        if ((getGetOfferByIdMethod = OfferGrpc.getGetOfferByIdMethod) == null) {
+          OfferGrpc.getGetOfferByIdMethod = getGetOfferByIdMethod =
+              io.grpc.MethodDescriptor.<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest, org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetOfferById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new OfferMethodDescriptorSupplier("GetOfferById"))
+              .build();
+        }
+      }
+    }
+    return getGetOfferByIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class OfferGrpc {
         io.grpc.stub.StreamObserver<org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteOfferMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void getOfferById(org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest request,
+        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetOfferByIdMethod(), responseObserver);
+    }
   }
 
   /**
@@ -320,6 +358,14 @@ public final class OfferGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteOfferMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getOfferById(org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest request,
+        io.grpc.stub.StreamObserver<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetOfferByIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -371,6 +417,13 @@ public final class OfferGrpc {
     public org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferResponse deleteOffer(org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteOfferMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse getOfferById(org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetOfferByIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -429,6 +482,14 @@ public final class OfferGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteOfferMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse> getOfferById(
+        org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetOfferByIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_OFFERS = 0;
@@ -436,6 +497,7 @@ public final class OfferGrpc {
   private static final int METHODID_CREATE_OFFER = 2;
   private static final int METHODID_UPDATE_OFFER = 3;
   private static final int METHODID_DELETE_OFFER = 4;
+  private static final int METHODID_GET_OFFER_BY_ID = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -473,6 +535,10 @@ public final class OfferGrpc {
         case METHODID_DELETE_OFFER:
           serviceImpl.deleteOffer((org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferRequest) request,
               (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferResponse>) responseObserver);
+          break;
+        case METHODID_GET_OFFER_BY_ID:
+          serviceImpl.getOfferById((org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest) request,
+              (io.grpc.stub.StreamObserver<org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -527,6 +593,13 @@ public final class OfferGrpc {
               org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferRequest,
               org.example.apigateway.grpc.offer.OfferOuterClass.DeleteOfferResponse>(
                 service, METHODID_DELETE_OFFER)))
+        .addMethod(
+          getGetOfferByIdMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdRequest,
+              org.example.apigateway.grpc.offer.OfferOuterClass.GetOfferIdResponse>(
+                service, METHODID_GET_OFFER_BY_ID)))
         .build();
   }
 
@@ -580,6 +653,7 @@ public final class OfferGrpc {
               .addMethod(getCreateOfferMethod())
               .addMethod(getUpdateOfferMethod())
               .addMethod(getDeleteOfferMethod())
+              .addMethod(getGetOfferByIdMethod())
               .build();
         }
       }

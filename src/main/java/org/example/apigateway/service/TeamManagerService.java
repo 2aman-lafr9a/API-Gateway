@@ -18,7 +18,7 @@ public class TeamManagerService {
 
     public TeamManagerOuterClass.GetTeamManagerResponse getTeamManager(String id) {
         return teamManager_blockingStub.getTeamManager(TeamManagerOuterClass.GetTeamManagerRequest.newBuilder()
-                .setId(id)
+                .setId(Integer.parseInt(id))
                 .build());
     }
 
@@ -33,7 +33,7 @@ public class TeamManagerService {
 
     public TeamManagerOuterClass.UpdateTeamManagerResponse updateTeamManager(String id, String name, String surname, String age, String team) {
         return teamManager_blockingStub.updateTeamManager(TeamManagerOuterClass.UpdateTeamManagerRequest.newBuilder()
-                .setId(id)
+                .setId(Integer.parseInt(id))
                 .setName(name)
                 .setSurname(surname)
                 .setAge(age)
@@ -43,7 +43,7 @@ public class TeamManagerService {
 
     public TeamManagerOuterClass.DeleteTeamManagerResponse deleteTeamManager(String id) {
         return teamManager_blockingStub.deleteTeamManager(TeamManagerOuterClass.DeleteTeamManagerRequest.newBuilder()
-                .setId(id)
+                .setId(Integer.parseInt(id))
                 .build());
     }
 }

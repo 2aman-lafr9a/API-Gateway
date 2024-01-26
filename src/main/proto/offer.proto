@@ -13,13 +13,14 @@ service Offer {
   rpc CreateOffer(CreateOfferRequest) returns (CreateOfferResponse);
   rpc UpdateOffer(UpdateOfferRequest) returns (UpdateOfferResponse);
   rpc DeleteOffer(DeleteOfferRequest) returns (DeleteOfferResponse);
+  rpc GetOfferById(GetOfferIdRequest) returns (GetOfferIdResponse);
 }
 
 enum  OfferType {
   Normal = 0;
   Special = 1;
   Important = 2;
-  Ultimate = 3;
+  ultimate = 3;
 }
 
 message OfferItem{
@@ -57,7 +58,7 @@ message GetOfferResponse{
 
 message CreateOfferRequest{
   string name = 1;
-  string agencyId = 2;
+  string agencyID = 2;
   string description = 3;
   int32 price = 4;
   string date = 5;
@@ -117,4 +118,19 @@ message AgencyItem{
   string plan = 3;
   repeated offer.OfferItem offers = 4;
   string description = 5;
+}
+
+message GetOfferIdRequest{
+  string id = 1;
+}
+
+message GetOfferIdResponse{
+  string id = 1;
+  string name = 2;
+  AgencyItem agency = 3;
+  string description = 4;
+  int32 price = 5;
+  string date = 6;
+  int32 rating = 7;
+  OfferType type = 8;
 }

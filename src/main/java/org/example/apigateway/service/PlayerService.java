@@ -77,4 +77,10 @@ public class PlayerService {
                 .setId(id)
                 .build());
     }
+
+    public PlayerOuterClass.GetOffersByPlayerResponse getOffersByPlayer(String playerId) {
+        return player_blockingStub.getOffersByPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest.newBuilder()
+                .setPlayerId(playerId)
+                .build());
+    }
 }
