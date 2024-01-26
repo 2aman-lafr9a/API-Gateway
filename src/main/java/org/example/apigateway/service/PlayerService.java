@@ -12,9 +12,12 @@ public class PlayerService {
 
     private PlayerGrpc.PlayerBlockingStub player_blockingStub;
 
-    public PlayerOuterClass.GetPlayersResponse getPlayers(int page, int limit) {
+    public PlayerOuterClass.GetPlayersResponse getPlayers(String team_id , int page, int limit) {
         return player_blockingStub.getPlayers(org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersRequest.newBuilder()
-                .build());
+                        .setTeamId(team_id)
+                        .setPage(page)
+                        .setLimit(limit)
+                        .build());
     }
 
     public PlayerOuterClass.GetPlayerResponse getPlayer(String name) {

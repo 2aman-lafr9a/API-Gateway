@@ -20,8 +20,8 @@ public class PlayerController {
     }
 
     @QueryMapping("getPlayers")
-    Iterable<Player> getPlayers(@Argument int page, @Argument int limit) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers(page, limit);
+    Iterable<Player> getPlayers(@Argument String team_id, @Argument int page, @Argument int limit) {
+        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers(team_id, page, limit);
         return response.getPlayersList().stream().map(player -> org.example.apigateway.codegen.types.Player.newBuilder()
                 .name(player.getName())
                 .age(player.getAge())
