@@ -44,9 +44,9 @@ public class ApiGatewayApplication {
         properties.setProperty("grpc.client.rating_service.address", "static://" + ResolveHostnameToIP.resolve("rating_service") + ":50006");
         properties.setProperty("grpc.client.rating_service.negotiation-type", "plaintext");
 
-        //?teamManager_service is the name of the service in the docker-compose.yml file
-        properties.setProperty("grpc.client.teamManager_service.address", "static://" + ResolveHostnameToIP.resolve("teamManager_service") + ":50007");
-        properties.setProperty("grpc.client.teamManager_service.negotiation-type", "plaintext");
+        //?team_manager_service is the name of the service in the docker-compose.yml file
+        properties.setProperty("grpc.client.team_manager_service.address", "static://" + ResolveHostnameToIP.resolve("team_manager_service") + ":50007");
+        properties.setProperty("grpc.client.team_manager_service.negotiation-type", "plaintext");
 
         application.setDefaultProperties(properties);
         application.run(args);

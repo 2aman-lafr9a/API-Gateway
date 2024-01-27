@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @GrpcClientBean(
         clazz = TeamManagerGrpc.TeamManagerBlockingStub.class,
         beanName = "teamManager_blockingStub",
-        client = @net.devh.boot.grpc.client.inject.GrpcClient("teamManager_service")
+        client = @net.devh.boot.grpc.client.inject.GrpcClient("team_manager_service")
 )
 public class TeamManagerGrpcConfig {
 
