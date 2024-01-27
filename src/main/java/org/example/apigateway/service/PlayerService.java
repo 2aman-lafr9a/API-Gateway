@@ -13,7 +13,7 @@ public class PlayerService {
     private PlayerGrpc.PlayerBlockingStub player_blockingStub;
 
     public PlayerOuterClass.GetPlayersResponse getPlayers(String team_id , int page, int limit) {
-        return player_blockingStub.getPlayers(org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersRequest.newBuilder()
+        return player_blockingStub.getPlayers(PlayerOuterClass.GetPlayersRequest.newBuilder()
                         .setTeamId(team_id)
                         .setPage(page)
                         .setLimit(limit)
@@ -21,13 +21,13 @@ public class PlayerService {
     }
 
     public PlayerOuterClass.GetPlayerResponse getPlayer(String name) {
-        return player_blockingStub.getPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayerRequest.newBuilder()
+        return player_blockingStub.getPlayer(PlayerOuterClass.GetPlayerRequest.newBuilder()
                 .setId(name)
                 .build());
     }
 
     public PlayerOuterClass.CreatePlayerResponse createPlayer(PlayerInput player) {
-          return player_blockingStub.createPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.CreatePlayerRequest.newBuilder()
+          return player_blockingStub.createPlayer(PlayerOuterClass.CreatePlayerRequest.newBuilder()
                     .setPlayer(PlayerOuterClass.PlayerItem.newBuilder()
                             .setName(player.getName())
                             .setAge(player.getAge())
@@ -50,7 +50,7 @@ public class PlayerService {
     }
 
     public PlayerOuterClass.UpdatePlayerResponse updatePlayer(PlayerInput player) {
-        return player_blockingStub.updatePlayer(org.example.apigateway.grpc.player.PlayerOuterClass.UpdatePlayerRequest.newBuilder()
+        return player_blockingStub.updatePlayer(PlayerOuterClass.UpdatePlayerRequest.newBuilder()
                 .setPlayer(PlayerOuterClass.PlayerItem.newBuilder()
                         .setName(player.getName())
                         .setAge(player.getAge())
@@ -73,13 +73,13 @@ public class PlayerService {
     }
 
     public PlayerOuterClass.DeletePlayerResponse deletePlayer(String id) {
-        return player_blockingStub.deletePlayer(org.example.apigateway.grpc.player.PlayerOuterClass.DeletePlayerRequest.newBuilder()
+        return player_blockingStub.deletePlayer(PlayerOuterClass.DeletePlayerRequest.newBuilder()
                 .setId(id)
                 .build());
     }
 
     public PlayerOuterClass.GetOffersByPlayerResponse getOffersByPlayer(String playerId) {
-        return player_blockingStub.getOffersByPlayer(org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerRequest.newBuilder()
+        return player_blockingStub.getOffersByPlayer(PlayerOuterClass.GetOffersByPlayerRequest.newBuilder()
                 .setPlayerId(playerId)
                 .build());
     }
