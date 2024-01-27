@@ -1,6 +1,11 @@
 package org.example.apigateway.controllers;
 
-import org.example.apigateway.codegen.types.*;
+import org.example.apigateway.codegen.types.Player;
+import org.example.apigateway.codegen.types.PlayerInput;
+import org.example.apigateway.codegen.types.Agency;
+import org.example.apigateway.codegen.types.Offer;
+import org.example.apigateway.codegen.types.OfferType;
+import org.example.apigateway.grpc.player.PlayerOuterClass;
 import org.example.apigateway.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -20,8 +25,8 @@ public class PlayerController {
 
     @QueryMapping("getPlayers")
     Iterable<Player> getPlayers(@Argument String team_id, @Argument int page, @Argument int limit) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers(team_id, page, limit);
-        return response.getPlayersList().stream().map(player -> org.example.apigateway.codegen.types.Player.newBuilder()
+        PlayerOuterClass.GetPlayersResponse response = playerService.getPlayers(team_id, page, limit);
+        return response.getPlayersList().stream().map(player -> Player.newBuilder()
                 .name(player.getName())
                 .age(player.getAge())
                 .value(player.getValue())
@@ -45,8 +50,16 @@ public class PlayerController {
 
     @QueryMapping("getPlayer")
     Player getPlayer(@Argument String name) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.GetPlayerResponse response = playerService.getPlayer(name);
-        return org.example.apigateway.codegen.types.Player.newBuilder()
+        PlayerOuterClass.GetPlayerResponse response = playerService.getPlayer(name);
+        return Player.newBuilder()
+                .id(response.getPlayer().getId())
+                .name(response.getPlayer().getName())
+                .age(response.getPlayer().getAge())
+                .value(response.getPlayer().getValue())
+                .flag(response.getPlayer().getFlag())
+                .height(response.getPlayer().getHeight())
+                .weight(response.getPlayer().getWeight())
+                .body_type(response.getPlayer().getBodyType())
                 .nationality(response.getPlayer().getNationality())
                 .overall(response.getPlayer().getOverall())
                 .photo(response.getPlayer().getPhoto())
@@ -62,8 +75,8 @@ public class PlayerController {
 
     @QueryMapping("getOffersByPlayer")
     Iterable<Offer> getOffersByPlayer(@Argument String playerId) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.GetOffersByPlayerResponse response = playerService.getOffersByPlayer(playerId);
-        return response.getOffersList().stream().map(offer -> org.example.apigateway.codegen.types.Offer.newBuilder()
+        PlayerOuterClass.GetOffersByPlayerResponse response = playerService.getOffersByPlayer(playerId);
+        return response.getOffersList().stream().map(offer -> Offer.newBuilder()
                 .id(offer.getId())
                 .name(offer.getName())
                 .description(offer.getDescription())
@@ -81,24 +94,24 @@ public class PlayerController {
 
     @MutationMapping("createPlayer")
     Player createPlayer(@Argument PlayerInput playerInput) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.CreatePlayerResponse response = playerService.createPlayer(playerInput);
-        return org.example.apigateway.codegen.types.Player.newBuilder()
+        PlayerOuterClass.CreatePlayerResponse response = playerService.createPlayer(playerInput);
+        return Player.newBuilder()
                 .id(response.getPlayer().getId())
                 .build();
     }
 
     @MutationMapping("updatePlayer")
     Player updatePlayer(@Argument PlayerInput playerInput) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.UpdatePlayerResponse response = playerService.updatePlayer(playerInput);
-        return org.example.apigateway.codegen.types.Player.newBuilder()
+        PlayerOuterClass.UpdatePlayerResponse response = playerService.updatePlayer(playerInput);
+        return Player.newBuilder()
                 .id(response.getPlayer().getId())
                 .build();
     }
 
     @MutationMapping("deletePlayer")
     Player deletePlayer(@Argument String id) {
-        org.example.apigateway.grpc.player.PlayerOuterClass.DeletePlayerResponse response = playerService.deletePlayer(id);
-        return org.example.apigateway.codegen.types.Player.newBuilder()
+        PlayerOuterClass.DeletePlayerResponse response = playerService.deletePlayer(id);
+        return Player.newBuilder()
                 .id(response.getId())
                 .build();
     }

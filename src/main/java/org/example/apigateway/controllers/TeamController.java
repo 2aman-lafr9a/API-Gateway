@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.example.apigateway.grpc.team.TeamOuterClass;
 import org.example.apigateway.codegen.types.Team;
 
+import java.util.List;
+
 @Controller
 public class TeamController {
 
@@ -42,7 +44,7 @@ public class TeamController {
     }
 
     @MutationMapping("createTeam")
-    public Team createTeam(@Argument String name, @Argument String description, @Argument String owner, @Argument String teamLogo, @Argument String players) {
+    public Team createTeam(@Argument String name, @Argument String description, @Argument String owner, @Argument String teamLogo, @Argument List<String> players) {
         TeamOuterClass.CreateTeamResponse response = teamService.createTeam(name, description, owner, teamLogo, players);
         return org.example.apigateway.codegen.types.Team.newBuilder()
                 .id(response.getId())

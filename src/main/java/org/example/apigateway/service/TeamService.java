@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.example.apigateway.grpc.team.TeamGrpc;
 import org.example.apigateway.grpc.team.TeamOuterClass;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class TeamService {
@@ -22,13 +24,13 @@ public class TeamService {
                 .build());
     }
 
-    public TeamOuterClass.CreateTeamResponse createTeam(String name, String description, String owner, String teamLogo, String players) {
+    public TeamOuterClass.CreateTeamResponse createTeam(String name, String description, String owner, String teamLogo, List<String> players) {
         return team_blockingStub.createTeam(org.example.apigateway.grpc.team.TeamOuterClass.CreateTeamRequest.newBuilder()
                 .setName(name)
                 .setDescription(description)
                 .setOwner(owner)
                 .setTeamLogo(teamLogo)
-                .addPlayersId(players)
+                .addAllPlayersId(players)
                 .build());
     }
 

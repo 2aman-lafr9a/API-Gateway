@@ -13715,6 +13715,18 @@ public final class AgencyOuterClass {
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
+
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    java.lang.String getWallet();
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    com.google.protobuf.ByteString
+        getWalletBytes();
   }
   /**
    * Protobuf type {@code agency.GetAgencyByWalletResponse}
@@ -13734,6 +13746,7 @@ public final class AgencyOuterClass {
       plan_ = "";
       offers_ = java.util.Collections.emptyList();
       description_ = "";
+      wallet_ = "";
     }
 
     @java.lang.Override
@@ -13953,6 +13966,45 @@ public final class AgencyOuterClass {
       }
     }
 
+    public static final int WALLET_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object wallet_ = "";
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The wallet.
+     */
+    @java.lang.Override
+    public java.lang.String getWallet() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        wallet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet = 6;</code>
+     * @return The bytes for wallet.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletBytes() {
+      java.lang.Object ref = wallet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        wallet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13982,6 +14034,9 @@ public final class AgencyOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, wallet_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -14006,6 +14061,9 @@ public final class AgencyOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, wallet_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -14032,6 +14090,8 @@ public final class AgencyOuterClass {
           .equals(other.getOffersList())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
+      if (!getWallet()
+          .equals(other.getWallet())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -14055,6 +14115,8 @@ public final class AgencyOuterClass {
       }
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + WALLET_FIELD_NUMBER;
+      hash = (53 * hash) + getWallet().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14197,6 +14259,7 @@ public final class AgencyOuterClass {
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         description_ = "";
+        wallet_ = "";
         return this;
       }
 
@@ -14254,6 +14317,9 @@ public final class AgencyOuterClass {
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.wallet_ = wallet_;
         }
       }
 
@@ -14347,6 +14413,11 @@ public final class AgencyOuterClass {
           bitField0_ |= 0x00000010;
           onChanged();
         }
+        if (!other.getWallet().isEmpty()) {
+          wallet_ = other.wallet_;
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -14406,6 +14477,11 @@ public final class AgencyOuterClass {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 50: {
+                wallet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -14950,6 +15026,78 @@ public final class AgencyOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object wallet_ = "";
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The wallet.
+       */
+      public java.lang.String getWallet() {
+        java.lang.Object ref = wallet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          wallet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return The bytes for wallet.
+       */
+      public com.google.protobuf.ByteString
+          getWalletBytes() {
+        java.lang.Object ref = wallet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          wallet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWallet(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWallet() {
+        wallet_ = getDefaultInstance().getWallet();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet = 6;</code>
+       * @param value The bytes for wallet to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        wallet_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -15123,24 +15271,25 @@ public final class AgencyOuterClass {
       "\004 \001(\t\022\r\n\005price\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\016\n\006ra" +
       "ting\030\007 \001(\005\022\037\n\004type\030\010 \001(\0162\021.agency.OfferT" +
       "ype\"*\n\030GetAgencyByWalletRequest\022\016\n\006walle" +
-      "t\030\001 \001(\t\"{\n\031GetAgencyByWalletResponse\022\n\n\002" +
-      "id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004plan\030\003 \001(\t\022!\n\006" +
-      "offers\030\004 \003(\0132\021.agency.OfferItem\022\023\n\013descr" +
-      "iption\030\005 \001(\t*A\n\tOfferType\022\n\n\006Normal\020\000\022\013\n" +
-      "\007Special\020\001\022\r\n\tImportant\020\002\022\014\n\010Ultimate\020\0032" +
-      "\315\003\n\006Agency\022F\n\013GetAgencies\022\032.agency.GetAg" +
-      "enciesRequest\032\033.agency.GetAgenciesRespon" +
-      "se\022@\n\tGetAgency\022\030.agency.GetAgencyReques" +
-      "t\032\031.agency.GetAgencyResponse\022I\n\014CreateAg" +
-      "ency\022\033.agency.CreateAgencyRequest\032\034.agen" +
-      "cy.CreateAgencyResponse\022I\n\014UpdateAgency\022" +
-      "\033.agency.UpdateAgencyRequest\032\034.agency.Up" +
-      "dateAgencyResponse\022I\n\014DeleteAgency\022\033.age" +
-      "ncy.DeleteAgencyRequest\032\034.agency.DeleteA" +
-      "gencyResponse\022X\n\021GetAgencyByWallet\022 .age" +
-      "ncy.GetAgencyByWalletRequest\032!.agency.Ge" +
-      "tAgencyByWalletResponseB-\n\"org.example.a" +
-      "pigateway.grpc.agencyZ\007./protob\006proto3"
+      "t\030\001 \001(\t\"\213\001\n\031GetAgencyByWalletResponse\022\n\n" +
+      "\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004plan\030\003 \001(\t\022!\n" +
+      "\006offers\030\004 \003(\0132\021.agency.OfferItem\022\023\n\013desc" +
+      "ription\030\005 \001(\t\022\016\n\006wallet\030\006 \001(\t*A\n\tOfferTy" +
+      "pe\022\n\n\006Normal\020\000\022\013\n\007Special\020\001\022\r\n\tImportant" +
+      "\020\002\022\014\n\010Ultimate\020\0032\315\003\n\006Agency\022F\n\013GetAgenci" +
+      "es\022\032.agency.GetAgenciesRequest\032\033.agency." +
+      "GetAgenciesResponse\022@\n\tGetAgency\022\030.agenc" +
+      "y.GetAgencyRequest\032\031.agency.GetAgencyRes" +
+      "ponse\022I\n\014CreateAgency\022\033.agency.CreateAge" +
+      "ncyRequest\032\034.agency.CreateAgencyResponse" +
+      "\022I\n\014UpdateAgency\022\033.agency.UpdateAgencyRe" +
+      "quest\032\034.agency.UpdateAgencyResponse\022I\n\014D" +
+      "eleteAgency\022\033.agency.DeleteAgencyRequest" +
+      "\032\034.agency.DeleteAgencyResponse\022X\n\021GetAge" +
+      "ncyByWallet\022 .agency.GetAgencyByWalletRe" +
+      "quest\032!.agency.GetAgencyByWalletResponse" +
+      "B-\n\"org.example.apigateway.grpc.agencyZ\007" +
+      "./protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15229,7 +15378,7 @@ public final class AgencyOuterClass {
     internal_static_agency_GetAgencyByWalletResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_agency_GetAgencyByWalletResponse_descriptor,
-        new java.lang.String[] { "Id", "Name", "Plan", "Offers", "Description", });
+        new java.lang.String[] { "Id", "Name", "Plan", "Offers", "Description", "Wallet", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
