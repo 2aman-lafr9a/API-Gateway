@@ -14,6 +14,7 @@ type Query {
     getPlayer(name: String!): Player!
     getPlayers(team_id: String, page: Int!, limit: Int!): [Player!]!
     getOffersByPlayer(playerId: ID!): [Offer!]!
+    getRecommendedOffer(id: ID!): Offer!
     #   Rating
     getRating(offerId: ID!, playerId: ID!): Rating!
     getRatings: [Rating!]!

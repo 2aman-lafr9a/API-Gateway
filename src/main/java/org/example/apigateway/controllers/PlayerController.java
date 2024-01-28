@@ -5,6 +5,7 @@ import org.example.apigateway.codegen.types.PlayerInput;
 import org.example.apigateway.codegen.types.Agency;
 import org.example.apigateway.codegen.types.Offer;
 import org.example.apigateway.codegen.types.OfferType;
+import org.example.apigateway.grpc.offer.OfferOuterClass;
 import org.example.apigateway.grpc.player.PlayerOuterClass;
 import org.example.apigateway.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,25 @@ public class PlayerController {
                         .build())
                 .offerType(OfferType.valueOf(offer.getType().name()))
                 .build()).toList();
+    }
+
+    @QueryMapping("getRecommendedOffer")
+    Offer getRecommendedOffer(@Argument String id) {
+        OfferOuterClass.OfferItem response = playerService.getRecommendedOffer(id);
+        return Offer.newBuilder()
+                .id(response.getId())
+                .name(response.getName())
+                .description(response.getDescription())
+                .date(response.getDate())
+                .rating(response.getRating())
+                .price(response.getPrice())
+                .agency(Agency.newBuilder()
+                        .name(response.getAgency().getName())
+                        .description(response.getAgency().getDescription())
+                        .plan(response.getAgency().getPlan())
+                        .build())
+                .offerType(OfferType.valueOf(response.getType().name()))
+                .build();
     }
 
     @MutationMapping("createPlayer")

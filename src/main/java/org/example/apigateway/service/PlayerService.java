@@ -1,6 +1,8 @@
 package org.example.apigateway.service;
 
 import lombok.AllArgsConstructor;
+import org.example.apigateway.grpc.agency.AgencyOuterClass;
+import org.example.apigateway.grpc.offer.OfferOuterClass;
 import org.springframework.stereotype.Service;
 import org.example.apigateway.grpc.player.PlayerGrpc;
 import org.example.apigateway.grpc.player.PlayerOuterClass;
@@ -23,6 +25,12 @@ public class PlayerService {
     public PlayerOuterClass.GetPlayerResponse getPlayer(String name) {
         return player_blockingStub.getPlayer(PlayerOuterClass.GetPlayerRequest.newBuilder()
                 .setId(name)
+                .build());
+    }
+
+    public OfferOuterClass.OfferItem getRecommendedOffer(String id) {
+        return player_blockingStub.getRecommendedOffer(PlayerOuterClass.GetPlayerRequest.newBuilder()
+                .setId(id)
                 .build());
     }
 

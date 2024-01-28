@@ -10490,7 +10490,7 @@ public final class PlayerOuterClass {
       "\n\030international_reputation\030\017 \001(\t\022\023\n\013skil" +
       "l_moves\030\020 \001(\t\022\021\n\tweak_foot\030\021 \001(\t\022\016\n\006heig" +
       "ht\030\022 \001(\005\022\016\n\006weight\030\023 \001(\005\022\r\n\005offer\030\024 \001(\t2" +
-      "\326\003\n\006Player\022B\n\tGetPlayer\022\030.player.GetPlay" +
+      "\233\004\n\006Player\022B\n\tGetPlayer\022\030.player.GetPlay" +
       "erRequest\032\031.player.GetPlayerResponse\"\000\022K" +
       "\n\014CreatePlayer\022\033.player.CreatePlayerRequ" +
       "est\032\034.player.CreatePlayerResponse\"\000\022K\n\014U" +
@@ -10501,8 +10501,10 @@ public final class PlayerOuterClass {
       "ers\022\031.player.GetPlayersRequest\032\032.player." +
       "GetPlayersResponse\"\000\022Z\n\021GetOffersByPlaye" +
       "r\022 .player.GetOffersByPlayerRequest\032!.pl" +
-      "ayer.GetOffersByPlayerResponse\"\000B$\n\"org." +
-      "example.apigateway.grpc.playerb\006proto3"
+      "ayer.GetOffersByPlayerResponse\"\000\022C\n\023GetR" +
+      "ecommendedOffer\022\030.player.GetPlayerReques" +
+      "t\032\020.offer.OfferItem\"\000B$\n\"org.example.api" +
+      "gateway.grpc.playerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
